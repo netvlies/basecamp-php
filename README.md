@@ -1,5 +1,7 @@
 # Basecamp SDK for PHP
 
+[![Build Status](https://secure.travis-ci.org/netvlies/basecamp-php.png)](https://secure.travis-ci.org/netvlies/basecamp-php)
+
 The **Basecamp SDK for PHP** enables PHP developers to easily integrate [37signals Basecamp all new API][basecamp] into their applications.
 
 **NOTE**: This library is under heavy development and a lot of calls haven't been implemented yet. We're looking forward to any of your PR's.
