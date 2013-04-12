@@ -1,0 +1,20 @@
+HTTP/1.1 200 OK
+Server: nginx
+Date: Fri, 12 Apr 2013 12:42:04 GMT
+Content-Type: application/json; charset=utf-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+Status: 200 OK
+X-Frame-Options: SAMEORIGIN
+X-XSS-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+X-UA-Compatible: chrome=1
+X-XHR-Current-Location: /999999/api/v1/projects/1.json
+X-Asset-Paths: {"application.js":"application-d265257400a78c84714eef6d6f34f2ad.js","application.css":"application-f0a5ae63903c0c1d32c6f03cf7bb8c8a.css"}
+ETag: "4f429c451c3009ce6d37973b0e835b91"
+Last-Modified: Fri, 12 Apr 2013 10:10:49 GMT
+Cache-Control: max-age=0, private, must-revalidate
+X-Request-Id: 505b7224-e56e-4856-8412-bb62129ba6e2
+X-Runtime: 0.372219
+
+{"id":1,"name":"foo","description":"","archived":false,"created_at":"2012-08-28T19:26:45.000+02:00","updated_at":"2013-04-12T12:10:49.000+02:00","last_event_at":"2013-04-12T12:10:49.000+02:00","starred":false,"creator":{"id":999999,"name":"Foo bar","avatar_url":"http://hostname.com/global/d7c68e2a9b5b2f716fe0a5/avatar.gif?r=3"},"accesses":{"count":11,"updated_at":"2013-04-12T12:10:49.000+02:00","url":"https://basecamp.com/9999999/api/v1/projects/1-test/accesses.json"},"attachments":{"count":0,"updated_at":null,"url":"https://basecamp.com/9999999/api/v1/projects/1-we-testen-een-tablet/attachments.json"},"calendar_events":{"count":0,"updated_at":null,"url":"https://basecamp.com/9999999/api/v1/projects/1-we-testen-een-tablet/calendar_events.json"},"documents":{"count":3,"updated_at":"2012-11-22T07:08:09.000+01:00","url":"https://basecamp.com/9999999/api/v1/projects/1-we-testen-een-tablet/documents.json"},"forwards":{"count":0,"updated_at":null,"url":"https://basecamp.com/9999999/api/v1/projects/1-we-testen-een-tablet/forwards.json"},"topics":{"count":1,"updated_at":"2012-08-28T19:31:19.000+02:00","url":"https://basecamp.com/9999999/api/v1/projects/1-we-testen-een-tablet/topics.json"},"todolists":{"remaining_count":0,"completed_count":0,"updated_at":null,"url":"https://basecamp.com/9999999/api/v1/projects/1-we-testen-een-tablet/todolists.json"}}

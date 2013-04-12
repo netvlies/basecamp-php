@@ -1,0 +1,22 @@
+{
+    "name": "netvlies/basecamp-php-sdk",
+    "description": "The Basecamp API makes it easy for developers to communicate with the 37signals Basecamp platform",
+    "type": "library",
+    "keywords": ["basecamp", "37signals", "api"],
+    "license": "MIT",
+    "require": {
+        "guzzle/guzzle": "~3.3.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "3.7.*"
+    },
+    "authors": [
+        {
+            "name": "Richard van den Brand",
+            "email": "richard@netvlies.nl"
+        }
+    ],
+    "autoload": {
+        "psr-0": { "Basecamp": "src/" }
+    }
+}

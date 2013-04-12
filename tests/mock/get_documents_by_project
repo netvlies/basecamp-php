@@ -1,0 +1,19 @@
+HTTP/1.1 200 OK
+Server: nginx
+Date: Fri, 12 Apr 2013 13:10:20 GMT
+Content-Type: application/json; charset=utf-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+Status: 200 OK
+X-Frame-Options: SAMEORIGIN
+X-XSS-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+X-UA-Compatible: chrome=1
+X-XHR-Current-Location: /9999999/api/v1/projects/1/documents.json
+X-Asset-Paths: {"application.js":"application-d265257400a78c84714eef6d6f34f2ad.js","application.css":"application-f0a5ae63903c0c1d32c6f03cf7bb8c8a.css"}
+Last-Modified: Thu, 22 Nov 2012 06:08:09 GMT
+Cache-Control: max-age=0, private, must-revalidate
+X-Request-Id: ea91a208-2895-41fa-a876-9254ec195bc4
+X-Runtime: 0.399733
+
+[{"id":12343,"title":"APPS","updated_at":"2012-09-19T08:34:56.000+02:00","url":"https://basecamp.com/9999999/api/v1/projects/1-test/documents/24214221-apps.json"}]

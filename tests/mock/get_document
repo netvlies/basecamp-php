@@ -1,0 +1,20 @@
+HTTP/1.1 200 OK
+Server: nginx
+Date: Fri, 12 Apr 2013 13:21:58 GMT
+Content-Type: application/json; charset=utf-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+Status: 200 OK
+X-Frame-Options: SAMEORIGIN
+X-XSS-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+X-UA-Compatible: chrome=1
+X-XHR-Current-Location: /456/api/v1/projects/1/documents/123.json
+X-Asset-Paths: {"application.js":"application-d265257400a78c84714eef6d6f34f2ad.js","application.css":"application-f0a5ae63903c0c1d32c6f03cf7bb8c8a.css"}
+ETag: "58f382e702b587fd8a91ddc4e330d389"
+Last-Modified: Wed, 19 Sep 2012 06:34:56 GMT
+Cache-Control: max-age=0, private, must-revalidate
+X-Request-Id: 5a758259-3e4b-463f-95b2-00ee607b4a2b
+X-Runtime: 0.331247
+
+{"id":123,"title":"APPS","content":"lorem ipsum","created_at":"2012-08-28T19:31:57.000+02:00","updated_at":"2012-09-19T08:34:56.000+02:00","last_updater":{"id":344,"name":"Joe Bar"},"comments":[],"subscribers":[{"id":2,"name":"Foo Bar"}],"bucket":{"type":"Project","id":1,"name":"we testen een tablet","url":"https://basecamp.com/456/api/v1/projects/1-we-testen-een-tablet.json"}}
