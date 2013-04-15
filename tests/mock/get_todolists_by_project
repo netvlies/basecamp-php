@@ -1,0 +1,19 @@
+HTTP/1.1 200 OK
+Server: nginx
+Date: Mon, 15 Apr 2013 09:16:23 GMT
+Content-Type: application/json; charset=utf-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+Status: 200 OK
+X-Frame-Options: SAMEORIGIN
+X-XSS-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+X-UA-Compatible: chrome=1
+X-XHR-Current-Location: /1/api/v1/projects/2/todolists.json
+X-Asset-Paths: {"application.js":"application-d265257400a78c84714eef6d6f34f2ad.js","application.css":"application-f0a5ae63903c0c1d32c6f03cf7bb8c8a.css"}
+Last-Modified: Thu, 11 Apr 2013 07:52:13 GMT
+Cache-Control: max-age=0, private, must-revalidate
+X-Request-Id: 6eb08bb5-e4b0-49b5-901b-3ef135dd99ff
+X-Runtime: 0.071003
+
+[{"id":3,"name":"nog doen","description":null,"created_at":"2013-04-11T09:48:10.000+02:00","updated_at":"2013-04-11T09:52:13.000+02:00","completed":false,"position":1,"remaining_count":2,"completed_count":0,"creator":{"id":4,"name":"Antwan Klemann","avatar_url":"http://foobar.com/1a6f0075e580330444c180f8c3b5dd2fbda3cd387e1033c0f716fe0a5/avatar.gif?r=3"},"url":"https://basecamp.com/1/api/v1/projects/2-foo/todolists/3-nog-doen.json"}]

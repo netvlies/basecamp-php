@@ -25,7 +25,7 @@ Guzzle\Tests\GuzzleTestCase::setServiceBuilder(Guzzle\Service\Builder\ServiceBui
             'auth'     => 'http',
             'username' => 'test_user',
             'password' => '****',
-            'userId'   => '99999999'
+            'user_id'  => '99999999'
         )
     )
 )));

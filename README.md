@@ -9,7 +9,7 @@ The **Basecamp SDK for PHP** enables PHP developers to easily integrate [37signa
 ## Installation
 We recommend Composer for managing dependencies. Installing is as easy as:
 
-    $ php composer.phar require netvlies/php-basecamp
+    $ php composer.phar require netvlies/basecamp-php
 
 ## Usage
 

@@ -1,0 +1,19 @@
+HTTP/1.1 200 OK
+Server: nginx
+Date: Mon, 15 Apr 2013 09:32:00 GMT
+Content-Type: application/json; charset=utf-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+Status: 200 OK
+X-Frame-Options: SAMEORIGIN
+X-XSS-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+X-UA-Compatible: chrome=1
+X-XHR-Current-Location: /1/api/v1/projects/2/attachments.json
+X-Asset-Paths: {"application.js":"application-d265257400a78c84714eef6d6f34f2ad.js","application.css":"application-f0a5ae63903c0c1d32c6f03cf7bb8c8a.css"}
+ETag: "b84d2ad7d12b7b500dc9116c1ae366bd"
+Cache-Control: max-age=0, private, must-revalidate
+X-Request-Id: 8aa750d8-028c-43a3-8854-a51e31275732
+X-Runtime: 0.101783
+
+[{"key":"93e10dacd3aa64ab2edde55642c751f1e7b2557e","name":"20130411_Sprintplanning_Samenwerkingsapplicatie.pdf","byte_size":1253434,"content_type":"application/pdf","created_at":"2013-04-11T16:40:09.000+02:00","url":"https://asset1.basecamp.com/1/api/v1/projects/2-samenwerkingsapplica/attachments/5/93e10dacd3aa64ab2edde55642c751f1e7b2557e/original/20130411_Sprintplanning_Samenwerkingsapplicatie.pdf","creator":{"id":4,"name":"Foo Bar","avatar_url":"http://cloudfront.net/global/724a6f9c5c469d68a8282b260cfd03913b4d5914c11dfe39b9084cb1ee8386266a24fb6fd854d67/avatar.gif?r=3"},"attachable":{"id":23,"type":"Message","url":"https://basecamp.com/1/api/v1/projects/2-samenwerkingsapplica/messages/23-verslag-meeting-11.json"}}]

@@ -46,6 +46,39 @@ return array(
                     'required' => true
                 )
             )
-        )
+        ),
+        'GetTopicsByProject' => array(
+            'httpMethod' => 'GET',
+            'uri' => 'projects/{projectId}/topics.json',
+            'parameters' => array(
+                'projectId' => array(
+                    'location' => 'uri',
+                    'description' => 'Project id',
+                    'required' => true
+                )
+            )
+        ),
+        'GetTodolistsByProject' => array(
+            'httpMethod' => 'GET',
+            'uri' => 'projects/{projectId}/todolists.json',
+            'parameters' => array(
+                'projectId' => array(
+                    'location' => 'uri',
+                    'description' => 'Project id',
+                    'required' => true
+                )
+            )
+        ),
+        'GetAttachmentsByProject' => array(
+            'httpMethod' => 'GET',
+            'uri' => 'projects/{projectId}/attachments.json',
+            'parameters' => array(
+                'projectId' => array(
+                    'location' => 'uri',
+                    'description' => 'Project id',
+                    'required' => true
+                )
+            )
+        ),
     )
 );

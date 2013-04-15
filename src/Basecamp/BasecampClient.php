@@ -26,14 +26,14 @@ class BasecampClient extends Client
     public static function factory($config = array())
     {
         $default = array(
-            'base_url'      => 'https://basecamp.com/{userId}/api/{version}/',
+            'base_url'      => 'https://basecamp.com/{user_id}/api/{version}/',
             'version'       => 'v1',
             'auth_method'   => 'http',
             'token'         => null,
             'username'      => null,
             'password'      => null
         );
-        $required = array('userId', 'auth_method');
+        $required = array('user_id', 'auth_method');
         $config = Collection::fromConfig($config, $default, $required);
         $client = new self($config->get('base_url'), $config);
 
@@ -76,10 +76,10 @@ class BasecampClient extends Client
      * @param $id
      * @return array|mixed
      */
-    public function getProject($id)
+    public function getProject($projectId)
     {
         return $this->execute($command = $this->getCommand('GetProject', array(
-            'id' => $id
+            'id' => $projectId
         )));
     }
 
@@ -87,10 +87,10 @@ class BasecampClient extends Client
      * @param $id
      * @return array|mixed
      */
-    public function getDocumentsByProject($id)
+    public function getDocumentsByProject($projectId)
     {
         return $this->execute($command = $this->getCommand('GetDocumentsByProject', array(
-            'id' => $id
+            'id' => $projectId
         )));
     }
 
@@ -101,4 +101,26 @@ class BasecampClient extends Client
             'documentId'    => $documentId
         )));
     }
+
+    public function getTopicsByProject($projectId)
+    {
+        return $this->execute($command = $this->getCommand('GetTopicsByProject', array(
+            'projectId'     => $projectId,
+        )));
+    }
+
+    public function getTodolistsByProject($projectId)
+    {
+        return $this->execute($command = $this->getCommand('GetTodolistsByProject', array(
+            'projectId'     => $projectId,
+        )));
+    }
+
+    public function getAttachmentsByProject($projectId)
+    {
+         return $this->execute($command = $this->getCommand('GetAttachmentsByProject', array(
+            'projectId'     => $projectId,
+        )));
+    }
+
 }

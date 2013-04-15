@@ -20,7 +20,7 @@ class BasecampClientTest extends \Guzzle\Tests\GuzzleTestCase
             'auth'     => 'http',
             'username' => 'foo',
             'password' => 'bar',
-            'userId'   => '999999999',
+            'user_id'  => '999999999',
             'version'  => 'v2'
         ));
         $this->assertEquals('https://basecamp.com/999999999/api/v2/', $client->getBaseUrl());
@@ -34,7 +34,7 @@ class BasecampClientTest extends \Guzzle\Tests\GuzzleTestCase
         $client = BasecampClient::factory(array(
             'username' => 'foo',
             'password' => 'bar',
-            'userId'   => '999999999',
+            'user_id'  => '999999999',
             'version'  => 'v2'
         ));
     }
@@ -71,7 +71,7 @@ class BasecampClientTest extends \Guzzle\Tests\GuzzleTestCase
             'auth'     => 'oauth',
             'token'    => 'foo',
             'version'  => 'v2',
-            'userId'   => '999999999',
+            'user_id'  => '999999999',
         ));
         $this->assertEquals('https://basecamp.com/999999999/api/v2/', $client->getBaseUrl());
     }
@@ -124,5 +124,43 @@ class BasecampClientTest extends \Guzzle\Tests\GuzzleTestCase
         $this->assertInternalType('array', $response);
         $this->assertArrayHasKey('id', $response);
         $this->assertSame(123, $response['id']);
+    }
+
+    public function testGetTopicsByProject()
+    {
+        $client = $this->getServiceBuilder()->get('basecamp');
+        $this->setMockResponse($client, array(
+            'get_topics_by_project'
+        ));
+        $response = $client->getTopicsByProject(1);
+
+        $this->assertInternalType('array', $response);
+        $this->assertArrayHasKey('id', $response[0]);
+        $this->assertSame(3, $response[0]['id']);
+    }
+
+    public function testGetTodolistsByProject()
+    {
+        $client = $this->getServiceBuilder()->get('basecamp');
+        $this->setMockResponse($client, array(
+            'get_todolists_by_project'
+        ));
+        $response = $client->getTodolistsByProject(1);
+        $this->assertInternalType('array', $response);
+        $this->assertArrayHasKey('id', $response[0]);
+        $this->assertSame(3, $response[0]['id']);
+    }
+
+    public function testGetAttachmentsByProject()
+    {
+        $client = $this->getServiceBuilder()->get('basecamp');
+        $this->setMockResponse($client, array(
+            'get_attachments_by_project'
+        ));
+        $response = $client->getAttachmentsByProject(1);
+
+        $this->assertInternalType('array', $response);
+        $this->assertArrayHasKey('key', $response[0]);
+        $this->assertSame('93e10dacd3aa64ab2edde55642c751f1e7b2557e', $response[0]['key']);
     }
 }
