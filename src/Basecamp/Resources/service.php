@@ -69,6 +69,27 @@ return array(
                 )
             )
         ),
+        'CreateTodolistByProject' => array(
+            'httpMethod' => 'POST',
+            'uri' => 'projects/{projectId}/todolists.json',
+            'parameters' => array(
+                'projectId' => array(
+                    'location' => 'uri',
+                    'description' => 'Project id',
+                    'required' => true
+                ),
+                "name" => array(
+                    "location" => "json",
+                    "type" => "string",
+                    'required' => true,
+                ),
+                "description" => array(
+                    "location" => "json",
+                    "type" => "string",
+                    'required' => true,
+                )
+            )
+        ),
         'GetAttachmentsByProject' => array(
             'httpMethod' => 'GET',
             'uri' => 'projects/{projectId}/attachments.json',

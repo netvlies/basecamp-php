@@ -116,6 +116,18 @@ class BasecampClient extends Client
         )));
     }
 
+    /**
+     * {@inheritdoc}
+     */
+    public function createTodolistByProject($projectId, $name, $description)
+    {
+        return $this->execute($this->getCommand('CreateTodolistByProject', array(
+            'projectId'   => $projectId,
+            'name'        => $name,
+            'description' => $description,
+        )));
+    }
+
     public function getAttachmentsByProject($projectId)
     {
          return $this->execute($command = $this->getCommand('GetAttachmentsByProject', array(
