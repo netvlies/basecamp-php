@@ -165,6 +165,22 @@ class BasecampClientTest extends \Guzzle\Tests\GuzzleTestCase
         $this->assertSame("Lorem ipsum", $response[0]['description']);
     }
 
+    public function testGetAllTodolistsByProject()
+    {
+        $client = $this->getServiceBuilder()->get('basecamp');
+        $this->setMockResponse($client, array(
+            'get_todolists_by_project',
+            'get_completed_todolists_by_project',
+        ));
+        $response = $client->getAllTodolistsByProject(1);
+        $this->assertInternalType('array', $response);
+        $this->assertCount(2, $response);
+        $this->assertArrayHasKey('id', $response[0]);
+        $this->assertArrayHasKey('id', $response[1]);
+        $this->assertSame(3, $response[0]['id']);
+        $this->assertSame(7091994, $response[1]['id']);
+    }
+
     public function testCreateTodolistByProject()
     {
         $client = $this->getServiceBuilder()->get('basecamp');
