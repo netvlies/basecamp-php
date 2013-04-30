@@ -117,7 +117,10 @@ class BasecampClient extends Client
     }
 
     /**
-     * {@inheritdoc}
+     * @param int $projectId
+     * @param string $name The name of the todo list.
+     * @param string $description The description of the todolist.
+     * @return array The created todo list.
      */
     public function createTodolistByProject($projectId, $name, $description)
     {
