@@ -69,6 +69,17 @@ return array(
                 )
             )
         ),
+        'GetCompletedTodolistsByProject' => array(
+            'httpMethod' => 'GET',
+            'uri' => 'projects/{projectId}/todolists/completed.json',
+            'parameters' => array(
+                'projectId' => array(
+                    'location' => 'uri',
+                    'description' => 'Project id',
+                    'required' => true
+                )
+            )
+        ),
         'CreateTodolistByProject' => array(
             'httpMethod' => 'POST',
             'uri' => 'projects/{projectId}/todolists.json',
@@ -88,6 +99,48 @@ return array(
                     "type" => "string",
                     'required' => true,
                 )
+            )
+        ),
+        'CreateTodoByTodolist' => array(
+            'httpMethod' => 'POST',
+            'uri' => 'projects/{projectId}/todolists/{todolistId}/todos.json',
+            'parameters' => array(
+                'projectId' => array(
+                    'location' => 'uri',
+                    'description' => 'Project id',
+                    'required' => true
+                ),
+                'todolistId' => array(
+                    'location' => 'uri',
+                    'description' => 'Todo list id',
+                    'required' => true
+                ),
+                "content" => array(
+                    "location" => "json",
+                    "type" => "string",
+                    'required' => true,
+                ),
+            )
+        ),
+        'CreateCommentByTodo' => array(
+            'httpMethod' => 'POST',
+            'uri' => 'projects/{projectId}/todos/{todoId}/comments.json',
+            'parameters' => array(
+                'projectId' => array(
+                    'location' => 'uri',
+                    'description' => 'Project id',
+                    'required' => true
+                ),
+                'todoId' => array(
+                    'location' => 'uri',
+                    'description' => 'Todo id',
+                    'required' => true
+                ),
+                "content" => array(
+                    "location" => "json",
+                    "type" => "string",
+                    'required' => true,
+                ),
             )
         ),
         'GetAttachmentsByProject' => array(

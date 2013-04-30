@@ -151,6 +151,20 @@ class BasecampClientTest extends \Guzzle\Tests\GuzzleTestCase
         $this->assertSame(3, $response[0]['id']);
     }
 
+    public function testGetCompletedTodolistsByProject()
+    {
+        $client = $this->getServiceBuilder()->get('basecamp');
+        $this->setMockResponse($client, array(
+            'get_completed_todolists_by_project'
+        ));
+        $response = $client->getCompletedTodolistsByProject(1);
+        $this->assertInternalType('array', $response);
+        $this->assertArrayHasKey('id', $response[0]);
+        $this->assertSame(3, $response[0]['id']);
+        $this->assertSame("Support (inbound)", $response[0]['name']);
+        $this->assertSame("Lorem ipsum", $response[0]['description']);
+    }
+
     public function testCreateTodolistByProject()
     {
         $client = $this->getServiceBuilder()->get('basecamp');
@@ -167,6 +181,36 @@ class BasecampClientTest extends \Guzzle\Tests\GuzzleTestCase
         $this->assertSame(3, $response['id']);
         $this->assertSame($todolist, $response['name']);
         $this->assertSame($todolist_desc, $response['description']);
+    }
+
+    public function testCreateTodoByTodolist()
+    {
+        $client = $this->getServiceBuilder()->get('basecamp');
+        $this->setMockResponse($client, array(
+            'create_todo_by_todolist'
+        ));
+        $todo = "Subject";
+        $response = $client->createTodoByTodolist(1, 7091994, $todo);
+        $this->assertInternalType('array', $response);
+        $this->assertArrayHasKey('id', $response);
+        $this->assertArrayHasKey('subject', $response);
+        $this->assertSame(341361256, $response['id']);
+        $this->assertSame($todo, $response['subject']);
+    }
+
+    public function testCreateCommentByTodo()
+    {
+        $client = $this->getServiceBuilder()->get('basecamp');
+        $this->setMockResponse($client, array(
+            'create_comment_by_todo'
+        ));
+        $comment = "Text message.";
+        $response = $client->createCommentByTodo(1, 41367037, $comment);
+        $this->assertInternalType('array', $response);
+        $this->assertArrayHasKey('id', $response);
+        $this->assertArrayHasKey('content', $response);
+        $this->assertSame(61775464, $response['id']);
+        $this->assertSame($comment, $response['content']);
     }
 
     public function testGetAttachmentsByProject()

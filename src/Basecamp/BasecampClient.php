@@ -116,6 +116,23 @@ class BasecampClient extends Client
         )));
     }
 
+    public function getCompletedTodolistsByProject($projectId)
+    {
+        return $this->execute($this->getCommand('GetCompletedTodolistsByProject', array(
+            'projectId'     => $projectId,
+        )));
+    }
+
+    public function getAllTodolistsByProject($projectId)
+    {
+        $todolists = $this->getTodolistsByProject($projectId);
+        $completedTodolists = $this->getCompletedTodolistsByProject($projectId);
+
+        $allTodolists = array_merge($todolists, $completedTodolists);
+
+        return $allTodolists;
+    }
+
     /**
      * @param int $projectId
      * @param string $name The name of the todo list.
@@ -128,6 +145,36 @@ class BasecampClient extends Client
             'projectId'   => $projectId,
             'name'        => $name,
             'description' => $description,
+        )));
+    }
+
+    /**
+     * @param int $projectId
+     * @param int $todolistId
+     * @param string $content The todo description.
+     * @return array The created todo.
+     */
+    public function createTodoByTodolist($projectId, $todolistId, $content)
+    {
+        return $this->execute($this->getCommand('CreateTodoByTodolist', array(
+            'projectId'  => $projectId,
+            'todolistId' => $todolistId,
+            'content'    => $content,
+        )));
+    }
+
+    /**
+     * @param int $projectId
+     * @param int $todoId
+     * @param string $content The comment content.
+     * @return array The created comment.
+     */
+    public function createCommentByTodo($projectId, $todoId, $content)
+    {
+        return $this->execute($this->getCommand('CreateCommentByTodo', array(
+            'projectId'  => $projectId,
+            'todoId'  => $todoId,
+            'content' => $content,
         )));
     }
 
