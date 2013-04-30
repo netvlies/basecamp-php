@@ -1,0 +1,20 @@
+HTTP/1.1 201 Created
+Server: nginx
+Date: Tue, 30 Apr 2013 13:50:42 GMT
+Content-Type: application/json; charset=utf-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+Status: 201 Created
+X-Frame-Options: SAMEORIGIN
+X-XSS-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+X-UA-Compatible: chrome=1
+X-XHR-Current-Location: /9999999/api/v1/projects/1/todolists.json
+X-Asset-Paths: {"application.js":"application-9c60f8ec7aa69319f4e88ef912ceee47.js","application.css":"application-640556e4a934af1e40e8055bda797a35.css"}
+Location: https://basecamp.com/9999999/api/v1/projects/1-support/todolists/7091994-support-inbound.json
+ETag: "977521e922f1fa1097b921e6b73d39de"
+Cache-Control: max-age=0, private, must-revalidate
+X-Request-Id: 768aedbd-aaba-46ca-913e-9aae374cabf8
+X-Runtime: 0.382940
+
+{"id":7091994,"name":"Support (inbound)","description":"Lorem ipsum","created_at":"2013-04-30T15:50:42.076+02:00","updated_at":"2013-04-30T15:50:42.076+02:00","completed":false,"position":1,"remaining_count":0,"completed_count":0,"creator":{"id":4448817,"name":"Reinier Kip","avatar_url":"http://dge9rmgqjs8m1.cloudfront.net/global/default_avatar_v1_7/avatar.gif?r=3"},"todos":{"remaining":[],"completed":[]},"comments":[],"subscribers":[{"id":4448817,"name":"Reinier Kip"}]}
