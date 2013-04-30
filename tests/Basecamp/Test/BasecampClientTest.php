@@ -160,7 +160,7 @@ class BasecampClientTest extends \Guzzle\Tests\GuzzleTestCase
         $response = $client->getCompletedTodolistsByProject(1);
         $this->assertInternalType('array', $response);
         $this->assertArrayHasKey('id', $response[0]);
-        $this->assertSame(3, $response[0]['id']);
+        $this->assertSame(7091994, $response[0]['id']);
         $this->assertSame("Support (inbound)", $response[0]['name']);
         $this->assertSame("Lorem ipsum", $response[0]['description']);
     }
@@ -178,7 +178,7 @@ class BasecampClientTest extends \Guzzle\Tests\GuzzleTestCase
         $this->assertArrayHasKey('id', $response);
         $this->assertArrayHasKey('name', $response);
         $this->assertArrayHasKey('description', $response);
-        $this->assertSame(3, $response['id']);
+        $this->assertSame(7091994, $response['id']);
         $this->assertSame($todolist, $response['name']);
         $this->assertSame($todolist_desc, $response['description']);
     }
@@ -193,9 +193,9 @@ class BasecampClientTest extends \Guzzle\Tests\GuzzleTestCase
         $response = $client->createTodoByTodolist(1, 7091994, $todo);
         $this->assertInternalType('array', $response);
         $this->assertArrayHasKey('id', $response);
-        $this->assertArrayHasKey('subject', $response);
-        $this->assertSame(341361256, $response['id']);
-        $this->assertSame($todo, $response['subject']);
+        $this->assertArrayHasKey('content', $response);
+        $this->assertSame(41361256, $response['id']);
+        $this->assertSame($todo, $response['content']);
     }
 
     public function testCreateCommentByTodo()
