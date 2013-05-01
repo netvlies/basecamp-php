@@ -248,10 +248,10 @@ class BasecampClientTest extends \Guzzle\Tests\GuzzleTestCase
         $this->setMockResponse($client, array(
             'create_attachment'
         ));
-        $response = $client->getAttachmentsByProject(1);
+        $response = $client->createAttachment("data-here", "image/jpeg");
 
         $this->assertInternalType('array', $response);
-        $this->assertArrayHasKey('key', $response[0]);
-        $this->assertSame('93e10dacd3aa64ab2edde55642c751f1e7b2557e', $response[0]['key']);
+        $this->assertArrayHasKey('token', $response);
+        $this->assertSame('51800634-9aecec5cfd6acf939b08cd1957a3c12796ae05fa', $response['token']);
     }
 }
