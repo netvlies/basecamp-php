@@ -141,6 +141,11 @@ return array(
                     "type" => "string",
                     'required' => true,
                 ),
+                "attachments" => array(
+                    "location" => "json",
+                    "type" => "array",
+                    "required" => false,
+                ),
             )
         ),
         'GetAttachmentsByProject' => array(
@@ -152,6 +157,23 @@ return array(
                     'description' => 'Project id',
                     'required' => true
                 )
+            )
+        ),
+        'CreateAttachment' => array(
+            'httpMethod' => 'POST',
+            'uri' => 'attachments.json',
+            'parameters' => array(
+                'mimeType' => array(
+                    'location'    => 'header',
+                    'sentAs'      => 'Content-Type',
+                    'description' => 'The content type of the data',
+                    'required'    => true
+                ),
+                'data' => array(
+                    'location'    => 'body',
+                    'description' => 'The attachment\'s binary data',
+                    'required'    => true,
+                ),
             )
         ),
     )

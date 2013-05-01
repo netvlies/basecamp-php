@@ -167,14 +167,16 @@ class BasecampClient extends Client
      * @param int $projectId
      * @param int $todoId
      * @param string $content The comment content.
+     * @param array $attachments
      * @return array The created comment.
      */
-    public function createCommentByTodo($projectId, $todoId, $content)
+    public function createCommentByTodo($projectId, $todoId, $content, array $attachments = array())
     {
         return $this->execute($this->getCommand('CreateCommentByTodo', array(
-            'projectId'  => $projectId,
-            'todoId'  => $todoId,
-            'content' => $content,
+            'projectId'   => $projectId,
+            'todoId'      => $todoId,
+            'content'     => $content,
+            'attachments' => $attachments,
         )));
     }
 
@@ -185,4 +187,16 @@ class BasecampClient extends Client
         )));
     }
 
+    /**
+     * @param string $data Attachment data.
+     * @param string $mimeType e.g. image/jpeg
+     * @return array
+     */
+    public function createAttachment($data, $mimeType)
+    {
+        return $this->execute($this->getCommand("CreateAttachment", array(
+            'mimeType' => $mimeType,
+            'data'     => $data,
+        )));
+    }
 }
