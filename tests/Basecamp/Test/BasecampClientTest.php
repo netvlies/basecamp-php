@@ -151,6 +151,84 @@ class BasecampClientTest extends \Guzzle\Tests\GuzzleTestCase
         $this->assertSame(3, $response[0]['id']);
     }
 
+    public function testGetCompletedTodolistsByProject()
+    {
+        $client = $this->getServiceBuilder()->get('basecamp');
+        $this->setMockResponse($client, array(
+            'get_completed_todolists_by_project'
+        ));
+        $response = $client->getCompletedTodolistsByProject(1);
+        $this->assertInternalType('array', $response);
+        $this->assertArrayHasKey('id', $response[0]);
+        $this->assertSame(7091994, $response[0]['id']);
+        $this->assertSame("Support (inbound)", $response[0]['name']);
+        $this->assertSame("Lorem ipsum", $response[0]['description']);
+    }
+
+    public function testGetAllTodolistsByProject()
+    {
+        $client = $this->getServiceBuilder()->get('basecamp');
+        $this->setMockResponse($client, array(
+            'get_todolists_by_project',
+            'get_completed_todolists_by_project',
+        ));
+        $response = $client->getAllTodolistsByProject(1);
+        $this->assertInternalType('array', $response);
+        $this->assertCount(2, $response);
+        $this->assertArrayHasKey('id', $response[0]);
+        $this->assertArrayHasKey('id', $response[1]);
+        $this->assertSame(3, $response[0]['id']);
+        $this->assertSame(7091994, $response[1]['id']);
+    }
+
+    public function testCreateTodolistByProject()
+    {
+        $client = $this->getServiceBuilder()->get('basecamp');
+        $this->setMockResponse($client, array(
+            'create_todolist_by_project'
+        ));
+        $todolist = "Support (inbound)";
+        $todolist_desc = "Lorem ipsum";
+        $response = $client->createTodolistByProject(1, $todolist, $todolist_desc);
+        $this->assertInternalType('array', $response);
+        $this->assertArrayHasKey('id', $response);
+        $this->assertArrayHasKey('name', $response);
+        $this->assertArrayHasKey('description', $response);
+        $this->assertSame(7091994, $response['id']);
+        $this->assertSame($todolist, $response['name']);
+        $this->assertSame($todolist_desc, $response['description']);
+    }
+
+    public function testCreateTodoByTodolist()
+    {
+        $client = $this->getServiceBuilder()->get('basecamp');
+        $this->setMockResponse($client, array(
+            'create_todo_by_todolist'
+        ));
+        $todo = "Subject";
+        $response = $client->createTodoByTodolist(1, 7091994, $todo);
+        $this->assertInternalType('array', $response);
+        $this->assertArrayHasKey('id', $response);
+        $this->assertArrayHasKey('content', $response);
+        $this->assertSame(41361256, $response['id']);
+        $this->assertSame($todo, $response['content']);
+    }
+
+    public function testCreateCommentByTodo()
+    {
+        $client = $this->getServiceBuilder()->get('basecamp');
+        $this->setMockResponse($client, array(
+            'create_comment_by_todo'
+        ));
+        $comment = "Text message.";
+        $response = $client->createCommentByTodo(1, 41367037, $comment);
+        $this->assertInternalType('array', $response);
+        $this->assertArrayHasKey('id', $response);
+        $this->assertArrayHasKey('content', $response);
+        $this->assertSame(61775464, $response['id']);
+        $this->assertSame($comment, $response['content']);
+    }
+
     public function testGetAttachmentsByProject()
     {
         $client = $this->getServiceBuilder()->get('basecamp');
@@ -162,5 +240,18 @@ class BasecampClientTest extends \Guzzle\Tests\GuzzleTestCase
         $this->assertInternalType('array', $response);
         $this->assertArrayHasKey('key', $response[0]);
         $this->assertSame('93e10dacd3aa64ab2edde55642c751f1e7b2557e', $response[0]['key']);
+    }
+
+    public function testCreateAttachment()
+    {
+        $client = $this->getServiceBuilder()->get('basecamp');
+        $this->setMockResponse($client, array(
+            'create_attachment'
+        ));
+        $response = $client->createAttachment("data-here", "image/jpeg");
+
+        $this->assertInternalType('array', $response);
+        $this->assertArrayHasKey('token', $response);
+        $this->assertSame('51800634-9aecec5cfd6acf939b08cd1957a3c12796ae05fa', $response['token']);
     }
 }
