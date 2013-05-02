@@ -116,6 +116,70 @@ class BasecampClient extends Client
         )));
     }
 
+    public function getCompletedTodolistsByProject($projectId)
+    {
+        return $this->execute($this->getCommand('GetCompletedTodolistsByProject', array(
+            'projectId'     => $projectId,
+        )));
+    }
+
+    public function getAllTodolistsByProject($projectId)
+    {
+        $todolists = $this->getTodolistsByProject($projectId);
+        $completedTodolists = $this->getCompletedTodolistsByProject($projectId);
+
+        $allTodolists = array_merge($todolists, $completedTodolists);
+
+        return $allTodolists;
+    }
+
+    /**
+     * @param int $projectId
+     * @param string $name The name of the todo list.
+     * @param string $description The description of the todolist.
+     * @return array The created todo list.
+     */
+    public function createTodolistByProject($projectId, $name, $description)
+    {
+        return $this->execute($this->getCommand('CreateTodolistByProject', array(
+            'projectId'   => $projectId,
+            'name'        => $name,
+            'description' => $description,
+        )));
+    }
+
+    /**
+     * @param int $projectId
+     * @param int $todolistId
+     * @param string $content The todo description.
+     * @return array The created todo.
+     */
+    public function createTodoByTodolist($projectId, $todolistId, $content)
+    {
+        return $this->execute($this->getCommand('CreateTodoByTodolist', array(
+            'projectId'  => $projectId,
+            'todolistId' => $todolistId,
+            'content'    => $content,
+        )));
+    }
+
+    /**
+     * @param int $projectId
+     * @param int $todoId
+     * @param string $content The comment content.
+     * @param array $attachments
+     * @return array The created comment.
+     */
+    public function createCommentByTodo($projectId, $todoId, $content, array $attachments = array())
+    {
+        return $this->execute($this->getCommand('CreateCommentByTodo', array(
+            'projectId'   => $projectId,
+            'todoId'      => $todoId,
+            'content'     => $content,
+            'attachments' => $attachments,
+        )));
+    }
+
     public function getAttachmentsByProject($projectId)
     {
          return $this->execute($command = $this->getCommand('GetAttachmentsByProject', array(
@@ -123,4 +187,16 @@ class BasecampClient extends Client
         )));
     }
 
+    /**
+     * @param string $data Attachment data.
+     * @param string $mimeType e.g. image/jpeg
+     * @return array
+     */
+    public function createAttachment($data, $mimeType)
+    {
+        return $this->execute($this->getCommand("CreateAttachment", array(
+            'mimeType' => $mimeType,
+            'data'     => $data,
+        )));
+    }
 }

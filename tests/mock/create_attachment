@@ -1,0 +1,13 @@
+HTTP/1.1 200 OK
+Server: nginx
+Date: Tue, 30 Apr 2013 17:58:12 GMT
+Content-Type: application/json
+Content-Length: 61
+Connection: keep-alive
+Status: 200 OK
+ETag: "f137fb26867da13410b41967280d2261"
+Cache-Control: max-age=0, private, must-revalidate
+X-Request-Id: 8eaacca7-1d6f-4375-b6c3-0c7b64258d48
+X-Runtime: 0.092545
+
+{"token":"51800634-9aecec5cfd6acf939b08cd1957a3c12796ae05fa"}

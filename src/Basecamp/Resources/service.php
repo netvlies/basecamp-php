@@ -69,6 +69,85 @@ return array(
                 )
             )
         ),
+        'GetCompletedTodolistsByProject' => array(
+            'httpMethod' => 'GET',
+            'uri' => 'projects/{projectId}/todolists/completed.json',
+            'parameters' => array(
+                'projectId' => array(
+                    'location' => 'uri',
+                    'description' => 'Project id',
+                    'required' => true
+                )
+            )
+        ),
+        'CreateTodolistByProject' => array(
+            'httpMethod' => 'POST',
+            'uri' => 'projects/{projectId}/todolists.json',
+            'parameters' => array(
+                'projectId' => array(
+                    'location' => 'uri',
+                    'description' => 'Project id',
+                    'required' => true
+                ),
+                "name" => array(
+                    "location" => "json",
+                    "type" => "string",
+                    'required' => true,
+                ),
+                "description" => array(
+                    "location" => "json",
+                    "type" => "string",
+                    'required' => true,
+                )
+            )
+        ),
+        'CreateTodoByTodolist' => array(
+            'httpMethod' => 'POST',
+            'uri' => 'projects/{projectId}/todolists/{todolistId}/todos.json',
+            'parameters' => array(
+                'projectId' => array(
+                    'location' => 'uri',
+                    'description' => 'Project id',
+                    'required' => true
+                ),
+                'todolistId' => array(
+                    'location' => 'uri',
+                    'description' => 'Todo list id',
+                    'required' => true
+                ),
+                "content" => array(
+                    "location" => "json",
+                    "type" => "string",
+                    'required' => true,
+                ),
+            )
+        ),
+        'CreateCommentByTodo' => array(
+            'httpMethod' => 'POST',
+            'uri' => 'projects/{projectId}/todos/{todoId}/comments.json',
+            'parameters' => array(
+                'projectId' => array(
+                    'location' => 'uri',
+                    'description' => 'Project id',
+                    'required' => true
+                ),
+                'todoId' => array(
+                    'location' => 'uri',
+                    'description' => 'Todo id',
+                    'required' => true
+                ),
+                "content" => array(
+                    "location" => "json",
+                    "type" => "string",
+                    'required' => true,
+                ),
+                "attachments" => array(
+                    "location" => "json",
+                    "type" => "array",
+                    "required" => false,
+                ),
+            )
+        ),
         'GetAttachmentsByProject' => array(
             'httpMethod' => 'GET',
             'uri' => 'projects/{projectId}/attachments.json',
@@ -78,6 +157,23 @@ return array(
                     'description' => 'Project id',
                     'required' => true
                 )
+            )
+        ),
+        'CreateAttachment' => array(
+            'httpMethod' => 'POST',
+            'uri' => 'attachments.json',
+            'parameters' => array(
+                'mimeType' => array(
+                    'location'    => 'header',
+                    'sentAs'      => 'Content-Type',
+                    'description' => 'The content type of the data',
+                    'required'    => true
+                ),
+                'data' => array(
+                    'location'    => 'body',
+                    'description' => 'The attachment\'s binary data',
+                    'required'    => true,
+                ),
             )
         ),
     )
