@@ -254,4 +254,21 @@ class BasecampClientTest extends \Guzzle\Tests\GuzzleTestCase
         $this->assertArrayHasKey('token', $response);
         $this->assertSame('51800634-9aecec5cfd6acf939b08cd1957a3c12796ae05fa', $response['token']);
     }
+
+    public function testGetTodolist()
+    {
+        $client = $this->getServiceBuilder()->get('basecamp');
+        $this->setMockResponse($client, array(
+            'get_todolist'
+        ));
+        $response = $client->getProject(1, 2);
+        $this->assertInternalType('array', $response);
+        $this->assertArrayHasKey('id', $response);
+        $this->assertSame(1, $response['id']);
+        $this->assertArrayHasKey('todos', $response);
+        $this->assertArrayHasKey('remaining', $response['todos']);
+        $this->assertArrayHasKey(0, $response['todos']['remaining']);
+        $this->assertArrayHasKey('id', $response['todos']['remaining'][0]);
+
+    }
 }
