@@ -25,7 +25,7 @@ $service = \Basecamp\BasecampClient::factory(array(
     'auth'     => 'http',
     'username' => 'you@email.com',
     'password' => 'secret',
-    'userId'   => 99999999
+    'user_id'   => 99999999
 ));
 ```
 
@@ -39,7 +39,7 @@ This library doesn't handle the OAuth authorization process for you. There are a
 $service = \Basecamp\BasecampClient::factory(array(
     'auth'     => 'oauth',
     'token'    => 'Wtj4htewhtuewhuoitewh',
-    'userId'   => 99999999
+    'user_id'   => 99999999
 ));
 
 ```
