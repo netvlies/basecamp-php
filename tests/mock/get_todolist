@@ -1,0 +1,20 @@
+HTTP/1.1 200 OK
+Server: nginx
+Date: Mon, 06 May 2013 18:34:57 GMT
+Content-Type: application/json; charset=utf-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+Status: 200 OK
+X-Frame-Options: SAMEORIGIN
+X-XSS-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+X-UA-Compatible: chrome=1
+X-XHR-Current-Location: /4/api/v1/projects/2/todolists/1.json
+X-Asset-Paths: {"application.js":"application-0c0992989093fa4dbb712896bcbe9c43.js","application.css":"application-ba3fca7ffe4e7fc55befb5ebd87f0b1b.css"}
+ETag: "cffa36e0c7d155a53123639774f8ef77"
+Last-Modified: Thu, 11 Apr 2013 07:52:13 GMT
+Cache-Control: max-age=0, private, must-revalidate
+X-Request-Id: bce0aa94-6b44-45e8-90b3-019c3d27c27f
+X-Runtime: 0.361570
+
+{"id":1,"name":"nog doen","description":null,"created_at":"2013-04-11T09:48:10.000+02:00","updated_at":"2013-04-11T09:52:13.000+02:00","completed":false,"position":1,"remaining_count":2,"completed_count":0,"creator":{"id":3,"name":"Foo Bar","avatar_url":"http://dge9rmgqjs8m1.cloudfront.net/global/1a6f0075e580330444c180f8c3d8547b519a1dfb7c657cea488ebeb6c3987198630d7c9953625e8e2a9b5b2f716fe0a5/avatar.gif?r=3"},"todos":{"remaining":[{"id":5,"todolist_id":1,"position":1,"content":"naam!","completed":false,"created_at":"2013-04-11T09:51:23.000+02:00","updated_at":"2013-04-11T09:52:13.000+02:00","comments_count":0,"due_on":"2013-04-12","due_at":"2013-04-12","creator":{"id":3,"name":"Foo Bar","avatar_url":"http://dge9rmgqjs8m1.cloudfront.net/global/1a6f0075e580330444c180f8c3b5dd2fbda3cd387e103347b519a1dfb7c657cea488ebeb6c3987198630d7c9953625e8e2a9b5b2f716fe0a5/avatar.gif?r=3"},"assignee":{"id":3,"type":"Person","name":"Foo Bar"},"url":"https://basecamp.com/4/api/v1/projects/2-samenwerkingsapplica/todos/5-naam.json"},{"id":6,"todolist_id":1,"position":2,"content":"commentaar op dashboard verzamelen","completed":false,"created_at":"2013-04-11T09:51:38.000+02:00","updated_at":"2013-04-11T09:52:01.000+02:00","comments_count":0,"due_on":"2013-04-12","due_at":"2013-04-12","creator":{"id":3,"name":"Foo Bar","avatar_url":"http://dge9rmgqjs8m1.cloudfront.net/global/1a6f0075e580330444c180f8c3b5dd2fbda3cd387e1033837330448fabc27d42d2a3d8547b519a1dfb7c657cea488ebeb6c3987198630d7c9953625e8e2a9b5b2f716fe0a5/avatar.gif?r=3"},"assignee":{"id":3,"type":"Person","name":"Foo Bar"},"url":"https://basecamp.com/4/api/v1/projects/2-samenwerkingsapplica/todos/6-commentaar-op.json"}],"completed":[]},"comments":[],"subscribers":[{"id":3,"name":"Foo Bar"}]}
