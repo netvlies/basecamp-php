@@ -176,5 +176,21 @@ return array(
                 ),
             )
         ),
+        'GetTodolist' => array(
+            'httpMethod' => 'GET',
+            'uri' => 'projects/{projectId}/todolists/{todolistId}.json',
+            'parameters' => array(
+                'projectId' => array(
+                    'location' => 'uri',
+                    'description' => 'Project id',
+                    'required' => true
+                ),
+                'todolistId' => array(
+                    'location' => 'uri',
+                    'description' => 'Todolist id',
+                    'required' => true
+                )
+            )
+        )
     )
 );

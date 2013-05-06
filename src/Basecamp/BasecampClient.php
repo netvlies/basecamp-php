@@ -182,7 +182,7 @@ class BasecampClient extends Client
 
     public function getAttachmentsByProject($projectId)
     {
-         return $this->execute($command = $this->getCommand('GetAttachmentsByProject', array(
+        return $this->execute($command = $this->getCommand('GetAttachmentsByProject', array(
             'projectId'     => $projectId,
         )));
     }
@@ -198,5 +198,15 @@ class BasecampClient extends Client
             'mimeType' => $mimeType,
             'data'     => $data,
         )));
+    }
+
+    public function getTodolist($projectId, $todolistId)
+    {
+         $this->execute($command = $this->getCommand('GetTodolist', array(
+            'projectId'     => $projectId,
+            'todolistId'    => $todolistId
+        )));
+
+        echo $command->getResponse();
     }
 }
