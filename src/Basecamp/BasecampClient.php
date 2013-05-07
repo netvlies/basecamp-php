@@ -202,11 +202,9 @@ class BasecampClient extends Client
 
     public function getTodolist($projectId, $todolistId)
     {
-         $this->execute($command = $this->getCommand('GetTodolist', array(
+        return $this->execute($command = $this->getCommand('GetTodolist', array(
             'projectId'     => $projectId,
             'todolistId'    => $todolistId
         )));
-
-        echo $command->getResponse();
     }
 }

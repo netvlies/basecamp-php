@@ -261,7 +261,7 @@ class BasecampClientTest extends \Guzzle\Tests\GuzzleTestCase
         $this->setMockResponse($client, array(
             'get_todolist'
         ));
-        $response = $client->getProject(1, 2);
+        $response = $client->getTodolist(1, 2);
         $this->assertInternalType('array', $response);
         $this->assertArrayHasKey('id', $response);
         $this->assertSame(1, $response['id']);
