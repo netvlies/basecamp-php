@@ -261,7 +261,7 @@ class BasecampClientTest extends \Guzzle\Tests\GuzzleTestCase
         $this->setMockResponse($client, array(
             'get_todolist'
         ));
-        $response = $client->getProject(1, 2);
+        $response = $client->getTodolist(1, 2);
         $this->assertInternalType('array', $response);
         $this->assertArrayHasKey('id', $response);
         $this->assertSame(1, $response['id']);
@@ -269,6 +269,19 @@ class BasecampClientTest extends \Guzzle\Tests\GuzzleTestCase
         $this->assertArrayHasKey('remaining', $response['todos']);
         $this->assertArrayHasKey(0, $response['todos']['remaining']);
         $this->assertArrayHasKey('id', $response['todos']['remaining'][0]);
+    }
 
+    public function testGetCurrentUser()
+    {
+        $client = $this->getServiceBuilder()->get('basecamp');
+        $this->setMockResponse($client, array(
+            'get_current_user'
+        ));
+        $response = $client->getTodolist(1, 2);
+
+        $this->assertInternalType('array', $response);
+        $this->assertArrayHasKey('id', $response);
+        $this->assertSame(1, $response['id']);
+        $this->assertSame('Richard van den Brand', $response['name']);
     }
 }
