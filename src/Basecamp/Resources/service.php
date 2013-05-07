@@ -191,6 +191,10 @@ return array(
                     'required' => true
                 )
             )
+        ),
+        'GetCurrentUser' => array(
+            'httpMethod' => 'GET',
+            'uri' => 'people/me.json',
         )
     )
 );
