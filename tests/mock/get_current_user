@@ -1,0 +1,20 @@
+HTTP/1.1 200 OK
+Server: nginx
+Date: Tue, 07 May 2013 11:39:28 GMT
+Content-Type: application/json; charset=utf-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+Status: 200 OK
+X-Frame-Options: SAMEORIGIN
+X-XSS-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+X-UA-Compatible: chrome=1
+X-XHR-Current-Location: /2/api/v1/people/me.json
+X-Asset-Paths: {"application.js":"application-d5568e881d030970f3818f74c7251475.js","application.css":"application-ba3fca7ffe4e7fc55befb5ebd87f0b1b.css"}
+ETag: "078f406d16237d451929b55ea9945d2d"
+Last-Modified: Mon, 06 May 2013 15:10:51 GMT
+Cache-Control: max-age=0, private, must-revalidate
+X-Request-Id: 050e47e3-2ed9-447e-9b26-4a8315166f1c
+X-Runtime: 0.321577
+
+{"id":1,"name":"Richard van den Brand","email_address":"rvdbrand@netvlies.nl","admin":false,"created_at":"2013-01-21T11:20:48.000+01:00","updated_at":"2013-05-06T17:10:51.000+02:00","identity_id":6225428,"avatar_url":"http://dge9rmgqjs8m1.cloudfront.net/global/default_avatar_v1_4/avatar.gif?r=3","events":{"count":1,"updated_at":"2013-05-06T17:10:51.000+02:00","url":"https://basecamp.com/2/api/v1/people/1-richard-van-den/events.json"},"assigned_todos":{"count":0,"updated_at":null,"url":"https://basecamp.com/2/api/v1/people/1-richard-van-den/assigned_todos.json"}}

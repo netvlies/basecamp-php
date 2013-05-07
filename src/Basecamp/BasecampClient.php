@@ -200,13 +200,26 @@ class BasecampClient extends Client
         )));
     }
 
+    /**
+     * @param $projectId
+     * @param $todolistId
+     * @return array|mixed
+     */
     public function getTodolist($projectId, $todolistId)
     {
-         $this->execute($command = $this->getCommand('GetTodolist', array(
+        return $this->execute($command = $this->getCommand('GetTodolist', array(
             'projectId'     => $projectId,
             'todolistId'    => $todolistId
         )));
+    }
 
-        echo $command->getResponse();
+    /**
+     * Returns current user (from token or auth details)
+     *
+     * @return array|mixed
+     */
+    public function getCurrentUser()
+    {
+        return $this->execute($command = $this->getCommand('GetCurrentUser'));
     }
 }
