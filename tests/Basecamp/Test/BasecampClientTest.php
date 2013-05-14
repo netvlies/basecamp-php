@@ -284,4 +284,17 @@ class BasecampClientTest extends \Guzzle\Tests\GuzzleTestCase
         $this->assertSame(1, $response['id']);
         $this->assertSame('Richard van den Brand', $response['name']);
     }
+
+    public function testGetGlobalEvents()
+    {
+        $client = $this->getServiceBuilder()->get('basecamp');
+        $this->setMockResponse($client, array(
+            'get_global_events'
+        ));
+        $response = $client->getGlobalEvents();
+        $this->assertInternalType('array', $response);
+        $this->assertArrayHasKey(0, $response);
+        $this->assertArrayHasKey('id', $response[0]);
+        $this->assertSame(99999999, $response[0]['id']);
+    }
 }
