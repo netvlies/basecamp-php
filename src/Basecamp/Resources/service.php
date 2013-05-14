@@ -195,6 +195,18 @@ return array(
         'GetCurrentUser' => array(
             'httpMethod' => 'GET',
             'uri' => 'people/me.json',
-        )
+        ),
+        'GetGlobalEvents' => array(
+            'httpMethod' => 'GET',
+            'uri'       => 'events.json',
+            'summary'   => 'Get all global events',
+            'parameters' => array(
+                'since' => array(
+                    'location' => 'query',
+                    'description' => 'All events since given datetime (format: 2012-03-24T11:00:00-06:00)',
+                    'required' => false
+                )
+            )
+        ),
     )
 );

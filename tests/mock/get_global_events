@@ -1,0 +1,21 @@
+HTTP/1.1 200 OK
+Server: nginx
+Date: Tue, 14 May 2013 14:17:01 GMT
+Content-Type: application/json; charset=utf-8
+Status: 200 OK
+X-Frame-Options: SAMEORIGIN
+X-XSS-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+X-UA-Compatible: chrome=1
+X-XHR-Current-Location: /1815898/api/v1/events.json?since=2013-05-09T16%3A16%3A59%2B02%3A00
+X-Asset-Paths: {"application.js":"application-63fa4e8ccf7f602643e6250b6c49b1d1.js","application.css":"application-7785c048fb083d4dc1abe23b63adcfde.css"}
+Last-Modified: Tue, 14 May 2013 11:35:45 GMT
+Cache-Control: max-age=0, private, must-revalidate
+X-Request-Id: a4fc93b3-3ead-4787-ba69-cce8537e638a
+X-Runtime: 0.109108
+X-Guzzle-Cache: key=GZae1300ce2311682e27ba956d8d7e1875; ttl=3600
+Via: 1.1 GuzzleCache/3.3.1
+X-Cache-Lookup: MISS from GuzzleCache
+X-Cache: MISS from GuzzleCache
+
+[{"id":99999999,"created_at":"2013-05-14T13:35:45.000+02:00","updated_at":"2013-05-14T13:35:45.000+02:00","summary":"gave test access to a project<span>:</span> teste","action":"gave test access to a project<span>:</span>","target":"tester","url":"https://basecamp.com/9999/api/v1/people/99999-tester.json","html_url":"https://basecamp.com/9999/projects/999999-test","creator":{"id":99999,"name":"Tester de Test","avatar_url":"https://asset0.37img.com/global/4113d0a133a32931be8934e70b2ea21efeff72c1/avatar.96.gif?r=3"},"bucket":{"type":"Project","id":99999,"name":"dit is een test","url":"https://basecamp.com/9999/api/v1/projects/test.json"}}]

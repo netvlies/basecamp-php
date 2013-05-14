@@ -222,4 +222,15 @@ class BasecampClient extends Client
     {
         return $this->execute($command = $this->getCommand('GetCurrentUser'));
     }
+
+    /**
+     * @param string $since
+     * @return array|mixed
+     */
+    public function getGlobalEvents($since = null)
+    {
+        return $this->execute($command = $this->getCommand('GetGlobalEvents', array(
+            'since' => $since
+        )));
+    }
 }
