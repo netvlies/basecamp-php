@@ -4,34 +4,34 @@ return array(
     'serviceFullName'       => '37signals Basecamp API',
     'serviceAbbreviation'   => 'Basecamp API',
     'operations'            => array(
-        'GetProjects' => array(
+        'getProjects' => array(
             'httpMethod' => 'GET',
             'uri'       => 'projects.json',
             'summary'   => 'Get all active projects'
         ),
-        'GetProject' => array(
+        'getProject' => array(
             'httpMethod' => 'GET',
             'uri'        => 'projects/{id}.json',
             'parameters' => array(
-                'id' => array(
+                'projectId' => array(
                     'location' => 'uri',
                     'description' => 'Project to retrieve by ID',
                     'required' => true
                 )
             )
         ),
-        'GetDocumentsByProject' => array(
+        'getDocumentsByProject' => array(
             'httpMethod' => 'GET',
             'uri' => 'projects/{id}/documents.json',
             'parameters' => array(
-                'id' => array(
+                'projectId' => array(
                     'location' => 'uri',
                     'description' => 'Retrieve documents for given project',
                     'required' => true
                 )
             )
         ),
-        'GetDocument' => array(
+        'getDocument' => array(
             'httpMethod' => 'GET',
             'uri' => 'projects/{projectId}/documents/{documentId}.json',
             'parameters' => array(
@@ -47,7 +47,7 @@ return array(
                 )
             )
         ),
-        'GetTopicsByProject' => array(
+        'getTopicsByProject' => array(
             'httpMethod' => 'GET',
             'uri' => 'projects/{projectId}/topics.json',
             'parameters' => array(
@@ -58,7 +58,7 @@ return array(
                 )
             )
         ),
-        'GetTodolistsByProject' => array(
+        'getTodolistsByProject' => array(
             'httpMethod' => 'GET',
             'uri' => 'projects/{projectId}/todolists.json',
             'parameters' => array(
@@ -69,7 +69,7 @@ return array(
                 )
             )
         ),
-        'GetCompletedTodolistsByProject' => array(
+        'getCompletedTodolistsByProject' => array(
             'httpMethod' => 'GET',
             'uri' => 'projects/{projectId}/todolists/completed.json',
             'parameters' => array(
@@ -80,7 +80,7 @@ return array(
                 )
             )
         ),
-        'CreateTodolistByProject' => array(
+        'createTodolistByProject' => array(
             'httpMethod' => 'POST',
             'uri' => 'projects/{projectId}/todolists.json',
             'parameters' => array(
@@ -101,7 +101,7 @@ return array(
                 )
             )
         ),
-        'CreateTodoByTodolist' => array(
+        'createTodoByTodolist' => array(
             'httpMethod' => 'POST',
             'uri' => 'projects/{projectId}/todolists/{todolistId}/todos.json',
             'parameters' => array(
@@ -122,7 +122,7 @@ return array(
                 ),
             )
         ),
-        'CreateCommentByTodo' => array(
+        'createCommentByTodo' => array(
             'httpMethod' => 'POST',
             'uri' => 'projects/{projectId}/todos/{todoId}/comments.json',
             'parameters' => array(
@@ -148,7 +148,7 @@ return array(
                 ),
             )
         ),
-        'GetAttachmentsByProject' => array(
+        'getAttachmentsByProject' => array(
             'httpMethod' => 'GET',
             'uri' => 'projects/{projectId}/attachments.json',
             'parameters' => array(
@@ -159,7 +159,7 @@ return array(
                 )
             )
         ),
-        'CreateAttachment' => array(
+        'createAttachment' => array(
             'httpMethod' => 'POST',
             'uri' => 'attachments.json',
             'parameters' => array(
@@ -176,7 +176,7 @@ return array(
                 ),
             )
         ),
-        'GetTodolist' => array(
+        'getTodolist' => array(
             'httpMethod' => 'GET',
             'uri' => 'projects/{projectId}/todolists/{todolistId}.json',
             'parameters' => array(
@@ -192,11 +192,11 @@ return array(
                 )
             )
         ),
-        'GetCurrentUser' => array(
+        'getCurrentUser' => array(
             'httpMethod' => 'GET',
             'uri' => 'people/me.json',
         ),
-        'GetGlobalEvents' => array(
+        'getGlobalEvents' => array(
             'httpMethod' => 'GET',
             'uri'       => 'events.json',
             'summary'   => 'Get all global events',
