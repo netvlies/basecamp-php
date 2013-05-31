@@ -31,9 +31,9 @@ class BasecampClient extends Client
             'auth_method'   => 'http',
             'token'         => null,
             'username'      => null,
-            'password'      => null
+            'password'      => null,
         );
-        $required = array('user_id', 'auth_method');
+        $required = array('user_id', 'auth_method', 'app_name', 'app_contact');
         $config = Collection::fromConfig($config, $default, $required);
         $client = new self($config->get('base_url'), $config);
 
@@ -57,8 +57,12 @@ class BasecampClient extends Client
         $description = ServiceDescription::factory(__DIR__ . '/Resources/service.php');
         $client->setDescription($description);
 
+        // Set required User-Agent
+        $client->setUserAgent(sprintf('%s (%s)', $config['app_name'], $config['app_contact']));
+
         $client->getEventDispatcher()->addListener('request.before_send', function(Event $event) use ($authoritzation) {
             $event['request']->addHeader('Authorization', $authoritzation);
+
         });
 
         return $client;
