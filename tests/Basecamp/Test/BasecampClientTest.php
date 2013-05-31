@@ -17,11 +17,13 @@ class BasecampClientTest extends \Guzzle\Tests\GuzzleTestCase
     public function testFactoryInitializesClient()
     {
         $client = BasecampClient::factory(array(
-            'auth'     => 'http',
-            'username' => 'foo',
-            'password' => 'bar',
-            'user_id'  => '999999999',
-            'version'  => 'v2'
+            'auth'          => 'http',
+            'username'      => 'foo',
+            'password'      => 'bar',
+            'user_id'       => '999999999',
+            'version'       => 'v2',
+            'app_name'      => 'Fake',
+            'app_contact'   => 'test@fake.com'
         ));
         $this->assertEquals('https://basecamp.com/999999999/api/v2/', $client->getBaseUrl());
     }
@@ -32,10 +34,12 @@ class BasecampClientTest extends \Guzzle\Tests\GuzzleTestCase
     public function testFactoryInitializesClientWithoutAuth()
     {
         $client = BasecampClient::factory(array(
-            'username' => 'foo',
-            'password' => 'bar',
-            'user_id'  => '999999999',
-            'version'  => 'v2'
+            'username'      => 'foo',
+            'password'      => 'bar',
+            'user_id'       => '999999999',
+            'version'       => 'v2',
+            'app_name'      => 'Fake',
+            'app_contact'   => 'test@fake.com'
         ));
     }
 
@@ -45,10 +49,12 @@ class BasecampClientTest extends \Guzzle\Tests\GuzzleTestCase
     public function testFactoryInitializesClientWithoutUserId()
     {
         $client = BasecampClient::factory(array(
-            'auth'     => 'http',
-            'username' => 'foo',
-            'password' => 'bar',
-            'version'  => 'v2'
+            'auth'          => 'http',
+            'username'      => 'foo',
+            'password'      => 'bar',
+            'version'       => 'v2',
+            'app_name'      => 'Fake',
+            'app_contact'   => 'test@fake.com'
         ));
     }
 
@@ -58,6 +64,21 @@ class BasecampClientTest extends \Guzzle\Tests\GuzzleTestCase
     public function testFactoryInitializesClientWithoutToken()
     {
         $client = BasecampClient::factory(array(
+            'auth'          => 'oauth',
+            'username'      => 'foo',
+            'password'      => 'bar',
+            'version'       => 'v2',
+            'app_name'      => 'Fake',
+            'app_contact'   => 'test@fake.com'
+        ));
+    }
+
+    /**
+     * @expectedException InvalidArgumentException
+     */
+    public function testFactoryInitializesClientWithoutIdentification()
+    {
+        $client = BasecampClient::factory(array(
             'auth'     => 'oauth',
             'username' => 'foo',
             'password' => 'bar',
@@ -65,13 +86,31 @@ class BasecampClientTest extends \Guzzle\Tests\GuzzleTestCase
         ));
     }
 
+    public function testFactoryInitializesClientWithIdentification()
+    {
+        $client = BasecampClient::factory(array(
+            'auth'          => 'oauth',
+            'username'      => 'foo',
+            'password'      => 'bar',
+            'version'       => 'v2',
+            'user_id'       => '999999999',
+            'app_name'      => 'Fake',
+            'app_contact'   => 'test@fake.com'
+        ));
+
+        $request = $client->get();
+        $this->assertEquals('Fake (test@fake.com)', (string) $request->getHeader('User-Agent'));
+    }
+
     public function testFactoryInitializesClientWithToken()
     {
         $client = BasecampClient::factory(array(
-            'auth'     => 'oauth',
-            'token'    => 'foo',
-            'version'  => 'v2',
-            'user_id'  => '999999999',
+            'auth'          => 'oauth',
+            'token'         => 'foo',
+            'version'       => 'v2',
+            'user_id'       => '999999999',
+            'app_name'      => 'Fake',
+            'app_contact'   => 'test@fake.com'
         ));
         $this->assertEquals('https://basecamp.com/999999999/api/v2/', $client->getBaseUrl());
     }
