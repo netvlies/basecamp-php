@@ -22,10 +22,12 @@ Guzzle\Tests\GuzzleTestCase::setServiceBuilder(Guzzle\Service\Builder\ServiceBui
     'basecamp' => array(
         'class' => 'Basecamp\BasecampClient',
         'params' => array(
-            'auth'     => 'http',
-            'username' => 'test_user',
-            'password' => '****',
-            'user_id'  => '99999999'
+            'auth'          => 'http',
+            'username'      => 'test_user',
+            'password'      => '****',
+            'user_id'       => '99999999',
+            'app_name'      => 'Basecamp PHP Test',
+            'app_contact'   => 'https://github.com/netvlies/basecamp-php'
         )
     )
 )));
