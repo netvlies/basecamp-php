@@ -198,8 +198,8 @@ return array(
         ),
         'getGlobalEvents' => array(
             'httpMethod' => 'GET',
-            'uri'       => 'events.json',
-            'summary'   => 'Get all global events',
+            'uri' => 'events.json',
+            'summary' => 'Get all global events',
             'parameters' => array(
                 'since' => array(
                     'location' => 'query',
@@ -208,5 +208,29 @@ return array(
                 )
             )
         ),
+        'getAccessesByProject' => array(
+            'httpMethod' => 'GET',
+            'uri' => 'projects/{projectId}/accesses.json',
+            'summary' => 'Will return all the people with access to the project',
+            'parameters' => array(
+                'projectId' => array(
+                    'location' => 'uri',
+                    'description' => 'Project id',
+                    'required' => true
+                )
+            )
+        ),
+        'getAccessesByCalendar' => array(
+            'httpMethod' => 'GET',
+            'uri' => 'calendars/{calendarId}/accesses.json',
+            'summary' => 'Will return all the people with access to the calendar',
+            'parameters' => array(
+                'calendarId' => array(
+                    'location' => 'uri',
+                    'description' => 'Calendar id',
+                    'required' => true
+                )
+            )
+        )
     )
 );

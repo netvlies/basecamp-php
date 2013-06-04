@@ -1,0 +1,19 @@
+HTTP/1.1 200 OK
+Server: nginx
+Date: Mon, 03 Jun 2013 11:13:15 GMT
+Content-Type: application/json; charset=utf-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+Status: 200 OK
+X-Frame-Options: SAMEORIGIN
+X-XSS-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+X-UA-Compatible: chrome=1
+X-XHR-Current-Location: /3/api/v1/projects/683267/accesses.json
+X-Asset-Paths: {"application.js":"application-0fc6f76969ad9fa77ec4e828af0168e5.js","application.css":"application-417c4f9074157e12c1dfb6ede37ce3e3.css"}
+Last-Modified: Mon, 13 May 2013 18:19:23 GMT
+Cache-Control: max-age=0, private, must-revalidate
+X-Request-Id: fd489380-8a63-47ba-bea0-c6c0e818d982
+X-Runtime: 0.331202
+
+[{"id":1,"name":"Jon Doe","email_address":"jon@doe.com","admin":true,"created_at":"2012-04-07T20:20:41.000+02:00","updated_at":"2013-05-30T12:42:39.000+02:00","identity_id":2,"avatar_url":"http://dge9rmgqjs8m1.cloudfront.net/global/1a6f0075e580330444c180f8c3b5dd2fbda3cd387e1033c0bd831b2e63cfb4d/avatar.gif?r=3","url":"https://basecamp.com/3/api/v1/people/1-john-doe.json"}]
