@@ -22,10 +22,12 @@ Upon creating the client you have to pass your credentials or an OAuth token. Fu
 <?php
 
 $service = \Basecamp\BasecampClient::factory(array(
-    'auth'     => 'http',
+    'auth' => 'http',
     'username' => 'you@email.com',
     'password' => 'secret',
-    'user_id'   => 99999999
+    'user_id' => 99999999,
+    'app_name' => 'My Wicked Application',
+    'app_contact' => 'http://mywickedapplication.com'
 ));
 ```
 
@@ -39,18 +41,78 @@ This library doesn't handle the OAuth authorization process for you. There are a
 $service = \Basecamp\BasecampClient::factory(array(
     'auth'     => 'oauth',
     'token'    => 'Wtj4htewhtuewhuoitewh',
-    'user_id'   => 99999999
+    'user_id'   => 99999999,
+    'app_name' => 'My Wicked Application',
+    'app_contact' => 'http://mywickedapplication.com'
 ));
 
 ```
+
+### Identification
+
+It is required to identify you application. This can be accomplished by using <code>app_name</code> and <code>app_contact</code>.
+
+## About this API client
+
+This client is build upon the shoulders of the impressive [Guzzle library][guzzle]. If you're willing to contribute to this client, make sure
+to check out the docs.
+
+## Caching
+
+It is required to implement caching in your application. Lucky for you, using Guzzle this is peanuts! Please refer to the [official docs][caching] for more information.
+
+Here's a quick example using the Doctrine cache:
+
+```php
+<?php
+
+use Basecamp\BasecampClient;
+use Doctrine\Common\Cache\FilesystemCache;
+use Guzzle\Cache\DoctrineCacheAdapter;
+use Guzzle\Plugin\Cache\CachePlugin;
+
+$cachePlugin = new CachePlugin(array(
+    'adapter' => new DoctrineCacheAdapter(new FilesystemCache(__DIR__.'/../../../../app/cache/basecamp'))
+));
+
+$this->client = BasecampClient::factory(array(
+    // config options
+));
+$this->client->addSubscriber($cachePlugin);
+
+```
+
+## API calls
+
+Currently only a few example calls have been documented. Refer to the service description (<code>src/Basecamp/Resources/service.php</code>) for all the available calls.
 
 ### Get a project
 
 ```php
 <?php
 
-$project = $service->getProject(1);
+$project = $client->getProject(array(
+    'projectId' => 1
+));
+
+```
+
+### Get documents
+
+```php
+<?php
+
+$documents = $client->getDocumentsByProject(array(
+    'projectId' => 1
+));
+
+$document = $client->getDocument(array(
+    'projectId' => 1,
+    'documentId' => 1
+));
 
 ```
 
 [basecamp]: https://basecamp.com/
+[guzzle]: http://guzzlephp.org/
+[caching]: http://guzzlephp.org/plugins/cache-plugin.html
