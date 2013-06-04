@@ -354,4 +354,34 @@ class BasecampClientTest extends \Guzzle\Tests\GuzzleTestCase
         $this->assertArrayHasKey('id', $response[0]);
         $this->assertSame(99999999, $response[0]['id']);
     }
+
+    public function testGetAccessesByProject()
+    {
+        $client = $this->getServiceBuilder()->get('basecamp');
+        $this->setMockResponse($client, array(
+            'get_accesses_by_project'
+        ));
+        $response = $client->getAccessesByProject(array(
+            'projectId' => 1
+        ));
+        $this->assertInternalType('array', $response);
+        $this->assertArrayHasKey(0, $response);
+        $this->assertArrayHasKey('id', $response[0]);
+        $this->assertSame(1, $response[0]['id']);
+    }
+
+    public function testGetAccessesByCalendar()
+    {
+        $client = $this->getServiceBuilder()->get('basecamp');
+        $this->setMockResponse($client, array(
+            'get_accesses_by_calendar'
+        ));
+        $response = $client->getAccessesByCalendar(array(
+            'calendarId' => 1
+        ));
+        $this->assertInternalType('array', $response);
+        $this->assertArrayHasKey(0, $response);
+        $this->assertArrayHasKey('id', $response[0]);
+        $this->assertSame(3, $response[0]['id']);
+    }
 }
