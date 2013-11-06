@@ -1,5 +1,5 @@
 {
-    "name": "netvlies/basecamp-php",
+    "name": "chriswoodford/basecamp-php",
     "description": "The Basecamp API makes it easy for developers to communicate with the 37signals Basecamp platform",
     "type": "library",
     "keywords": ["basecamp", "37signals", "api"],
