@@ -384,4 +384,18 @@ class BasecampClientTest extends \Guzzle\Tests\GuzzleTestCase
         $this->assertArrayHasKey('id', $response[0]);
         $this->assertSame(3, $response[0]['id']);
     }
+
+    public function testGetPeople()
+    {
+        $client = $this->getServiceBuilder()->get('basecamp');
+        $this->setMockResponse($client, array(
+            'get_people'
+        ));
+        $response = $client->getPeople();
+        $this->assertInternalType('array', $response);
+        $this->assertArrayHasKey(0, $response);
+        $this->assertArrayHasKey('id', $response[0]);
+        $this->assertSame(149087659, $response[0]['id']);
+    }
+
 }

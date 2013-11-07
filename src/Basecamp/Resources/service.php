@@ -231,6 +231,11 @@ return array(
                     'required' => true
                 )
             )
+        ),
+        'getPeople' => array(
+            'httpMethod' => 'GET',
+            'uri'       => 'people.json',
+            'summary'   => 'Get all people on the account'
         )
     )
 );
