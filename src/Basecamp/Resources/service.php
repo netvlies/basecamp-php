@@ -4,6 +4,11 @@ return array(
     'serviceFullName'       => '37signals Basecamp API',
     'serviceAbbreviation'   => 'Basecamp API',
     'operations'            => array(
+        'getArchivedProjects' => array(
+            'httpMethod' => 'GET',
+            'uri'       => 'projects/archived.json',
+            'summary'   => 'Get all archived projects'
+        ),
         'getProjects' => array(
             'httpMethod' => 'GET',
             'uri'       => 'projects.json',
