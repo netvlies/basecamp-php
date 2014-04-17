@@ -192,6 +192,22 @@ return array(
                 )
             )
         ),
+        'getTodo' => array(
+            'httpMethod' => 'GET',
+            'uri' => 'projects/{projectId}/todos/{todoId}.json',
+            'parameters' => array(
+                'projectId' => array(
+                    'location' => 'uri',
+                    'description' => 'Project id',
+                    'required' => true
+                ),
+                'todoId' => array(
+                    'location' => 'uri',
+                    'description' => 'Todo id',
+                    'required' => true
+                )
+            )
+        ),
         'getCurrentUser' => array(
             'httpMethod' => 'GET',
             'uri' => 'people/me.json',
