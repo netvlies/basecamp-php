@@ -224,6 +224,23 @@ return array(
                 )
             )
         ),
+        'getProjectEvents' => array(
+            'httpMethod' => 'GET',
+            'uri' => 'projects/{projectId}/events.json',
+            'summary' => 'Get all the events on the given project',
+            'parameters' => array(
+                'projectId' => array(
+                    'location' => 'uri',
+                    'description' => 'Project id',
+                    'required' => true
+                ),
+                'since' => array(
+                    'location' => 'query',
+                    'description' => 'All events since given datetime (format: 2012-03-24T11:00:00-06:00)',
+                    'required' => false
+                )
+            )
+        ),
         'getAccessesByProject' => array(
             'httpMethod' => 'GET',
             'uri' => 'projects/{projectId}/accesses.json',
