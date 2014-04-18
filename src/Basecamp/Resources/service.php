@@ -18,7 +18,7 @@ return array(
             'httpMethod' => 'GET',
             'uri'        => 'projects/{id}.json',
             'parameters' => array(
-                'projectId' => array(
+                'id' => array(
                     'location' => 'uri',
                     'description' => 'Project to retrieve by ID',
                     'required' => true

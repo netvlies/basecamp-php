@@ -135,7 +135,7 @@ class BasecampClientTest extends \Guzzle\Tests\GuzzleTestCase
             'get_project'
         ));
         $response = $client->getProject(array(
-            'projectId' => 1
+            'id' => 1
         ));
         $this->assertInternalType('array', $response);
         $this->assertArrayHasKey('id', $response);
