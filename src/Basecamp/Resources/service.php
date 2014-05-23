@@ -74,6 +74,17 @@ return array(
                 )
             )
         ),
+        'getAssignedTodolistsByPerson' => array(
+            'httpMethod' => 'GET',
+            'uri' => 'people/{personId}/assigned_todos.json',
+            'parameters' => array(
+                'personId' => array(
+                    'location' => 'uri',
+                    'description' => 'Person id',
+                    'required' => true
+                )
+            )
+        ),
         'getCompletedTodolistsByProject' => array(
             'httpMethod' => 'GET',
             'uri' => 'projects/{projectId}/todolists/completed.json',
