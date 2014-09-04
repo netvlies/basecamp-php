@@ -224,6 +224,42 @@ return array(
                 )
             )
         ),
+        'updateTodo' => array(
+            'httpMethod' => 'PUT',
+            'uri' => 'projects/{projectId}/todos/{todoId}.json',
+            'parameters' => array(
+                'projectId' => array(
+                    'location' => 'uri',
+                    'description' => 'Project id',
+                    'required' => true,
+                ),
+                'todoId' => array(
+                    'location' => 'uri',
+                    'description' => 'Todo id',
+                    'required' => true,
+                ),
+                'content' => array(
+                    'location' => 'json',
+                    'type' => 'string',
+                    'required' => false,
+                ),
+                'due_at' => array(
+                    'location' => 'json',
+                    'type' => 'string',
+                    'required' => false,
+                ),
+                'assignee' => array(
+                    'location' => 'json',
+                    'type' => array( 'array', 'object' ),
+                    'required' => false,
+                ),
+                'completed' => array(
+                    'location' => 'json',
+                    'type' => 'string',
+                    'required' => false,
+                ),
+            )
+        ),
         'getCurrentUser' => array(
             'httpMethod' => 'GET',
             'uri' => 'people/me.json',
