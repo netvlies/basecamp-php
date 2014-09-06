@@ -136,6 +136,11 @@ return array(
                     "type" => "string",
                     'required' => true,
                 ),
+                'assignee' => array(
+                    'location' => 'json',
+                    'type' => array( 'array', 'object' ),
+                    'required' => false,
+                ),
             )
         ),
         'createCommentByTodo' => array(
