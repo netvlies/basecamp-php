@@ -105,14 +105,14 @@ return array(
                     'description' => 'Project id',
                     'required' => true
                 ),
-                "name" => array(
-                    "location" => "json",
-                    "type" => "string",
+                'name' => array(
+                    'location' => 'json',
+                    'type' => 'string',
                     'required' => true,
                 ),
-                "description" => array(
-                    "location" => "json",
-                    "type" => "string",
+                'description' => array(
+                    'location' => 'json',
+                    'type' => 'string',
                     'required' => true,
                 )
             )
@@ -131,9 +131,9 @@ return array(
                     'description' => 'Todo list id',
                     'required' => true
                 ),
-                "content" => array(
-                    "location" => "json",
-                    "type" => "string",
+                'content' => array(
+                    'location' => 'json',
+                    'type' => 'string',
                     'required' => true,
                 ),
             )
@@ -152,15 +152,15 @@ return array(
                     'description' => 'Todo id',
                     'required' => true
                 ),
-                "content" => array(
-                    "location" => "json",
-                    "type" => "string",
+                'content' => array(
+                    'location' => 'json',
+                    'type' => 'string',
                     'required' => true,
                 ),
-                "attachments" => array(
-                    "location" => "json",
-                    "type" => "array",
-                    "required" => false,
+                'attachments' => array(
+                    'location' => 'json',
+                    'type' => 'array',
+                    'required' => false,
                 ),
             )
         ),
