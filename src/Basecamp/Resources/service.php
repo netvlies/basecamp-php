@@ -122,14 +122,14 @@ return array(
                     'type' => 'integer',
                     'required' => true,
                 ),
-                "name" => array(
-                    "location" => "json",
-                    "type" => "string",
+                'name' => array(
+                    'location' => 'json',
+                    'type' => 'string',
                     'required' => true,
                 ),
-                "description" => array(
-                    "location" => "json",
-                    "type" => "string",
+                'description' => array(
+                    'location' => 'json',
+                    'type' => 'string',
                     'required' => true,
                 )
             )
@@ -151,9 +151,9 @@ return array(
                     'type' => 'integer',
                     'required' => true,
                 ),
-                "content" => array(
-                    "location" => "json",
-                    "type" => "string",
+                'content' => array(
+                    'location' => 'json',
+                    'type' => 'string',
                     'required' => true,
                 ),
                 'assignee' => array(
@@ -180,15 +180,15 @@ return array(
                     'type' => 'integer',
                     'required' => true,
                 ),
-                "content" => array(
-                    "location" => "json",
-                    "type" => "string",
+                'content' => array(
+                    'location' => 'json',
+                    'type' => 'string',
                     'required' => true,
                 ),
-                "attachments" => array(
-                    "location" => "json",
-                    "type" => "array",
-                    "required" => false,
+                'attachments' => array(
+                    'location' => 'json',
+                    'type' => 'array',
+                    'required' => false,
                 ),
             )
         ),
