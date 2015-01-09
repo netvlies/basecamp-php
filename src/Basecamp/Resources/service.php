@@ -95,6 +95,18 @@ return array(
                     'description' => 'Person id',
                     'type' => 'integer',
                     'required' => true,
+                ),
+                'page' => array(
+                    'location' => 'query',
+                    'description' => 'The page to retrieve. API returns 50 todos per page.',
+                    'type' => 'integer',
+                    'required' => false,
+                ),
+                'due_since' => array(
+                    'location' => 'query',
+                    'description' => 'Will return all the to-do lists with to-dos assigned to the specified person due after the date specified. (format: 2012-03-24T11:00:00-06:00)',
+                    'type' => 'string',
+                    'required' => false,
                 )
             )
         ),

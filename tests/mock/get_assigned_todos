@@ -1,0 +1,20 @@
+HTTP/1.1 200 OK
+Server: nginx
+Date: Mon, 06 May 2013 18:34:57 GMT
+Content-Type: application/json; charset=utf-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+Status: 200 OK
+X-Frame-Options: SAMEORIGIN
+X-XSS-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+X-UA-Compatible: chrome=1
+X-XHR-Current-Location: /4/api/v1/people/1/assigned_todos.json
+X-Asset-Paths: {"application.js":"application-0c0992989093fa4dbb712896bcbe9c43.js","application.css":"application-ba3fca7ffe4e7fc55befb5ebd87f0b1b.css"}
+ETag: "cffa36e0c7d155a53123639774f8ef77"
+Last-Modified: Thu, 11 Apr 2013 07:52:13 GMT
+Cache-Control: max-age=0, private, must-revalidate
+X-Request-Id: bce0aa94-6b44-45e8-90b3-019c3d27c27f
+X-Runtime: 0.361570
+
+[{"id":968316918,"name":"Launch list","description":"What we need for launch!","created_at":"2012-03-22T16:46:52-05:00","updated_at":"2012-03-29T11:00:39-05:00","url":"https://basecamp.com/999999999/api/v1/projects/605816632/todolists/968316918.json","app_url":"https://basecamp.com/999999999/projects/605816632/todolists/968316918","completed":false,"position":1,"private":false,"trashed":false,"completed_count":3,"remaining_count":5,"creator":{"id":127326141,"name":"David Heinemeier Hansson","avatar_url":"https://asset0.37img.com/global/9d2148cb8ed8e2e8ecbc625dd1cbe7691896c7d9/avatar.96.gif?r=3","fullsize_avatar_url":"https://asset0.37img.com/global/9d2148cb8ed8e2e8ecbc625dd1cbe7691896c7d9/original.gif?r=3"},"assigned_todos":[{"id":223304243,"content":"Design it","due_at":"2012-03-30","comments_count":0,"created_at":"2012-03-27T13:19:30-05:00","updated_at":"2012-03-29T11:00:38-05:00","url":"https://basecamp.com/999999999/api/v1/projects/605816632/todos/223304243.json","app_url":"https://basecamp.com/999999999/projects/605816632/todos/223304243","position":1}],"bucket":{"id":605816632,"name":"BCX","type":"Project","url":"https://basecamp.com/999999999/api/v1/projects/605816632.json","app_url":"https://basecamp.com/999999999/projects/605816632"}},{"id":812358930,"name":"Version 2","description":"What we will do next","created_at":"2012-03-22T16:46:52-05:00","updated_at":"2012-03-29T10:50:33-05:00","url":"https://basecamp.com/999999999/api/v1/projects/605816632/todolists/812358930.json","app_url":"https://basecamp.com/999999999/projects/605816632/todolists/812358930","completed":false,"position":2,"private":false,"trashed":false,"completed_count":0,"remaining_count":4,"creator":{"id":127326141,"name":"David Heinemeier Hansson","avatar_url":"https://asset0.37img.com/global/9d2148cb8ed8e2e8ecbc625dd1cbe7691896c7d9/avatar.96.gif?r=3","fullsize_avatar_url":"https://asset0.37img.com/global/9d2148cb8ed8e2e8ecbc625dd1cbe7691896c7d9/original.gif?r=3"},"assigned_todos":[{"id":270524416,"content":"Fix all the bugs","due_at":null,"comments_count":0,"created_at":"2012-03-27T13:19:30-05:00","updated_at":"2012-03-29T10:50:33-05:00","url":"https://basecamp.com/999999999/api/v1/projects/605816632/todos/270524416.json","app_url":"https://basecamp.com/999999999/projects/605816632/todos/270524416","position":1}],"bucket":{"id":605816632,"name":"BCX","type":"Project","url":"https://basecamp.com/999999999/api/v1/projects/605816632.json","app_url":"https://basecamp.com/999999999/projects/605816632"}}]
