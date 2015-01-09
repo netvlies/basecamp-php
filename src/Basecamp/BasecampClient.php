@@ -45,7 +45,7 @@ class BasecampClient extends Client
         }
         if ($config['auth'] === 'oauth') {
             if (! isset($config['token'])) {
-                throw new InvalidArgumentException("Config must contain token when using oath");
+                throw new InvalidArgumentException("Config must contain token when using oauth");
             }
             $authoritzation = sprintf('Bearer %s', $config['token']);
         }
