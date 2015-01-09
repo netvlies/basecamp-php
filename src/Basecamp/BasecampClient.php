@@ -41,15 +41,15 @@ class BasecampClient extends Client
             if (! isset($config['username'], $config['password'])) {
                 throw new InvalidArgumentException("Config must contain username and password when using http auth");
             }
-            $authoritzation = 'Basic ' . base64_encode($config['username'] . ':' . $config['password']);
+            $authorization = 'Basic ' . base64_encode($config['username'] . ':' . $config['password']);
         }
         if ($config['auth'] === 'oauth') {
             if (! isset($config['token'])) {
                 throw new InvalidArgumentException("Config must contain token when using oauth");
             }
-            $authoritzation = sprintf('Bearer %s', $config['token']);
+            $authorization = sprintf('Bearer %s', $config['token']);
         }
-        if (! isset($authoritzation)) {
+        if (! isset($authorization)) {
             throw new InvalidArgumentException("Config must contain valid authentication method");
         }
 
@@ -60,8 +60,8 @@ class BasecampClient extends Client
         // Set required User-Agent
         $client->setUserAgent(sprintf('%s (%s)', $config['app_name'], $config['app_contact']));
 
-        $client->getEventDispatcher()->addListener('request.before_send', function(Event $event) use ($authoritzation) {
-            $event['request']->addHeader('Authorization', $authoritzation);
+        $client->getEventDispatcher()->addListener('request.before_send', function(Event $event) use ($authorization) {
+            $event['request']->addHeader('Authorization', $authorization);
 
         });
 
