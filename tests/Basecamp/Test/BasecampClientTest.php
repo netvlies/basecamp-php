@@ -89,7 +89,7 @@ class BasecampClientTest extends \Guzzle\Tests\GuzzleTestCase
     public function testFactoryInitializesClientWithIdentification()
     {
         $client = BasecampClient::factory(array(
-            'auth'          => 'oauth',
+            'auth'          => 'http',
             'username'      => 'foo',
             'password'      => 'bar',
             'version'       => 'v2',
