@@ -153,7 +153,9 @@ $response = $client->getTodolistsByProject( array(
 
 ```php 
 $response = $client->getAssignedTodolistsByPerson( array( 
-	'personId' => 1234567,  // Required. Person id 
+	'personId' => 1234567,  // Required. Person id
+	'page' => 1234567,  // Optional
+	'due_since' => '2012-03-24T11:00:00-06:00',  // Optional
 ) ); 
 ``` 
 
