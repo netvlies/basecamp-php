@@ -28,12 +28,12 @@ class BasecampClient extends Client
         $default = array(
             'base_url'      => 'https://basecamp.com/{user_id}/api/{version}/',
             'version'       => 'v1',
-            'auth_method'   => 'http',
+            'auth'          => 'http',
             'token'         => null,
             'username'      => null,
             'password'      => null,
         );
-        $required = array('user_id', 'auth_method', 'app_name', 'app_contact');
+        $required = array('user_id', 'app_name', 'app_contact');
         $config = Collection::fromConfig($config, $default, $required);
         $client = new self($config->get('base_url'), $config);
 

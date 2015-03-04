@@ -31,7 +31,7 @@ class BasecampClientTest extends \Guzzle\Tests\GuzzleTestCase
     /**
      * @expectedException InvalidArgumentException
      */
-    public function testFactoryInitializesClientWithoutAuth()
+    public function testFactoryInitializesClientWithInvalidAuth()
     {
         $client = BasecampClient::factory(array(
             'username'      => 'foo',
@@ -39,7 +39,8 @@ class BasecampClientTest extends \Guzzle\Tests\GuzzleTestCase
             'user_id'       => '999999999',
             'version'       => 'v2',
             'app_name'      => 'Fake',
-            'app_contact'   => 'test@fake.com'
+            'app_contact'   => 'test@fake.com',
+            'auth'          => 'invalid_auth_type'
         ));
     }
 
