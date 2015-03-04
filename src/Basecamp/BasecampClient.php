@@ -33,7 +33,7 @@ class BasecampClient extends Client
             'username'      => null,
             'password'      => null,
         );
-        $required = array('user_id', 'auth', 'app_name', 'app_contact');
+        $required = array('user_id', 'app_name', 'app_contact');
         $config = Collection::fromConfig($config, $default, $required);
         $client = new self($config->get('base_url'), $config);
 
