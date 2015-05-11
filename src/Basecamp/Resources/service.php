@@ -387,6 +387,11 @@ return array(
             'httpMethod' => 'GET',
             'uri'       => 'people.json',
             'summary'   => 'Get all People' . PHP_EOL . '[Basecamp API: People](https://github.com/basecamp/bcx-api/blob/master/sections/people.md)'
+        ),
+        'getGroups' => array(
+            'httpMethod' => 'GET',
+            'uri'       => 'groups.json',
+            'summary'   => 'Get all Groups' . PHP_EOL . '[Basecamp API: People](https://github.com/basecamp/bcx-api/blob/master/sections/groups.md)'
         )
     )
 );
