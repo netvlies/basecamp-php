@@ -463,4 +463,24 @@ class BasecampClientTest extends \Guzzle\Tests\GuzzleTestCase
         $this->assertArrayHasKey('id', $response[0]);
         $this->assertSame(605816632, $response[0]['id']);
     }
+
+    public function testGetGroups()
+    {
+        $client = $this->getServiceBuilder()->get('basecamp');
+        $this->setMockResponse($client, array(
+            'get_groups'
+        ));
+        $response = $client->getGroups();
+        $this->assertInternalType('array', $response);
+        $this->assertArrayHasKey(0, $response);
+        $this->assertArrayHasKey('id', $response[0]);
+        $this->assertArrayHasKey('name', $response[0]);
+        $this->assertSame(12345, $response[0]['id']);
+        $this->assertSame("Foo Limited", $response[0]['name']);
+        $this->assertArrayHasKey(1, $response);
+        $this->assertArrayHasKey('id', $response[1]);
+        $this->assertArrayHasKey('name', $response[1]);
+        $this->assertSame(67890, $response[1]['id']);
+        $this->assertSame("Bar Associates", $response[1]['name']);
+    }
 }
