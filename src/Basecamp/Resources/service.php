@@ -123,6 +123,46 @@ return array(
                 )
             )
         ),
+        'createProject' => array(
+            'httpMethod' => 'POST',
+            'url' => 'projects.json',
+            'summary' => 'Create a new project' . PHP_EOL . '[Basecamp API: Projects](https://github.com/basecamp/bcx-api/blob/master/sections/projects.md)',
+            'parameters' => array(
+                'name' => array(
+                    'location' => 'json',
+                    'type' => 'string',
+                    'required' => true
+                ),
+                'description' => array(
+                    'location' => 'json',
+                    'type' => 'string',
+                    'required' => true
+                )
+            )
+        ),
+        'createDocument' => array(
+            'httpMethod' => 'POST',
+            'url' => 'projects/{projectId}/documents.json',
+            'summary' => 'Create a new document' . PHP_EOL . '[Basecamp API: Documents](https://github.com/basecamp/bcx-api/blob/master/sections/documents.md)',
+            'parameters' => array(
+                'projectId' => array(
+                    'location' => 'uri',
+                    'description' => 'Project ID',
+                    'type' => 'integer',
+                    'required' => true
+                ),
+                'title' => array(
+                    'location' => 'json',
+                    'type' => 'string',
+                    'required' => true
+                ),
+                'content' => array(
+                    'location' => 'json',
+                    'type' => 'string',
+                    'required' => true
+                )
+            )
+        ),
         'createTodolistByProject' => array(
             'httpMethod' => 'POST',
             'uri' => 'projects/{projectId}/todolists.json',
