@@ -125,7 +125,7 @@ return array(
         ),
         'createProject' => array(
             'httpMethod' => 'POST',
-            'url' => 'projects.json',
+            'uri' => 'projects.json',
             'summary' => 'Create a new project' . PHP_EOL . '[Basecamp API: Projects](https://github.com/basecamp/bcx-api/blob/master/sections/projects.md)',
             'parameters' => array(
                 'name' => array(
@@ -142,7 +142,7 @@ return array(
         ),
         'createDocument' => array(
             'httpMethod' => 'POST',
-            'url' => 'projects/{projectId}/documents.json',
+            'uri' => 'projects/{projectId}/documents.json',
             'summary' => 'Create a new document' . PHP_EOL . '[Basecamp API: Documents](https://github.com/basecamp/bcx-api/blob/master/sections/documents.md)',
             'parameters' => array(
                 'projectId' => array(
@@ -432,6 +432,31 @@ return array(
             'httpMethod' => 'GET',
             'uri'       => 'groups.json',
             'summary'   => 'Get all Groups' . PHP_EOL . '[Basecamp API: People](https://github.com/basecamp/bcx-api/blob/master/sections/groups.md)'
+        ),
+        'grantAccess' => array(
+            'httpMethod' => 'POST',
+            'uri' => 'projects/{projectId}/accesses.json',
+            'summary' => 'Grant access' . PHP_EOL . '[Basecamp API: Access](https://github.com/basecamp/bcx-api/blob/master/sections/accesses.md)',
+            'parameters' => array(
+                'projectId' => array(
+                    'location' => 'uri',
+                    'description' => 'Project id',
+                    'type' => 'integer',
+                    'required' => true
+                ),
+                'ids' => array(
+                    'location' => 'json',
+                    'description' => 'Existing user ids',
+                    'type' => 'array',
+                    'required' => true
+                ),
+                'email_addresses' => array(
+                    'location' => 'json',
+                    'description' => 'Grant access to new users',
+                    'type' => 'string',
+                    'required' => false
+                )
+            )
         )
     )
 );
