@@ -431,6 +431,22 @@ class BasecampClientTest extends \Guzzle\Tests\GuzzleTestCase
         $this->assertSame(1, $response[0]['id']);
     }
 
+    public function testGrantAccessToProject()
+    {
+        $client = $this->getServiceBuilder()->get('basecamp');
+        $this->setMockResponse($client, [
+            'grant_access'
+        ]);
+        $response = $client->grantAccess([
+            'projectId' => 1,
+            'ids' => [1,2,3]
+        ]);
+        $firstAccess = $response[0];
+        $this->assertInternalType('array', $firstAccess);
+        $this->assertArrayHasKey('id', $firstAccess);
+        $this->assertSame(1, $firstAccess['identity_id']);
+    }
+
     public function testGetAccessesByCalendar()
     {
         $client = $this->getServiceBuilder()->get('basecamp');
