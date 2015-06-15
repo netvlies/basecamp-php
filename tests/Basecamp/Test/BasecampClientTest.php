@@ -16,7 +16,7 @@ class BasecampClientTest extends \Guzzle\Tests\GuzzleTestCase
 {
     public function testFactoryInitializesClient()
     {
-        $client = BasecampClient::factory([
+        $client = BasecampClient::factory(array(
             'auth'        => 'http',
             'username'    => 'foo',
             'password'    => 'bar',
@@ -24,7 +24,7 @@ class BasecampClientTest extends \Guzzle\Tests\GuzzleTestCase
             'version'     => 'v2',
             'app_name'    => 'Fake',
             'app_contact' => 'test@fake.com'
-        ]);
+        ));
         $this->assertEquals('https://basecamp.com/999999999/api/v2/', $client->getBaseUrl());
     }
 
@@ -33,7 +33,7 @@ class BasecampClientTest extends \Guzzle\Tests\GuzzleTestCase
      */
     public function testFactoryInitializesClientWithInvalidAuth()
     {
-        $client = BasecampClient::factory([
+        $client = BasecampClient::factory(array(
             'username'    => 'foo',
             'password'    => 'bar',
             'user_id'     => '999999999',
@@ -41,7 +41,7 @@ class BasecampClientTest extends \Guzzle\Tests\GuzzleTestCase
             'app_name'    => 'Fake',
             'app_contact' => 'test@fake.com',
             'auth'        => 'invalid_auth_type'
-        ]);
+        ));
     }
 
     /**
@@ -49,14 +49,14 @@ class BasecampClientTest extends \Guzzle\Tests\GuzzleTestCase
      */
     public function testFactoryInitializesClientWithoutUserId()
     {
-        $client = BasecampClient::factory([
+        $client = BasecampClient::factory(array(
             'auth'        => 'http',
             'username'    => 'foo',
             'password'    => 'bar',
             'version'     => 'v2',
             'app_name'    => 'Fake',
             'app_contact' => 'test@fake.com'
-        ]);
+        ));
     }
 
     /**
@@ -64,14 +64,14 @@ class BasecampClientTest extends \Guzzle\Tests\GuzzleTestCase
      */
     public function testFactoryInitializesClientWithoutToken()
     {
-        $client = BasecampClient::factory([
+        $client = BasecampClient::factory(array(
             'auth'        => 'oauth',
             'username'    => 'foo',
             'password'    => 'bar',
             'version'     => 'v2',
             'app_name'    => 'Fake',
             'app_contact' => 'test@fake.com'
-        ]);
+        ));
     }
 
     /**
@@ -79,17 +79,17 @@ class BasecampClientTest extends \Guzzle\Tests\GuzzleTestCase
      */
     public function testFactoryInitializesClientWithoutIdentification()
     {
-        $client = BasecampClient::factory([
+        $client = BasecampClient::factory(array(
             'auth'     => 'oauth',
             'username' => 'foo',
             'password' => 'bar',
             'version'  => 'v2'
-        ]);
+        ));
     }
 
     public function testFactoryInitializesClientWithIdentification()
     {
-        $client = BasecampClient::factory([
+        $client = BasecampClient::factory(array(
             'auth'        => 'http',
             'username'    => 'foo',
             'password'    => 'bar',
@@ -97,7 +97,7 @@ class BasecampClientTest extends \Guzzle\Tests\GuzzleTestCase
             'user_id'     => '999999999',
             'app_name'    => 'Fake',
             'app_contact' => 'test@fake.com'
-        ]);
+        ));
 
         $request = $client->get();
         $this->assertEquals('Fake (test@fake.com)', (string)$request->getHeader('User-Agent'));
@@ -105,23 +105,23 @@ class BasecampClientTest extends \Guzzle\Tests\GuzzleTestCase
 
     public function testFactoryInitializesClientWithToken()
     {
-        $client = BasecampClient::factory([
+        $client = BasecampClient::factory(array(
             'auth'        => 'oauth',
             'token'       => 'foo',
             'version'     => 'v2',
             'user_id'     => '999999999',
             'app_name'    => 'Fake',
             'app_contact' => 'test@fake.com'
-        ]);
+        ));
         $this->assertEquals('https://basecamp.com/999999999/api/v2/', $client->getBaseUrl());
     }
 
     public function testGetProjects()
     {
         $client = $this->getServiceBuilder()->get('basecamp');
-        $this->setMockResponse($client, [
+        $this->setMockResponse($client, array(
             'get_projects'
-        ]);
+        ));
         $response = $client->getProjects();
         $this->assertInternalType('array', $response);
         $this->assertArrayHasKey(0, $response);
@@ -132,12 +132,12 @@ class BasecampClientTest extends \Guzzle\Tests\GuzzleTestCase
     public function testGetProject()
     {
         $client = $this->getServiceBuilder()->get('basecamp');
-        $this->setMockResponse($client, [
+        $this->setMockResponse($client, array(
             'get_project'
-        ]);
-        $response = $client->getProject([
+        ));
+        $response = $client->getProject(array(
             'id' => 1
-        ]);
+        ));
         $this->assertInternalType('array', $response);
         $this->assertArrayHasKey('id', $response);
         $this->assertSame(1, $response['id']);
@@ -147,12 +147,12 @@ class BasecampClientTest extends \Guzzle\Tests\GuzzleTestCase
     public function testGetDocumentsByProject()
     {
         $client = $this->getServiceBuilder()->get('basecamp');
-        $this->setMockResponse($client, [
+        $this->setMockResponse($client, array(
             'get_documents_by_project'
-        ]);
-        $response = $client->getDocumentsByProject([
+        ));
+        $response = $client->getDocumentsByProject(array(
             'projectId' => 1
-        ]);
+        ));
         $this->assertInternalType('array', $response);
         $this->assertArrayHasKey(0, $response);
         $this->assertSame(12343, $response[0]['id']);
@@ -161,13 +161,13 @@ class BasecampClientTest extends \Guzzle\Tests\GuzzleTestCase
     public function testGetDocument()
     {
         $client = $this->getServiceBuilder()->get('basecamp');
-        $this->setMockResponse($client, [
+        $this->setMockResponse($client, array(
             'get_document'
-        ]);
-        $response = $client->getDocument([
+        ));
+        $response = $client->getDocument(array(
             'projectId'  => 123,
             'documentId' => 456
-        ]);
+        ));
         $this->assertInternalType('array', $response);
         $this->assertArrayHasKey('id', $response);
         $this->assertSame(123, $response['id']);
@@ -176,12 +176,12 @@ class BasecampClientTest extends \Guzzle\Tests\GuzzleTestCase
     public function testGetTopicsByProject()
     {
         $client = $this->getServiceBuilder()->get('basecamp');
-        $this->setMockResponse($client, [
+        $this->setMockResponse($client, array(
             'get_topics_by_project'
-        ]);
-        $response = $client->getTopicsByProject([
+        ));
+        $response = $client->getTopicsByProject(array(
             'projectId' => 1
-        ]);
+        ));
 
         $this->assertInternalType('array', $response);
         $this->assertArrayHasKey('id', $response[0]);
@@ -191,12 +191,12 @@ class BasecampClientTest extends \Guzzle\Tests\GuzzleTestCase
     public function testGetTodolistsByProject()
     {
         $client = $this->getServiceBuilder()->get('basecamp');
-        $this->setMockResponse($client, [
+        $this->setMockResponse($client, array(
             'get_todolists_by_project'
-        ]);
-        $response = $client->getTodolistsByProject([
+        ));
+        $response = $client->getTodolistsByProject(array(
             'projectId' => 1
-        ]);
+        ));
         $this->assertInternalType('array', $response);
         $this->assertArrayHasKey('id', $response[0]);
         $this->assertSame(3, $response[0]['id']);
@@ -205,12 +205,12 @@ class BasecampClientTest extends \Guzzle\Tests\GuzzleTestCase
     public function testgetAssignedTodolistsByPerson()
     {
         $client = $this->getServiceBuilder()->get('basecamp');
-        $this->setMockResponse($client, [
+        $this->setMockResponse($client, array(
             'get_assigned_todos'
-        ]);
-        $response = $client->getAssignedTodolistsByPerson([
+        ));
+        $response = $client->getAssignedTodolistsByPerson(array(
             'personId' => 1
-        ]);
+        ));
 
         $this->assertInternalType('array', $response);
         $this->assertArrayHasKey('id', $response[0]);
@@ -224,12 +224,12 @@ class BasecampClientTest extends \Guzzle\Tests\GuzzleTestCase
     public function testGetCompletedTodolistsByProject()
     {
         $client = $this->getServiceBuilder()->get('basecamp');
-        $this->setMockResponse($client, [
+        $this->setMockResponse($client, array(
             'get_completed_todolists_by_project'
-        ]);
-        $response = $client->getCompletedTodolistsByProject([
+        ));
+        $response = $client->getCompletedTodolistsByProject(array(
             'projectId' => 1
-        ]);
+        ));
         $this->assertInternalType('array', $response);
         $this->assertArrayHasKey('id', $response[0]);
         $this->assertSame(7091994, $response[0]['id']);
@@ -240,15 +240,15 @@ class BasecampClientTest extends \Guzzle\Tests\GuzzleTestCase
     public function testCreateProject()
     {
         $client = $this->getServiceBuilder()->get('basecamp');
-        $this->setMockResponse($client, [
+        $this->setMockResponse($client, array(
             'create_project'
-        ]);
+        ));
         $projectName = 'Support (inbound)';
         $projectDescription = 'Lorem ipsum';
-        $response = $client->createProject([
+        $response = $client->createProject(array(
             'name'        => $projectName,
             'description' => $projectDescription
-        ]);
+        ));
         $this->assertInternalType('array', $response);
         $this->assertArrayHasKey('id', $response);
         $this->assertArrayHasKey('name', $response);
@@ -260,15 +260,15 @@ class BasecampClientTest extends \Guzzle\Tests\GuzzleTestCase
     public function testCreateDocument()
     {
         $client = $this->getServiceBuilder()->get('basecamp');
-        $this->setMockResponse($client, [
+        $this->setMockResponse($client, array(
             'create_document'
-        ]);
+        ));
         $documentTitle = "Support (inbound)";
         $documentContent = "Lorem ipsum";
         $response = $client->createDocument(array(
             'projectId' => 1,
-            'title' => $documentTitle,
-            'content' => $documentContent
+            'title'     => $documentTitle,
+            'content'   => $documentContent
         ));
         $this->assertInternalType('array', $response);
         $this->assertArrayHasKey('id', $response);
@@ -281,16 +281,16 @@ class BasecampClientTest extends \Guzzle\Tests\GuzzleTestCase
     public function testCreateTodolistByProject()
     {
         $client = $this->getServiceBuilder()->get('basecamp');
-        $this->setMockResponse($client, [
+        $this->setMockResponse($client, array(
             'create_todolist_by_project'
-        ]);
+        ));
         $todolist = "Support (inbound)";
         $todolistDesc = "Lorem ipsum";
-        $response = $client->createTodolistByProject([
+        $response = $client->createTodolistByProject(array(
             'projectId'   => 1,
             'name'        => $todolist,
             'description' => $todolistDesc
-        ]);
+        ));
         $this->assertInternalType('array', $response);
         $this->assertArrayHasKey('id', $response);
         $this->assertArrayHasKey('name', $response);
@@ -303,15 +303,15 @@ class BasecampClientTest extends \Guzzle\Tests\GuzzleTestCase
     public function testCreateTodoByTodolist()
     {
         $client = $this->getServiceBuilder()->get('basecamp');
-        $this->setMockResponse($client, [
+        $this->setMockResponse($client, array(
             'create_todo_by_todolist'
-        ]);
+        ));
         $todo = "Subject";
-        $response = $client->createTodoByTodolist([
+        $response = $client->createTodoByTodolist(array(
             'projectId'  => 1,
             'todolistId' => 7091994,
             'content'    => $todo
-        ]);
+        ));
         $this->assertInternalType('array', $response);
         $this->assertArrayHasKey('id', $response);
         $this->assertArrayHasKey('content', $response);
@@ -322,16 +322,16 @@ class BasecampClientTest extends \Guzzle\Tests\GuzzleTestCase
     public function testCreateCommentByTodo()
     {
         $client = $this->getServiceBuilder()->get('basecamp');
-        $this->setMockResponse($client, [
+        $this->setMockResponse($client, array(
             'create_comment_by_todo'
-        ]);
+        ));
         $comment = "Text message.";
 
-        $response = $client->createCommentByTodo([
+        $response = $client->createCommentByTodo(array(
             'projectId' => 1,
             'todoId'    => 41367037,
             'content'   => $comment
-        ]);
+        ));
         $this->assertInternalType('array', $response);
         $this->assertArrayHasKey('id', $response);
         $this->assertArrayHasKey('content', $response);
@@ -342,12 +342,12 @@ class BasecampClientTest extends \Guzzle\Tests\GuzzleTestCase
     public function testGetAttachmentsByProject()
     {
         $client = $this->getServiceBuilder()->get('basecamp');
-        $this->setMockResponse($client, [
+        $this->setMockResponse($client, array(
             'get_attachments_by_project'
-        ]);
-        $response = $client->getAttachmentsByProject([
+        ));
+        $response = $client->getAttachmentsByProject(array(
             'projectId' => 1
-        ]);
+        ));
 
         $this->assertInternalType('array', $response);
         $this->assertArrayHasKey('key', $response[0]);
@@ -357,13 +357,13 @@ class BasecampClientTest extends \Guzzle\Tests\GuzzleTestCase
     public function testCreateAttachment()
     {
         $client = $this->getServiceBuilder()->get('basecamp');
-        $this->setMockResponse($client, [
+        $this->setMockResponse($client, array(
             'create_attachment'
-        ]);
-        $response = $client->createAttachment([
+        ));
+        $response = $client->createAttachment(array(
             'mimeType' => 'image/jpeg',
             'data'     => "data-here"
-        ]);
+        ));
 
         $this->assertInternalType('array', $response);
         $this->assertArrayHasKey('token', $response);
@@ -373,13 +373,13 @@ class BasecampClientTest extends \Guzzle\Tests\GuzzleTestCase
     public function testGetTodolist()
     {
         $client = $this->getServiceBuilder()->get('basecamp');
-        $this->setMockResponse($client, [
+        $this->setMockResponse($client, array(
             'get_todolist'
-        ]);
-        $response = $client->getTodolist([
+        ));
+        $response = $client->getTodolist(array(
             'projectId'  => 1,
             'todolistId' => 2
-        ]);
+        ));
         $this->assertInternalType('array', $response);
         $this->assertArrayHasKey('id', $response);
         $this->assertSame(1, $response['id']);
@@ -392,9 +392,9 @@ class BasecampClientTest extends \Guzzle\Tests\GuzzleTestCase
     public function testGetCurrentUser()
     {
         $client = $this->getServiceBuilder()->get('basecamp');
-        $this->setMockResponse($client, [
+        $this->setMockResponse($client, array(
             'get_current_user'
-        ]);
+        ));
         $response = $client->getCurrentUser();
 
         $this->assertInternalType('array', $response);
@@ -406,9 +406,9 @@ class BasecampClientTest extends \Guzzle\Tests\GuzzleTestCase
     public function testGetGlobalEvents()
     {
         $client = $this->getServiceBuilder()->get('basecamp');
-        $this->setMockResponse($client, [
+        $this->setMockResponse($client, array(
             'get_global_events'
-        ]);
+        ));
         $response = $client->getGlobalEvents();
         $this->assertInternalType('array', $response);
         $this->assertArrayHasKey(0, $response);
@@ -419,12 +419,12 @@ class BasecampClientTest extends \Guzzle\Tests\GuzzleTestCase
     public function testGetAccessesByProject()
     {
         $client = $this->getServiceBuilder()->get('basecamp');
-        $this->setMockResponse($client, [
+        $this->setMockResponse($client, array(
             'get_accesses_by_project'
-        ]);
-        $response = $client->getAccessesByProject([
+        ));
+        $response = $client->getAccessesByProject(array(
             'projectId' => 1
-        ]);
+        ));
         $this->assertInternalType('array', $response);
         $this->assertArrayHasKey(0, $response);
         $this->assertArrayHasKey('id', $response[0]);
@@ -434,13 +434,13 @@ class BasecampClientTest extends \Guzzle\Tests\GuzzleTestCase
     public function testGrantAccessToProject()
     {
         $client = $this->getServiceBuilder()->get('basecamp');
-        $this->setMockResponse($client, [
+        $this->setMockResponse($client, array(
             'grant_access'
-        ]);
-        $response = $client->grantAccess([
+        ));
+        $response = $client->grantAccess(array(
             'projectId' => 1,
-            'ids' => [1,2,3]
-        ]);
+            'ids'       => array(1, 2, 3)
+        ));
         $firstAccess = $response[0];
         $this->assertInternalType('array', $firstAccess);
         $this->assertArrayHasKey('id', $firstAccess);
@@ -450,12 +450,12 @@ class BasecampClientTest extends \Guzzle\Tests\GuzzleTestCase
     public function testGetAccessesByCalendar()
     {
         $client = $this->getServiceBuilder()->get('basecamp');
-        $this->setMockResponse($client, [
+        $this->setMockResponse($client, array(
             'get_accesses_by_calendar'
-        ]);
-        $response = $client->getAccessesByCalendar([
+        ));
+        $response = $client->getAccessesByCalendar(array(
             'calendarId' => 1
-        ]);
+        ));
         $this->assertInternalType('array', $response);
         $this->assertArrayHasKey(0, $response);
         $this->assertArrayHasKey('id', $response[0]);
@@ -465,9 +465,9 @@ class BasecampClientTest extends \Guzzle\Tests\GuzzleTestCase
     public function testGetPeople()
     {
         $client = $this->getServiceBuilder()->get('basecamp');
-        $this->setMockResponse($client, [
+        $this->setMockResponse($client, array(
             'get_people'
-        ]);
+        ));
         $response = $client->getPeople();
         $this->assertInternalType('array', $response);
         $this->assertArrayHasKey(0, $response);
@@ -478,13 +478,13 @@ class BasecampClientTest extends \Guzzle\Tests\GuzzleTestCase
     public function testGetTodo()
     {
         $client = $this->getServiceBuilder()->get('basecamp');
-        $this->setMockResponse($client, [
+        $this->setMockResponse($client, array(
             'get_todo'
-        ]);
-        $response = $client->getTodo([
+        ));
+        $response = $client->getTodo(array(
             'projectId' => 1,
             'todoId'    => 2,
-        ]);
+        ));
         $this->assertInternalType('array', $response);
         $this->assertArrayHasKey(0, $response);
         $this->assertArrayHasKey('id', $response[0]);
@@ -495,12 +495,12 @@ class BasecampClientTest extends \Guzzle\Tests\GuzzleTestCase
     public function testGetProjectEvents()
     {
         $client = $this->getServiceBuilder()->get('basecamp');
-        $this->setMockResponse($client, [
+        $this->setMockResponse($client, array(
             'get_project_events'
-        ]);
-        $response = $client->getProjectEvents([
+        ));
+        $response = $client->getProjectEvents(array(
             'projectId' => 1,
-        ]);
+        ));
         $this->assertInternalType('array', $response);
         $this->assertArrayHasKey(0, $response);
         $this->assertArrayHasKey('id', $response[0]);
@@ -511,9 +511,9 @@ class BasecampClientTest extends \Guzzle\Tests\GuzzleTestCase
     public function testGetArchivedProjects()
     {
         $client = $this->getServiceBuilder()->get('basecamp');
-        $this->setMockResponse($client, [
+        $this->setMockResponse($client, array(
             'get_archived_projects'
-        ]);
+        ));
         $response = $client->getArchivedProjects();
         $this->assertInternalType('array', $response);
         $this->assertArrayHasKey(0, $response);
@@ -524,9 +524,9 @@ class BasecampClientTest extends \Guzzle\Tests\GuzzleTestCase
     public function testGetGroups()
     {
         $client = $this->getServiceBuilder()->get('basecamp');
-        $this->setMockResponse($client, [
+        $this->setMockResponse($client, array(
             'get_groups'
-        ]);
+        ));
         $response = $client->getGroups();
         $this->assertInternalType('array', $response);
         $this->assertArrayHasKey(0, $response);
