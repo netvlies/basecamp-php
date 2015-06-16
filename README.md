@@ -168,6 +168,16 @@ $response = $client->getCompletedTodolistsByProject( array(
 ) ); 
 ``` 
 
+### Create Project
+[Basecamp API: Projects](https://github.com/basecamp/bcx-api/blob/master/sections/projects.md) 
+
+```php 
+$response = $client->createProject( array(
+	'name' => 'Example name',  // Required.  
+	'description' => 'Example description',  // Required.  
+) ); 
+``` 
+
 ### Create Todo List
 [Basecamp API: Todo lists](https://github.com/basecamp/bcx-api/blob/master/sections/todolists.md) 
 
@@ -200,6 +210,17 @@ $response = $client->createCommentByTodo( array(
 	'todoId' => 1234567,  // Required. Todo id 
 	'content' => 'Example content',  // Required.  
 	'attachments' => array( array( 'token' => $upload_token, 'name' => 'file.jpg' ) ),  // Optional.  
+) ); 
+``` 
+
+### Create Document
+[Basecamp API: Documents](https://github.com/basecamp/bcx-api/blob/master/sections/documents.md) 
+
+```php 
+$response = $client->createTodoByTodolist( array( 
+	'projectId' => 1234567,  // Required. Project id 
+    'title' => 'Example title', // Required. Document title 
+	'content' => 'Example content',  // Required.
 ) ); 
 ``` 
 
@@ -289,6 +310,17 @@ $response = $client->getProjectEvents( array(
 ```php 
 $response = $client->getAccessesByProject( array( 
 	'projectId' => 1234567,  // Required. Project id 
+) ); 
+``` 
+
+### Grant Access to Project
+[Basecamp API: Accesses](https://github.com/basecamp/bcx-api/blob/master/sections/accesses.md) 
+
+```php 
+$response = $client->grantAccess( array( 
+    'projectId' => 1234567, // Required. Project id
+    'ids' => array(1,2,3), // Required. User ids to grant access to.
+    'email_addresses' => array(you@email.com) // Optional. Grant access to a new user.
 ) ); 
 ``` 
 

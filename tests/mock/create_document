@@ -1,0 +1,20 @@
+HTTP/1.1 201 Created
+Server: nginx
+Date: Tue, 30 Apr 2013 14:20:03 GMT
+Content-Type: application/json; charset=utf-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+Status: 201 Created
+X-Frame-Options: SAMEORIGIN
+X-XSS-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+X-UA-Compatible: chrome=1
+X-XHR-Current-Location: /9999999/api/v1/documents/1.json
+X-Asset-Paths: {"application.js":"application-9c60f8ec7aa69319f4e88ef912ceee47.js","application.css":"application-640556e4a934af1e40e8055bda797a35.css"}
+Location: https://basecamp.com/9999999/api/v1/documents/1.json
+ETag: "e0d1af4ecb2ddd01706c0891553d76ef"
+Cache-Control: max-age=0, private, must-revalidate
+X-Request-Id: 02c7affc-2f8d-4c22-a6b9-ca072861bfbd
+X-Runtime: 0.558085
+
+{"id": 963979453,"title": "Support (inbound)","content": "Lorem ipsum","created_at": "2012-03-27T13:19:29-05:00","updated_at": "2012-03-27T13:53:24-05:00","private": false,"trashed": false,"last_updater": {"id": 149087659,"name": "Jason Fried"},"creator": {"id": 149087659,"name": "Jason Fried","avatar_url": "https://asset0.37img.com/global/4113d0a133a32931be8934e70b2ea21efeff72c1/avatar.96.gif?r=3","fullsize_avatar_url": "https://asset0.37img.com/global/4113d0a133a32931be8934e70b2ea21efeff72c1/original.gif?r=3"},"comments": [{"content": "I think there should be more sass to it.","created_at": "2012-03-27T13:53:24-05:00","updated_at": "2012-03-27T13:53:24-05:00","creator": {"id": 149087659,"name": "Jason Fried","avatar_url": "https://asset0.37img.com/global/4113d0a133a32931be8934e70b2ea21efeff72c1/avatar.96.gif?r=3","fullsize_avatar_url": "https://asset0.37img.com/global/4113d0a133a32931be8934e70b2ea21efeff72c1/original.gif?r=3"}}],"subscribers": [{"id": 149087659,"name": "Jason Fried"},{"id": 1071630348,"name": "Jeremy Kemper"}]}

@@ -1,0 +1,20 @@
+HTTP/1.1 201 Created
+Server: nginx
+Date: Tue, 30 Apr 2013 14:20:03 GMT
+Content-Type: application/json; charset=utf-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+Status: 201 Created
+X-Frame-Options: SAMEORIGIN
+X-XSS-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+X-UA-Compatible: chrome=1
+X-XHR-Current-Location: /9999999/api/v1/projects/1.json
+X-Asset-Paths: {"application.js":"application-9c60f8ec7aa69319f4e88ef912ceee47.js","application.css":"application-640556e4a934af1e40e8055bda797a35.css"}
+Location: https://basecamp.com/9999999/api/v1/projects/1.json
+ETag: "e0d1af4ecb2ddd01706c0891553d76ef"
+Cache-Control: max-age=0, private, must-revalidate
+X-Request-Id: 02c7affc-2f8d-4c22-a6b9-ca072861bfbd
+X-Runtime: 0.558085
+
+{"id": 1,"name": "Support (inbound)","description": "Lorem ipsum","archived": false,"created_at": "2015-06-22T16:56:51-05:00","updated_at": "2015-06-23T13:55:43-05:00","template": false,"starred": true,"trashed": false,"draft":false,"is_client_project": false,"color": "3185c5","creator": {"id": 149087659,"name": "Jason Fried","avatar_url": "http://dge9rmgqjs8m1.cloudfront.net/global/default_avatar_v1_7/avatar.gif?r=3","fullsize_avatar_url": "https://asset0.37img.com/global/4113d0a133a32931be8934e70b2ea21efeff72c1/original.gif?r=3"},"accesses": {"count": 5,"updated_at": "2012-03-23T13:55:43-05:00","url": "https://basecamp.com/999999999/api/v1/projects/605816632/accesses.json","app_url": "https://basecamp.com/999999999/projects/605816632/accesses"},"attachments": {"count": 0,"updated_at": null,"url": "https://basecamp.com/999999999/api/v1/projects/605816632/attachments.json","app_url": "https://basecamp.com/999999999/projects/605816632/attachments"},"calendar_events": {"count": 0,"updated_at": "2012-03-22T17:35:50-05:00","url": "https://basecamp.com/999999999/api/v1/projects/605816632/calendar_events.json","app_url": "https://basecamp.com/999999999/projects/605816632/calendar_events"},"documents": {"count": 0,"updated_at": null,"url": "https://basecamp.com/999999999/api/v1/projects/605816632/documents.json","app_url": "https://basecamp.com/999999999/projects/605816632/documents"},"topics": {"count": 0,"updated_at": "2012-03-22T17:35:50-05:00","url": "https://basecamp.com/999999999/api/v1/projects/605816632/topics.json","app_url": "https://basecamp.com/999999999/projects/605816632/topics"},"todolists": {"remaining_count": 0,"completed_count": 0,"updated_at": "2012-03-23T12:59:23-05:00","url": "https://basecamp.com/999999999/api/v1/projects/605816632/todolists.json","app_url": "https://basecamp.com/999999999/projects/605816632/todolists"}}

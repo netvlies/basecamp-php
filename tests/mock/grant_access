@@ -1,0 +1,20 @@
+HTTP/1.1 201 Created
+Server: nginx
+Date: Tue, 30 Apr 2013 14:20:03 GMT
+Content-Type: application/json; charset=utf-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+Status: 201 Created
+X-Frame-Options: SAMEORIGIN
+X-XSS-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+X-UA-Compatible: chrome=1
+X-XHR-Current-Location: /9999999/api/v1/accesses/1.json
+X-Asset-Paths: {"application.js":"application-9c60f8ec7aa69319f4e88ef912ceee47.js","application.css":"application-640556e4a934af1e40e8055bda797a35.css"}
+Location: https://basecamp.com/9999999/api/v1/accesses/1.json
+ETag: "e0d1af4ecb2ddd01706c0891553d76ef"
+Cache-Control: max-age=0, private, must-revalidate
+X-Request-Id: 02c7affc-2f8d-4c22-a6b9-ca072861bfbd
+X-Runtime: 0.558085
+
+[{"id": 149087659,"identity_id": 1,"name": "Jason Fried","email_address": "jason@basecamp.com","admin": true,"is_client": false,"trashed": false,"avatar_url": "https://asset0.37img.com/global/4113d0a133a32931be8934e70b2ea21efeff72c1/avatar.96.gif","created_at": "2012-03-22T16:56:48-05:00","updated_at": "2012-03-22T16:56:48-05:00","url": "https://basecamp.com/999999999/api/v1/people/149087659-jason-fried.json","app_url": "https://basecamp.com/999999999/people/149087659-jason-fried"},{"id": 1071630348,"identity_id": 827377171,"name": "Jeremy Kemper","email_address": "jeremy@basecamp.com","admin": true,"is_client": false,"trashed": false,"avatar_url": "https://asset0.37img.com/global/e68cafa694e8f22203eb36f13dccfefa9ac0acb2/avatar.96.gif","fullsize_avatar_url": "https://asset0.37img.com/global/4113d0a133a32931be8934e70b2ea21efeff72c1/original.gif?r=3","created_at": "2012-03-22T16:56:48-05:00","updated_at": "2012-03-22T16:56:48-05:00","url": "https://basecamp.com/999999999/api/v1/people/1071630348-jeremy-kemper.json","app_url": "https://basecamp.com/999999999/people/1071630348-jeremy-kemper"}]
