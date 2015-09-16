@@ -457,6 +457,460 @@ return array(
                     'required' => false
                 )
             )
+        ),
+        'getCalendars' => array(
+            'httpMethod' => 'GET',
+            'uri' => 'calendars.json',
+            'summary' => 'Get all Calendars' . PHP_EOL . '[Basecamp API: Calendars](https://github.com/basecamp/bcx-api/blob/master/sections/calendars.md)'
+        ),
+        'getCalendar' => array(
+            'httpMethod' => 'GET',
+            'uri' => 'calendars/{calendarId}.json',
+            'summary' => 'Get single Calendar' . PHP_EOL . '[Basecamp API: Calendars](https://github.com/basecamp/bcx-api/blob/master/sections/calendars.md)',
+            'parameters' => array(
+                'calendarId' => array(
+                    'location' => 'uri',
+                    'description' => 'Calendar id',
+                    'type' => 'integer',
+                    'required' => true,
+                )
+            )
+        ),
+        'createCalendar' => array(
+            'httpMethod' => 'POST',
+            'uri' => 'calendars.json',
+            'summary' => 'Create new Calendar' . PHP_EOL . '[Basecamp API: Calendars](https://github.com/basecamp/bcx-api/blob/master/sections/calendars.md)',
+            'parameters' => array(
+                'name' => array(
+                    'location' => 'json',
+                    'type' => 'string',
+                    'required' => true
+                )
+            )
+        ),
+        'updateCalendar' => array(
+            'httpMethod' => 'PUT',
+            'uri' => 'calendars/{calendarId}.json',
+            'summary' => 'Update Calendar' . PHP_EOL . '[Basecamp API: Calendars](https://github.com/basecamp/bcx-api/blob/master/sections/calendars.md)',
+            'parameters' => array(
+                'calendarId' => array(
+                    'location' => 'uri',
+                    'description' => 'Calendar id',
+                    'type' => 'integer',
+                    'required' => true,
+                ),
+                'name' => array(
+                    'location' => 'json',
+                    'type' => 'string',
+                    'required' => true
+                )
+            )
+        ),
+        'deleteCalendar' => array(
+            'httpMethod' => 'DELETE',
+            'uri' => 'calendars/{calendarId}.json',
+            'summary' => 'Delete Calendar' . PHP_EOL . '[Basecamp API: Calendars](https://github.com/basecamp/bcx-api/blob/master/sections/calendars.md)',
+            'parameters' => array(
+                'calendarId' => array(
+                    'location' => 'uri',
+                    'description' => 'Calendar id',
+                    'type' => 'integer',
+                    'required' => true,
+                )
+            )
+        ),
+        'getAllCalendarEvents' => array(
+            'httpMethod' => 'GET',
+            'uri' => 'calendar_events.json',
+            'summary' => 'Get all events' . PHP_EOL . '[Basecamp API: Calendar Events](https://github.com/basecamp/bcx-api/blob/master/sections/calendar_events.md)',
+            'parameters' => array(
+                'start_date' => array(
+                    'location' => 'query',
+                    'description' => 'Will return 6 weeks worth of events after the start date if the end date is not supplied (format: 2015-09-15)',
+                    'type' => 'string'
+                ),
+                'end_date' => array(
+                    'location' => 'query',
+                    'description' => 'Will return 6 weeks worth of events after the start date if the end date is not supplied (format: 2015-09-15)',
+                    'type' => 'string'
+                )
+            )
+        ),
+        'getCalendarEvents' => array(
+            'httpMethod' => 'GET',
+            'uri' => 'calendars/{calendarId}/calendar_events.json',
+            'summary' => 'Get upcoming calendar events' . PHP_EOL . '[Basecamp API: Calendar Events](https://github.com/basecamp/bcx-api/blob/master/sections/calendar_events.md)',
+            'parameters' => array(
+                'calendarId' => array(
+                    'location' => 'uri',
+                    'description' => 'Calendar id',
+                    'type' => 'integer',
+                    'required' => true,
+                ),
+                'start_date' => array(
+                    'location' => 'query',
+                    'description' => 'Will return 6 weeks worth of events after the start date if the end date is not supplied (format: 2015-09-15)',
+                    'type' => 'string'
+                ),
+                'end_date' => array(
+                    'location' => 'query',
+                    'description' => 'Will return 6 weeks worth of events after the start date if the end date is not supplied (format: 2015-09-15)',
+                    'type' => 'string'
+                )
+            )
+        ),
+        'getCalendarEventsPast' => array(
+            'httpMethod' => 'GET',
+            'uri' => 'calendars/{calendarId}/calendar_events/past.json',
+            'summary' => 'Get past calendar events' . PHP_EOL . '[Basecamp API: Calendar Events](https://github.com/basecamp/bcx-api/blob/master/sections/calendar_events.md)',
+            'parameters' => array(
+                'calendarId' => array(
+                    'location' => 'uri',
+                    'description' => 'Calendar id',
+                    'type' => 'integer',
+                    'required' => true,
+                )
+            )
+        ),
+        'getCalendarEvent' => array(
+            'httpMethod' => 'GET',
+            'uri' => 'calendars/{calendarId}/calendar_events/{eventId}.json',
+            'summary' => 'Get single calendar event' . PHP_EOL . '[Basecamp API: Calendar Events](https://github.com/basecamp/bcx-api/blob/master/sections/calendar_events.md)',
+            'parameters' => array(
+                'calendarId' => array(
+                    'location' => 'uri',
+                    'description' => 'Calendar id',
+                    'type' => 'integer',
+                    'required' => true,
+                ),
+                'eventId' => array(
+                    'location' => 'uri',
+                    'description' => 'Event id',
+                    'type' => 'integer',
+                    'required' => true,
+                )
+            )
+        ),
+        'createCalendarEvent' => array(
+            'httpMethod' => 'POST',
+            'uri' => 'calendars/{calendarId}/calendar_events.json',
+            'summary' => 'Create calendar event' . PHP_EOL . '[Basecamp API: Calendar Events](https://github.com/basecamp/bcx-api/blob/master/sections/calendar_events.md)',
+            'parameters' => array(
+                'calendarId' => array(
+                    'location' => 'uri',
+                    'description' => 'Calendar id',
+                    'type' => 'integer',
+                    'required' => true,
+                ),
+                'summary' => array(
+                    'location' => 'json',
+                    'description' => 'Event Summary / title',
+                    'type' => 'string',
+                    'required' => true
+                ),
+                'description' => array(
+                    'location' => 'json',
+                    'description' => 'Event Description',
+                    'type' => 'string'
+                ),
+                'starts_at' => array(
+                    'location' => 'json',
+                    'description' => 'Date (and time if not an all day event) that the event starts at (format: 2015-09-15 or 2015-09-15T11:50:00-05:00)',
+                    'type' => 'string',
+                    'required' => true
+                ),
+                'ends_at' => array(
+                    'location' => 'json',
+                    'description' => 'Date (and time if not an all day event) that the event ends at (format: 2015-09-15 or 2015-09-15T11:50:00-05:00)',
+                    'type' => 'string'
+                ),
+                'remind_at' => array(
+                    'location' => 'json',
+                    'description' => 'Datetime to remind subscribers about the event via email (format: 2015-09-15T11:50:00-05:00)',
+                    'type' => 'string'
+                ),
+                'subscribers' => array(
+                    'location' => 'json',
+                    'description' => 'Array of user id\'s to subscribe to the event.',
+                    'type' => 'array'
+                ),
+                'recurring' => array(
+                    'location' => 'json',
+                    'description' => 'Array of recurring parrameters - starts_at, frequency, count, until, excluding',
+                    'type' => 'array'
+                ),
+                'all_day' => array(
+                    'location' => 'json',
+                    'description' => 'Is the event a full day event?',
+                    'type' => 'boolean'
+                )
+            )
+        ),
+        'updateCalendarEvent' => array(
+            'httpMethod' => 'PUT',
+            'uri' => 'calendars/{calendarId}/calendar_events/{eventId}.json',
+            'summary' => 'Update a calendar event' . PHP_EOL . '[Basecamp API: Calendar Events](https://github.com/basecamp/bcx-api/blob/master/sections/calendar_events.md)',
+            'parameters' => array(
+                'calendarId' => array(
+                    'location' => 'uri',
+                    'description' => 'Calendar id',
+                    'type' => 'integer',
+                    'required' => true,
+                ),
+                'eventId' => array(
+                    'location' => 'uri',
+                    'description' => 'Event id',
+                    'type' => 'integer',
+                    'required' => true,
+                ),
+                'summary' => array(
+                    'location' => 'json',
+                    'description' => 'Event Summary / title',
+                    'type' => 'string'
+                ),
+                'description' => array(
+                    'location' => 'json',
+                    'description' => 'Event Description',
+                    'type' => 'string'
+                ),
+                'starts_at' => array(
+                    'location' => 'json',
+                    'description' => 'Date (and time if not an all day event) that the event starts at (format: 2015-09-15 or 2015-09-15T11:50:00-05:00)',
+                    'type' => 'string'
+                ),
+                'ends_at' => array(
+                    'location' => 'json',
+                    'description' => 'Date (and time if not an all day event) that the event ends at (format: 2015-09-15 or 2015-09-15T11:50:00-05:00)',
+                    'type' => 'string'
+                ),
+                'remind_at' => array(
+                    'location' => 'json',
+                    'description' => 'Datetime to remind subscribers about the event via email (format: 2015-09-15T11:50:00-05:00)',
+                    'type' => 'string'
+                ),
+                'subscribers' => array(
+                    'location' => 'json',
+                    'description' => 'Array of user id\'s to subscribe to the event.',
+                    'type' => 'array'
+                ),
+                'recurring' => array(
+                    'location' => 'json',
+                    'description' => 'Array of recurring parrameters - starts_at, frequency, count, until, excluding',
+                    'type' => 'array'
+                ),
+                'all_day' => array(
+                    'location' => 'json',
+                    'description' => 'Is the event a full day event?',
+                    'type' => 'boolean'
+                )
+            )
+        ),
+        'deleteCalendarEvent' => array(
+            'httpMethod' => 'DELETE',
+            'uri' => 'calendars/{calendarId}/calendar_events/{eventId}.json',
+            'summary' => 'Delete a calendar event' . PHP_EOL . '[Basecamp API: Calendar Events](https://github.com/basecamp/bcx-api/blob/master/sections/calendar_events.md)',
+            'parameters' => array(
+                'calendarId' => array(
+                    'location' => 'uri',
+                    'description' => 'Calendar id',
+                    'type' => 'integer',
+                    'required' => true,
+                ),
+                'eventId' => array(
+                    'location' => 'uri',
+                    'description' => 'Event id',
+                    'type' => 'integer',
+                    'required' => true,
+                )
+            )
+        ),
+        'getProjectCalendarEvents' => array(
+            'httpMethod' => 'GET',
+            'uri' => 'projects/{projectId}/calendar_events.json',
+            'summary' => 'Get upcoming project calendar events' . PHP_EOL . '[Basecamp API: Calendar Events](https://github.com/basecamp/bcx-api/blob/master/sections/calendar_events.md)',
+            'parameters' => array(
+                'projectId' => array(
+                    'location' => 'uri',
+                    'description' => 'Project ID',
+                    'type' => 'integer',
+                    'required' => true,
+                ),
+                'start_date' => array(
+                    'location' => 'query',
+                    'description' => 'Will return 6 weeks worth of events after the start date if the end date is not supplied (format: 2015-09-15)',
+                    'type' => 'string'
+                ),
+                'end_date' => array(
+                    'location' => 'query',
+                    'description' => 'Will return 6 weeks worth of events after the start date if the end date is not supplied (format: 2015-09-15)',
+                    'type' => 'string'
+                )
+            )
+        ),
+        'getProjectCalendarEventsPast' => array(
+            'httpMethod' => 'GET',
+            'uri' => 'projects/{projectId}/calendar_events/past.json',
+            'summary' => 'Get past project calendar events' . PHP_EOL . '[Basecamp API: Calendar Events](https://github.com/basecamp/bcx-api/blob/master/sections/calendar_events.md)',
+            'parameters' => array(
+                'projectId' => array(
+                    'location' => 'uri',
+                    'description' => 'Project ID',
+                    'type' => 'integer',
+                    'required' => true,
+                )
+            )
+        ),
+        'getProjectCalendarEvent' => array(
+            'httpMethod' => 'GET',
+            'uri' => 'projects/{projectId}/calendar_events/{eventId}.json',
+            'summary' => 'Get single project calendar event' . PHP_EOL . '[Basecamp API: Calendar Events](https://github.com/basecamp/bcx-api/blob/master/sections/calendar_events.md)',
+            'parameters' => array(
+                'projectId' => array(
+                    'location' => 'uri',
+                    'description' => 'Project id',
+                    'type' => 'integer',
+                    'required' => true,
+                ),
+                'eventId' => array(
+                    'location' => 'uri',
+                    'description' => 'Event id',
+                    'type' => 'integer',
+                    'required' => true,
+                )
+            )
+        ),
+        'createProjectCalendarEvent' => array(
+            'httpMethod' => 'POST',
+            'uri' => 'projects/{projectId}/calendar_events.json',
+            'summary' => 'Create project calendar event' . PHP_EOL . '[Basecamp API: Calendar Events](https://github.com/basecamp/bcx-api/blob/master/sections/calendar_events.md)',
+            'parameters' => array(
+                'projectId' => array(
+                    'location' => 'uri',
+                    'description' => 'Project id',
+                    'type' => 'integer',
+                    'required' => true,
+                ),
+                'summary' => array(
+                    'location' => 'json',
+                    'description' => 'Event Summary / title',
+                    'type' => 'string',
+                    'required' => true
+                ),
+                'description' => array(
+                    'location' => 'json',
+                    'description' => 'Event Description',
+                    'type' => 'string'
+                ),
+                'starts_at' => array(
+                    'location' => 'json',
+                    'description' => 'Date (and time if not an all day event) that the event starts at (format: 2015-09-15 or 2015-09-15T11:50:00-05:00)',
+                    'type' => 'string',
+                    'required' => true
+                ),
+                'ends_at' => array(
+                    'location' => 'json',
+                    'description' => 'Date (and time if not an all day event) that the event ends at (format: 2015-09-15 or 2015-09-15T11:50:00-05:00)',
+                    'type' => 'string'
+                ),
+                'remind_at' => array(
+                    'location' => 'json',
+                    'description' => 'Datetime to remind subscribers about the event via email (format: 2015-09-15T11:50:00-05:00)',
+                    'type' => 'string'
+                ),
+                'subscribers' => array(
+                    'location' => 'json',
+                    'description' => 'Array of user id\'s to subscribe to the event.',
+                    'type' => 'array'
+                ),
+                'recurring' => array(
+                    'location' => 'json',
+                    'description' => 'Array of recurring parrameters - starts_at, frequency, count, until, excluding',
+                    'type' => 'array'
+                ),
+                'all_day' => array(
+                    'location' => 'json',
+                    'description' => 'Is the event a full day event?',
+                    'type' => 'boolean'
+                )
+            )
+        ),
+        'updateProjectCalendarEvent' => array(
+            'httpMethod' => 'PUT',
+            'uri' => 'projects/{projectId}/calendar_events/{eventId}.json',
+            'summary' => 'Update a project calendar event' . PHP_EOL . '[Basecamp API: Calendar Events](https://github.com/basecamp/bcx-api/blob/master/sections/calendar_events.md)',
+            'parameters' => array(
+                'projectId' => array(
+                    'location' => 'uri',
+                    'description' => 'Project id',
+                    'type' => 'integer',
+                    'required' => true,
+                ),
+                'eventId' => array(
+                    'location' => 'uri',
+                    'description' => 'Event id',
+                    'type' => 'integer',
+                    'required' => true,
+                ),
+                'summary' => array(
+                    'location' => 'json',
+                    'description' => 'Event Summary / title',
+                    'type' => 'string'
+                ),
+                'description' => array(
+                    'location' => 'json',
+                    'description' => 'Event Description',
+                    'type' => 'string'
+                ),
+                'starts_at' => array(
+                    'location' => 'json',
+                    'description' => 'Date (and time if not an all day event) that the event starts at (format: 2015-09-15 or 2015-09-15T11:50:00-05:00)',
+                    'type' => 'string'
+                ),
+                'ends_at' => array(
+                    'location' => 'json',
+                    'description' => 'Date (and time if not an all day event) that the event ends at (format: 2015-09-15 or 2015-09-15T11:50:00-05:00)',
+                    'type' => 'string'
+                ),
+                'remind_at' => array(
+                    'location' => 'json',
+                    'description' => 'Datetime to remind subscribers about the event via email (format: 2015-09-15T11:50:00-05:00)',
+                    'type' => 'string'
+                ),
+                'subscribers' => array(
+                    'location' => 'json',
+                    'description' => 'Array of user id\'s to subscribe to the event.',
+                    'type' => 'array'
+                ),
+                'recurring' => array(
+                    'location' => 'json',
+                    'description' => 'Array of recurring parrameters - starts_at, frequency, count, until, excluding',
+                    'type' => 'array'
+                ),
+                'all_day' => array(
+                    'location' => 'json',
+                    'description' => 'Is the event a full day event?',
+                    'type' => 'boolean'
+                )
+            )
+        ),
+        'deleteProjectCalendarEvent' => array(
+            'httpMethod' => 'DELETE',
+            'uri' => 'projects/{projectId}/calendar_events/{eventId}.json',
+            'summary' => 'Delete a project calendar event' . PHP_EOL . '[Basecamp API: Calendar Events](https://github.com/basecamp/bcx-api/blob/master/sections/calendar_events.md)',
+            'parameters' => array(
+                'projectId' => array(
+                    'location' => 'uri',
+                    'description' => 'Project id',
+                    'type' => 'integer',
+                    'required' => true,
+                ),
+                'eventId' => array(
+                    'location' => 'uri',
+                    'description' => 'Event id',
+                    'type' => 'integer',
+                    'required' => true,
+                )
+            )
         )
     )
 );

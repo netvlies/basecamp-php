@@ -540,4 +540,191 @@ class BasecampClientTest extends \Guzzle\Tests\GuzzleTestCase
         $this->assertSame(67890, $response[1]['id']);
         $this->assertSame("Bar Associates", $response[1]['name']);
     }
+
+    public function testGetCalendars()
+    {
+        $client = $this->getServiceBuilder()->get('basecamp');
+        $this->setMockResponse($client, array(
+            'get_calendars'
+        ));
+        $response = $client->getCalendars();
+        $this->assertInternalType('array', $response);
+        $this->assertArrayHasKey(0, $response);
+        $this->assertArrayHasKey('id', $response[0]);
+        $this->assertSame(1, $response[0]['id']);
+    }
+
+    public function testGetCalendar()
+    {
+        $client = $this->getServiceBuilder()->get('basecamp');
+        $this->setMockResponse($client, array(
+            'get_calendar'
+        ));
+        $response = $client->getCalendar(array(
+            'calendarId' => 1
+        ));
+        $this->assertInternalType('array', $response);
+        $this->assertArrayHasKey('id', $response);
+        $this->assertSame(1, $response['id']);
+    }
+
+    public function testCreateCalendar()
+    {
+        $client = $this->getServiceBuilder()->get('basecamp');
+        $this->setMockResponse($client, array(
+            'create_calendar'
+        ));
+        $calendarName = 'Mock Calendar';
+        $response = $client->createCalendar(array(
+            'name'        => $calendarName,
+        ));
+        $this->assertInternalType('array', $response);
+        $this->assertArrayHasKey('id', $response);
+        $this->assertArrayHasKey('name', $response);
+        $this->assertSame($calendarName, $response['name']);
+    }
+
+    public function testGetAllCalendarEvents()
+    {
+        $client = $this->getServiceBuilder()->get('basecamp');
+        $this->setMockResponse($client, array(
+            'get_all_calendar_events'
+        ));
+        $response = $client->getAllCalendarEvents();
+        $this->assertInternalType('array', $response);
+        $this->assertArrayHasKey(0, $response);
+        $this->assertArrayHasKey('id', $response[0]);
+        $this->assertSame(1, $response[0]['id']);
+    }
+
+    public function testGetCalendarEvents()
+    {
+        $client = $this->getServiceBuilder()->get('basecamp');
+        $this->setMockResponse($client, array(
+            'get_calendar_events'
+        ));
+        $response = $client->getCalendarEvents(array(
+            'calendarId' => 1
+        ));
+        $this->assertInternalType('array', $response);
+        $this->assertArrayHasKey(0, $response);
+        $this->assertArrayHasKey('id', $response[0]);
+        $this->assertSame(1, $response[0]['id']);
+    }
+
+    public function testGetCalendarEventsPast()
+    {
+        $client = $this->getServiceBuilder()->get('basecamp');
+        $this->setMockResponse($client, array(
+            'get_calendar_events_past'
+        ));
+        $response = $client->getCalendarEvents(array(
+            'calendarId' => 1
+        ));
+        $this->assertInternalType('array', $response);
+        $this->assertArrayHasKey(0, $response);
+        $this->assertArrayHasKey('id', $response[0]);
+        $this->assertSame(1, $response[0]['id']);
+    }
+
+    public function testGetCalendarEvent()
+    {
+        $client = $this->getServiceBuilder()->get('basecamp');
+        $this->setMockResponse($client, array(
+            'get_calendar_event'
+        ));
+        $response = $client->getCalendarEvent(array(
+            'calendarId' => 1,
+            'eventId' => 1
+        ));
+        $this->assertInternalType('array', $response);
+        $this->assertArrayHasKey('id', $response);
+        $this->assertSame(1, $response['id']);
+    }
+
+    public function testCreateCalendarEvent()
+    {
+        $client = $this->getServiceBuilder()->get('basecamp');
+        $this->setMockResponse($client, array(
+            'create_calendar_event'
+        ));
+        $eventSummary = 'Mock Event';
+        $eventStartsAt = '2015-09-17';
+        $response = $client->createCalendarEvent(array(
+            'calendarId' => 1,
+            'summary' => $eventSummary,
+            'starts_at' => $eventStartsAt,
+            'all_day' => true
+        ));
+        $this->assertInternalType('array', $response);
+        $this->assertArrayHasKey('id', $response);
+        $this->assertArrayHasKey('summary', $response);
+        $this->assertSame($eventSummary, $response['summary']);
+    }
+
+    public function testGetProjectCalendarEvents()
+    {
+        $client = $this->getServiceBuilder()->get('basecamp');
+        $this->setMockResponse($client, array(
+            'get_project_calendar_events'
+        ));
+        $response = $client->getProjectCalendarEvents(array(
+            'projectId' => 1
+        ));
+        $this->assertInternalType('array', $response);
+        $this->assertArrayHasKey(0, $response);
+        $this->assertArrayHasKey('id', $response[0]);
+        $this->assertSame(1, $response[0]['id']);
+    }
+
+    public function testGetProjectCalendarEventsPast()
+    {
+        $client = $this->getServiceBuilder()->get('basecamp');
+        $this->setMockResponse($client, array(
+            'get_project_calendar_events_past'
+        ));
+        $response = $client->getProjectCalendarEvents(array(
+            'projectId' => 1
+        ));
+        $this->assertInternalType('array', $response);
+        $this->assertArrayHasKey(0, $response);
+        $this->assertArrayHasKey('id', $response[0]);
+        $this->assertSame(1, $response[0]['id']);
+    }
+
+    public function testGetProjectCalendarEvent()
+    {
+        $client = $this->getServiceBuilder()->get('basecamp');
+        $this->setMockResponse($client, array(
+            'get_project_calendar_event'
+        ));
+        $response = $client->getProjectCalendarEvent(array(
+            'projectId' => 1,
+            'eventId' => 1
+        ));
+        $this->assertInternalType('array', $response);
+        $this->assertArrayHasKey('id', $response);
+        $this->assertSame(1, $response['id']);
+    }
+
+    public function testCreateProjectCalendarEvent()
+    {
+        $client = $this->getServiceBuilder()->get('basecamp');
+        $this->setMockResponse($client, array(
+            'create_project_calendar_event'
+        ));
+        $eventSummary = 'Mock Event';
+        $eventStartsAt = '2015-09-17';
+        $response = $client->createProjectCalendarEvent(array(
+            'projectId' => 1,
+            'summary' => $eventSummary,
+            'starts_at' => $eventStartsAt,
+            'all_day' => true
+        ));
+        $this->assertInternalType('array', $response);
+        $this->assertArrayHasKey('id', $response);
+        $this->assertArrayHasKey('summary', $response);
+        $this->assertSame($eventSummary, $response['summary']);
+    }
+
 }
