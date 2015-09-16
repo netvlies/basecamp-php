@@ -107,7 +107,7 @@ $response = $client->getProjects();
 
 ```php 
 $response = $client->getProject( array( 
-	'id' => 1234567,  // Required. Project ID 
+    'id' => 1234567,  // Required. Project ID 
 ) ); 
 ``` 
 
@@ -116,7 +116,7 @@ $response = $client->getProject( array(
 
 ```php 
 $response = $client->getDocumentsByProject( array( 
-	'projectId' => 1234567,  // Required. Project ID 
+    'projectId' => 1234567,  // Required. Project ID 
 ) ); 
 ``` 
 
@@ -125,8 +125,8 @@ $response = $client->getDocumentsByProject( array(
 
 ```php 
 $response = $client->getDocument( array( 
-	'projectId' => 1234567,  // Required. Project ID 
-	'documentId' => 1234567,  // Required. Document ID 
+    'projectId' => 1234567,  // Required. Project ID 
+    'documentId' => 1234567,  // Required. Document ID 
 ) ); 
 ``` 
 
@@ -135,7 +135,7 @@ $response = $client->getDocument( array(
 
 ```php 
 $response = $client->getTopicsByProject( array( 
-	'projectId' => 1234567,  // Required. Project ID 
+    'projectId' => 1234567,  // Required. Project ID 
 ) ); 
 ``` 
 
@@ -144,7 +144,7 @@ $response = $client->getTopicsByProject( array(
 
 ```php 
 $response = $client->getTodolistsByProject( array( 
-	'projectId' => 1234567,  // Required. Project ID 
+    'projectId' => 1234567,  // Required. Project ID 
 ) ); 
 ``` 
 
@@ -153,9 +153,9 @@ $response = $client->getTodolistsByProject( array(
 
 ```php 
 $response = $client->getAssignedTodolistsByPerson( array( 
-	'personId' => 1234567,  // Required. Person id
-	'page' => 1234567,  // Optional
-	'due_since' => '2012-03-24T11:00:00-06:00',  // Optional
+    'personId' => 1234567,  // Required. Person id 
+    'page' => 1234567,  // Optional. The page to retrieve. API returns 50 todos per page. 
+    'due_since' => 'example',  // Optional. Will return all the to-do lists with to-dos assigned to the specified person due after the date specified. (format: 2012-03-24T11:00:00-06:00) 
 ) ); 
 ``` 
 
@@ -164,17 +164,28 @@ $response = $client->getAssignedTodolistsByPerson( array(
 
 ```php 
 $response = $client->getCompletedTodolistsByProject( array( 
-	'projectId' => 1234567,  // Required. Project id 
+    'projectId' => 1234567,  // Required. Project id 
 ) ); 
 ``` 
 
-### Create Project
+### Create a new project
 [Basecamp API: Projects](https://github.com/basecamp/bcx-api/blob/master/sections/projects.md) 
 
 ```php 
-$response = $client->createProject( array(
-	'name' => 'Example name',  // Required.  
-	'description' => 'Example description',  // Required.  
+$response = $client->createProject( array( 
+    'name' => 'Example name',  // Required.  
+    'description' => 'Example description',  // Required.  
+) ); 
+``` 
+
+### Create a new document
+[Basecamp API: Documents](https://github.com/basecamp/bcx-api/blob/master/sections/documents.md) 
+
+```php 
+$response = $client->createDocument( array( 
+    'projectId' => 1234567,  // Required. Project ID 
+    'title' => 'example',  // Required.  
+    'content' => 'Example content',  // Required.  
 ) ); 
 ``` 
 
@@ -183,9 +194,9 @@ $response = $client->createProject( array(
 
 ```php 
 $response = $client->createTodolistByProject( array( 
-	'projectId' => 1234567,  // Required. Project id 
-	'name' => 'Example name',  // Required.  
-	'description' => 'Example description',  // Required.  
+    'projectId' => 1234567,  // Required. Project id 
+    'name' => 'Example name',  // Required.  
+    'description' => 'Example description',  // Required.  
 ) ); 
 ``` 
 
@@ -194,10 +205,10 @@ $response = $client->createTodolistByProject( array(
 
 ```php 
 $response = $client->createTodoByTodolist( array( 
-	'projectId' => 1234567,  // Required. Project id 
-	'todolistId' => 1234567,  // Required. Todo list id 
-	'content' => 'Example content',  // Required.  
-	'assignee' => array( 'id' => 1234567, 'type' => 'Person' ),  // Optional.  
+    'projectId' => 1234567,  // Required. Project id 
+    'todolistId' => 1234567,  // Required. Todo list id 
+    'content' => 'Example content',  // Required.  
+    'assignee' => array( 'id' => 1234567, 'type' => 'Person' ),  // Optional.  
 ) ); 
 ``` 
 
@@ -206,21 +217,10 @@ $response = $client->createTodoByTodolist( array(
 
 ```php 
 $response = $client->createCommentByTodo( array( 
-	'projectId' => 1234567,  // Required. Project id 
-	'todoId' => 1234567,  // Required. Todo id 
-	'content' => 'Example content',  // Required.  
-	'attachments' => array( array( 'token' => $upload_token, 'name' => 'file.jpg' ) ),  // Optional.  
-) ); 
-``` 
-
-### Create Document
-[Basecamp API: Documents](https://github.com/basecamp/bcx-api/blob/master/sections/documents.md) 
-
-```php 
-$response = $client->createTodoByTodolist( array( 
-	'projectId' => 1234567,  // Required. Project id 
-    'title' => 'Example title', // Required. Document title 
-	'content' => 'Example content',  // Required.
+    'projectId' => 1234567,  // Required. Project id 
+    'todoId' => 1234567,  // Required. Todo id 
+    'content' => 'Example content',  // Required.  
+    'attachments' => array( array( 'token' => $upload_token, 'name' => 'file.jpg' ) ),  // Optional.  
 ) ); 
 ``` 
 
@@ -229,7 +229,7 @@ $response = $client->createTodoByTodolist( array(
 
 ```php 
 $response = $client->getAttachmentsByProject( array( 
-	'projectId' => 1234567,  // Required. Project id 
+    'projectId' => 1234567,  // Required. Project id 
 ) ); 
 ``` 
 
@@ -238,8 +238,8 @@ $response = $client->getAttachmentsByProject( array(
 
 ```php 
 $response = $client->createAttachment( array( 
-	'mimeType' => 'image/jpeg',  // Required. The content type of the data 
-	'data' => file_get_contents( 'image.jpg' ),  // Required. The attachment's binary data 
+    'mimeType' => 'image/jpeg',  // Required. The content type of the data 
+    'data' => file_get_contents( 'image.jpg' ),  // Required. The attachment's binary data 
 ) ); 
 ``` 
 
@@ -248,8 +248,8 @@ $response = $client->createAttachment( array(
 
 ```php 
 $response = $client->getTodolist( array( 
-	'projectId' => 1234567,  // Required. Project id 
-	'todolistId' => 1234567,  // Required. Todolist id 
+    'projectId' => 1234567,  // Required. Project id 
+    'todolistId' => 1234567,  // Required. Todolist id 
 ) ); 
 ``` 
 
@@ -258,8 +258,8 @@ $response = $client->getTodolist( array(
 
 ```php 
 $response = $client->getTodo( array( 
-	'projectId' => 1234567,  // Required. Project id 
-	'todoId' => 1234567,  // Required. Todo id 
+    'projectId' => 1234567,  // Required. Project id 
+    'todoId' => 1234567,  // Required. Todo id 
 ) ); 
 ``` 
 
@@ -268,12 +268,12 @@ $response = $client->getTodo( array(
 
 ```php 
 $response = $client->updateTodo( array( 
-	'projectId' => 1234567,  // Required. Project id 
-	'todoId' => 1234567,  // Required. Todo id 
-	'content' => 'Example content',  // Optional.  
-	'due_at' => 'example',  // Optional.  
-	'assignee' => array( 'id' => 1234567, 'type' => 'Person' ),  // Optional.  
-	'completed' => 'example',  // Optional.  
+    'projectId' => 1234567,  // Required. Project id 
+    'todoId' => 1234567,  // Required. Todo id 
+    'content' => 'Example content',  // Optional.  
+    'due_at' => 'example',  // Optional.  
+    'assignee' => array( 'id' => 1234567, 'type' => 'Person' ),  // Optional.  
+    'completed' => 'example',  // Optional.  
 ) ); 
 ``` 
 
@@ -289,8 +289,8 @@ $response = $client->getCurrentUser();
 
 ```php 
 $response = $client->getGlobalEvents( array( 
-	'since' => '2012-03-24T11:00:00-06:00',  // Optional. All events since given datetime (format: 2012-03-24T11:00:00-06:00) 
-	'page' => 1234567,  // Optional. The page to retrieve. API returns 50 events per page. 
+    'since' => '2012-03-24T11:00:00-06:00',  // Optional. All events since given datetime (format: 2012-03-24T11:00:00-06:00) 
+    'page' => 1234567,  // Optional. The page to retrieve. API returns 50 events per page. 
 ) ); 
 ``` 
 
@@ -299,8 +299,8 @@ $response = $client->getGlobalEvents( array(
 
 ```php 
 $response = $client->getProjectEvents( array( 
-	'projectId' => 1234567,  // Required. Project id 
-	'since' => '2012-03-24T11:00:00-06:00',  // Optional. All events since given datetime (format: 2012-03-24T11:00:00-06:00) 
+    'projectId' => 1234567,  // Required. Project id 
+    'since' => '2012-03-24T11:00:00-06:00',  // Optional. All events since given datetime (format: 2012-03-24T11:00:00-06:00) 
 ) ); 
 ``` 
 
@@ -309,18 +309,7 @@ $response = $client->getProjectEvents( array(
 
 ```php 
 $response = $client->getAccessesByProject( array( 
-	'projectId' => 1234567,  // Required. Project id 
-) ); 
-``` 
-
-### Grant Access to Project
-[Basecamp API: Accesses](https://github.com/basecamp/bcx-api/blob/master/sections/accesses.md) 
-
-```php 
-$response = $client->grantAccess( array( 
-    'projectId' => 1234567, // Required. Project id
-    'ids' => array(1,2,3), // Required. User ids to grant access to.
-    'email_addresses' => array(you@email.com) // Optional. Grant access to a new user.
+    'projectId' => 1234567,  // Required. Project id 
 ) ); 
 ``` 
 
@@ -329,7 +318,7 @@ $response = $client->grantAccess( array(
 
 ```php 
 $response = $client->getAccessesByCalendar( array( 
-	'calendarId' => 1234567,  // Required. Calendar id 
+    'calendarId' => 1234567,  // Required. Calendar id 
 ) ); 
 ``` 
 
@@ -338,6 +327,228 @@ $response = $client->getAccessesByCalendar( array(
 
 ```php 
 $response = $client->getPeople(); 
+``` 
+
+### Get all Groups
+[Basecamp API: People](https://github.com/basecamp/bcx-api/blob/master/sections/groups.md) 
+
+```php 
+$response = $client->getGroups(); 
+``` 
+
+### Grant access
+[Basecamp API: Access](https://github.com/basecamp/bcx-api/blob/master/sections/accesses.md) 
+
+```php 
+$response = $client->grantAccess( array( 
+    'projectId' => 1234567,  // Required. Project id 
+    'ids' => '',  // Required. Existing user ids 
+    'email_addresses' => 'example',  // Optional. Grant access to new users 
+) ); 
+``` 
+
+### Get all Calendars
+[Basecamp API: Calendars](https://github.com/basecamp/bcx-api/blob/master/sections/calendars.md) 
+
+```php 
+$response = $client->getCalendars(); 
+``` 
+
+### Get single Calendar
+[Basecamp API: Calendars](https://github.com/basecamp/bcx-api/blob/master/sections/calendars.md) 
+
+```php 
+$response = $client->getCalendar( array( 
+    'calendarId' => 1234567,  // Required. Calendar id 
+) ); 
+``` 
+
+### Create new Calendar
+[Basecamp API: Calendars](https://github.com/basecamp/bcx-api/blob/master/sections/calendars.md) 
+
+```php 
+$response = $client->createCalendar( array( 
+    'name' => 'Example name',  // Required.  
+) ); 
+``` 
+
+### Update Calendar
+[Basecamp API: Calendars](https://github.com/basecamp/bcx-api/blob/master/sections/calendars.md) 
+
+```php 
+$response = $client->updateCalendar( array( 
+    'calendarId' => 1234567,  // Required. Calendar id 
+    'name' => 'Example name',  // Required.  
+) ); 
+``` 
+
+### Delete Calendar
+[Basecamp API: Calendars](https://github.com/basecamp/bcx-api/blob/master/sections/calendars.md) 
+
+```php 
+$response = $client->deleteCalendar( array( 
+    'calendarId' => 1234567,  // Required. Calendar id 
+) ); 
+``` 
+
+### Get all events
+[Basecamp API: Calendar Events](https://github.com/basecamp/bcx-api/blob/master/sections/calendar_events.md) 
+
+```php 
+$response = $client->getAllCalendarEvents( array( 
+    'start_date' => 'example',  // Optional. Will return 6 weeks worth of events after the start date if the end date is not supplied (format: 2015-09-15) 
+    'end_date' => 'example',  // Optional. Will return 6 weeks worth of events after the start date if the end date is not supplied (format: 2015-09-15) 
+) ); 
+``` 
+
+### Get upcoming calendar events
+[Basecamp API: Calendar Events](https://github.com/basecamp/bcx-api/blob/master/sections/calendar_events.md) 
+
+```php 
+$response = $client->getCalendarEvents( array( 
+    'calendarId' => 1234567,  // Required. Calendar id 
+    'start_date' => 'example',  // Optional. Will return 6 weeks worth of events after the start date if the end date is not supplied (format: 2015-09-15) 
+    'end_date' => 'example',  // Optional. Will return 6 weeks worth of events after the start date if the end date is not supplied (format: 2015-09-15) 
+) ); 
+``` 
+
+### Get past calendar events
+[Basecamp API: Calendar Events](https://github.com/basecamp/bcx-api/blob/master/sections/calendar_events.md) 
+
+```php 
+$response = $client->getCalendarEventsPast( array( 
+    'calendarId' => 1234567,  // Required. Calendar id 
+) ); 
+``` 
+
+### Get single calendar event
+[Basecamp API: Calendar Events](https://github.com/basecamp/bcx-api/blob/master/sections/calendar_events.md) 
+
+```php 
+$response = $client->getCalendarEvent( array( 
+    'calendarId' => 1234567,  // Required. Calendar id 
+    'eventId' => 1234567,  // Required. Event id 
+) ); 
+``` 
+
+### Create calendar event
+[Basecamp API: Calendar Events](https://github.com/basecamp/bcx-api/blob/master/sections/calendar_events.md) 
+
+```php 
+$response = $client->createCalendarEvent( array( 
+    'calendarId' => 1234567,  // Required. Calendar id 
+    'summary' => 'example',  // Required. Event Summary / title 
+    'description' => 'Example description',  // Optional. Event Description 
+    'starts_at' => 'example',  // Required. Date (and time if not an all day event) that the event starts at (format: 2015-09-15 or 2015-09-15T11:50:00-05:00) 
+    'ends_at' => 'example',  // Optional. Date (and time if not an all day event) that the event ends at (format: 2015-09-15 or 2015-09-15T11:50:00-05:00) 
+    'remind_at' => 'example',  // Optional. Datetime to remind subscribers about the event via email (format: 2015-09-15T11:50:00-05:00) 
+    'subscribers' => '',  // Optional. Array of user id's to subscribe to the event. 
+    'recurring' => '',  // Optional. Array of recurring parrameters - starts_at, frequency, count, until, excluding 
+    'all_day' => '',  // Optional. Is the event a full day event? 
+) ); 
+``` 
+
+### Update a calendar event
+[Basecamp API: Calendar Events](https://github.com/basecamp/bcx-api/blob/master/sections/calendar_events.md) 
+
+```php 
+$response = $client->updateCalendarEvent( array( 
+    'calendarId' => 1234567,  // Required. Calendar id 
+    'eventId' => 1234567,  // Required. Event id 
+    'summary' => 'example',  // Optional. Event Summary / title 
+    'description' => 'Example description',  // Optional. Event Description 
+    'starts_at' => 'example',  // Optional. Date (and time if not an all day event) that the event starts at (format: 2015-09-15 or 2015-09-15T11:50:00-05:00) 
+    'ends_at' => 'example',  // Optional. Date (and time if not an all day event) that the event ends at (format: 2015-09-15 or 2015-09-15T11:50:00-05:00) 
+    'remind_at' => 'example',  // Optional. Datetime to remind subscribers about the event via email (format: 2015-09-15T11:50:00-05:00) 
+    'subscribers' => '',  // Optional. Array of user id's to subscribe to the event. 
+    'recurring' => '',  // Optional. Array of recurring parrameters - starts_at, frequency, count, until, excluding 
+    'all_day' => '',  // Optional. Is the event a full day event? 
+) ); 
+``` 
+
+### Delete a calendar event
+[Basecamp API: Calendar Events](https://github.com/basecamp/bcx-api/blob/master/sections/calendar_events.md) 
+
+```php 
+$response = $client->deleteCalendarEvent( array( 
+    'calendarId' => 1234567,  // Required. Calendar id 
+    'eventId' => 1234567,  // Required. Event id 
+) ); 
+``` 
+
+### Get upcoming project calendar events
+[Basecamp API: Calendar Events](https://github.com/basecamp/bcx-api/blob/master/sections/calendar_events.md) 
+
+```php 
+$response = $client->getProjectCalendarEvents( array( 
+    'projectId' => 1234567,  // Required. Project ID 
+    'start_date' => 'example',  // Optional. Will return 6 weeks worth of events after the start date if the end date is not supplied (format: 2015-09-15) 
+    'end_date' => 'example',  // Optional. Will return 6 weeks worth of events after the start date if the end date is not supplied (format: 2015-09-15) 
+) ); 
+``` 
+
+### Get past project calendar events
+[Basecamp API: Calendar Events](https://github.com/basecamp/bcx-api/blob/master/sections/calendar_events.md) 
+
+```php 
+$response = $client->getProjectCalendarEventsPast( array( 
+    'projectId' => 1234567,  // Required. Project ID 
+) ); 
+``` 
+
+### Get single project calendar event
+[Basecamp API: Calendar Events](https://github.com/basecamp/bcx-api/blob/master/sections/calendar_events.md) 
+
+```php 
+$response = $client->getProjectCalendarEvent( array( 
+    'projectId' => 1234567,  // Required. Project id 
+    'eventId' => 1234567,  // Required. Event id 
+) ); 
+``` 
+
+### Create project calendar event
+[Basecamp API: Calendar Events](https://github.com/basecamp/bcx-api/blob/master/sections/calendar_events.md) 
+
+```php 
+$response = $client->createProjectCalendarEvent( array( 
+    'projectId' => 1234567,  // Required. Project id 
+    'summary' => 'example',  // Required. Event Summary / title 
+    'description' => 'Example description',  // Optional. Event Description 
+    'starts_at' => 'example',  // Required. Date (and time if not an all day event) that the event starts at (format: 2015-09-15 or 2015-09-15T11:50:00-05:00) 
+    'ends_at' => 'example',  // Optional. Date (and time if not an all day event) that the event ends at (format: 2015-09-15 or 2015-09-15T11:50:00-05:00) 
+    'remind_at' => 'example',  // Optional. Datetime to remind subscribers about the event via email (format: 2015-09-15T11:50:00-05:00) 
+    'subscribers' => '',  // Optional. Array of user id's to subscribe to the event. 
+    'recurring' => '',  // Optional. Array of recurring parrameters - starts_at, frequency, count, until, excluding 
+    'all_day' => '',  // Optional. Is the event a full day event? 
+) ); 
+``` 
+
+### Update a project calendar event
+[Basecamp API: Calendar Events](https://github.com/basecamp/bcx-api/blob/master/sections/calendar_events.md) 
+
+```php 
+$response = $client->updateProjectCalendarEvent( array( 
+    'projectId' => 1234567,  // Required. Project id 
+    'eventId' => 1234567,  // Required. Event id 
+    'summary' => 'example',  // Optional. Event Summary / title 
+    'description' => 'Example description',  // Optional. Event Description 
+    'starts_at' => 'example',  // Optional. Date (and time if not an all day event) that the event starts at (format: 2015-09-15 or 2015-09-15T11:50:00-05:00) 
+    'ends_at' => 'example',  // Optional. Date (and time if not an all day event) that the event ends at (format: 2015-09-15 or 2015-09-15T11:50:00-05:00) 
+    'remind_at' => 'example',  // Optional. Datetime to remind subscribers about the event via email (format: 2015-09-15T11:50:00-05:00) 
+    'subscribers' => '',  // Optional. Array of user id's to subscribe to the event. 
+    'recurring' => '',  // Optional. Array of recurring parrameters - starts_at, frequency, count, until, excluding 
+    'all_day' => '',  // Optional. Is the event a full day event? 
+) ); 
+``` 
+
+### Delete a project calendar event
+[Basecamp API: Calendar Events](https://github.com/basecamp/bcx-api/blob/master/sections/calendar_events.md) 
+
+```php 
+$response = $client->deleteProjectCalendarEvent( array( 
+    'projectId' => 1234567,  // Required. Project id 
+    'eventId' => 1234567,  // Required. Event id 
+) ); 
 ``` 
 
 <!--- END API -->
