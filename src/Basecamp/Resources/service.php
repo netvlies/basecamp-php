@@ -29,7 +29,7 @@ return array(
         ),
         'getDocumentsByProject' => array(
             'httpMethod' => 'GET',
-            'uri' => 'projects/{id}/documents.json',
+            'uri' => 'projects/{projectId}/documents.json',
             'summary'   => 'Get all Documents' . PHP_EOL . '[Basecamp API: Documents](https://github.com/basecamp/bcx-api/blob/master/sections/documents.md)',
             'parameters' => array(
                 'projectId' => array(
