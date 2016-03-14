@@ -1,0 +1,19 @@
+HTTP/1.1 200 OK
+Server: nginx
+Date: Tue, 30 Apr 2013 14:02:20 GMT
+Content-Type: application/json; charset=utf-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+Status: 200 OK
+X-Frame-Options: SAMEORIGIN
+X-XSS-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+X-UA-Compatible: chrome=1
+X-XHR-Current-Location: /9999999/api/v1/projects/1/todos/completed.json
+X-Asset-Paths: {"application.js":"application-9c60f8ec7aa69319f4e88ef912ceee47.js","application.css":"application-640556e4a934af1e40e8055bda797a35.css"}
+Last-Modified: Tue, 30 Apr 2013 14:02:08 GMT
+Cache-Control: max-age=0, private, must-revalidate
+X-Request-Id: 34df1de2-3472-428e-a474-b1fb99f925fc
+X-Runtime: 0.406815
+
+[ {    "app_url": "https://basecamp.com/9999999/projects/1/todos/1", "assignee": { "id": 1, "name": "Jane Test", "type": "Person" },   "comments_count": 2, "completed": true, "completed_at": "2016-03-11T10:19:49.000-05:00", "completer": { "id": 1, "name": "Jane Test" },   "content": "Lorem ipsum", "created_at": "2016-02-22T11:15:13.000-05:00", "creator": { "avatar_url": "http://dge9rmgqjs8m1.cloudfront.net/global/default_avatar_v1_7/avatar.gif?r=3", "fullsize_avatar_url": "http://dge9rmgqjs8m1.cloudfront.net/global/default_avatar_v1_7/avatar.gif?r=3", "id": 1, "name": "Jane Test" },   "due_at": "2016-03-18", "due_on": "2016-03-18", "id": 1, "position": 1, "private": false, "todolist": { "app_url": "https://basecamp.com/9999999/projects/1/todolists/1", "completed": true, "completed_count": 9, "created_at": "2016-02-22T10:28:25.000-05:00", "creator": { "avatar_url": "http://dge9rmgqjs8m1.cloudfront.net/global/default_avatar_v1_7/avatar.gif?r=3", "fullsize_avatar_url": "http://dge9rmgqjs8m1.cloudfront.net/global/default_avatar_v1_7/avatar.gif?r=3", "id": 1, "name": "Jane Test" },   "description": "", "id": 1, "name": "Lorem ipsum", "position": 1, "private": false, "remaining_count": 0, "trashed": false, "updated_at": "2016-03-11T10:19:49.000-05:00", "url": "https://basecamp.com/9999999/api/v1/projects/1/todolists/1.json" },   "todolist_id": 1, "trashed": false, "updated_at": "2016-03-11T10:19:49.000-05:00", "url": "https://basecamp.com/9999999/api/v1/projects/1/todos/1.json" } ]

@@ -168,6 +168,15 @@ $response = $client->getCompletedTodolistsByProject( array(
 ) ); 
 ``` 
 
+### Get completed Todos
+[Basecamp API: Todos](https://github.com/basecamp/bcx-api/blob/master/sections/todos.md) 
+
+```php 
+$response = $client->getCompletedTodosByProject( array( 
+    'projectId' => 1234567,  // Required. Project id 
+) ); 
+``` 
+
 ### Create a new project
 [Basecamp API: Projects](https://github.com/basecamp/bcx-api/blob/master/sections/projects.md) 
 

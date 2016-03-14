@@ -123,6 +123,19 @@ return array(
                 )
             )
         ),
+        'getCompletedTodosByProject' => array(
+            'httpMethod' => 'GET',
+            'uri' => 'projects/{projectId}/todos/completed.json',
+            'summary' => 'Get completed Todos' . PHP_EOL . '[Basecamp API: Todos](https://github.com/basecamp/bcx-api/blob/master/sections/todos.md)',
+            'parameters' => array(
+                'projectId' => array(
+                    'location' => 'uri',
+                    'description' => 'Project id',
+                    'type' => 'integer',
+                    'required' => true,
+                )
+            )
+        ),
         'createProject' => array(
             'httpMethod' => 'POST',
             'uri' => 'projects.json',
