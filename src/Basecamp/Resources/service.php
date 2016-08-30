@@ -27,6 +27,29 @@ return array(
                 )
             )
         ),
+        
+         'getSubscriptions' => array(
+            'httpMethod' => 'GET',
+            'uri' => 'buckets/{projectId}/recordings/{todoId}/subscription.json',
+            'summary' => 'Get Subscription for given Todo' . PHP_EOL . '[Basecamp API: Todos](https://github.com/basecamp/bc3-api/tree/master/sections)',
+            'parameters' => array(
+                 'projectId' => array(
+                    'location' => 'uri',
+                    'description' => 'Project ID',
+                    'type' => 'integer',
+                    'required' => true,
+                ),
+                  'todoId' => array(
+                    'location' => 'uri',
+                    'description' => 'Project ID',
+                    'type' => 'integer',
+                    'required' => true,
+                ),
+       
+            )
+        ),
+        
+        
         'getDocumentsByProject' => array(
             'httpMethod' => 'GET',
             'uri' => 'projects/{projectId}/documents.json',
