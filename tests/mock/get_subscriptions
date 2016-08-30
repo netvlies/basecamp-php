@@ -1,0 +1,19 @@
+HTTP/1.1 200 OK
+Server: nginx
+Date: Fri, 12 Apr 2013 12:09:01 GMT
+Content-Type: application/json; charset=utf-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+Status: 200 OK
+X-Frame-Options: SAMEORIGIN
+X-XSS-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+X-UA-Compatible: chrome=1
+X-XHR-Current-Location: /99999/api/v1/projects.json
+X-Asset-Paths: {"application.js":"application-d265257400a78c84714eef6d6f34f2ad.js","application.css":"application-f0a5ae63903c0c1d32c6f03cf7bb8c8a.css"}
+ETag: "24d3f12354466094e942e6731fb89b68"
+Cache-Control: max-age=0, private, must-revalidate
+X-Request-Id: 18723020-c8f2-4ddc-b427-9d633ed94fcc
+X-Runtime: 0.339996
+
+{"subscribed":true,"count":1,"url":"https://3.basecampapi.com/99999/buckets/99999/recordings/99999/subscription.json","subscribers":[{"id":99999,"attachable_sgid":"BAh7CEkiCGdpZAY6BkVUSSIoZ2lkOi8vYmMzL1BlcnNvbi81MzcyMzA5P2V4cGlyZXNfaW4GOwBUSSIMcHVycG9zZQY7AFRJIg9hdHRhY2hhYmxlBjsAVEkiD2V4cGlyZXNfYXQGOwBUMA==--68aa7049b577e6e03a8db3e06c4eb181e0918bf9","name":"XYZ","email_address":"XYZ@gmail.com","personable_type":"User","title":"Founder","created_at":"2016-07-26T06:07:07.121Z","updated_at":"2016-07-26T06:07:35.622Z","admin":true,"owner":true,"avatar_url":"https://3.basecamp-static.com/99999/people/BAhpA5X5UQ==--ad72cd08deac12b7b0d07ec3d121b98e926e81f8/avatar-64-x4","company":{"id":999999,"name":"XYZ"}}]}
