@@ -143,7 +143,7 @@ class BasecampClientTest extends \Guzzle\Tests\GuzzleTestCase
         $this->assertSame(1, $response['id']);
         $this->assertArrayHasKey('topics', $response);
     }
-
+    
     public function testGetDocumentsByProject()
     {
         $client = $this->getServiceBuilder()->get('basecamp');
@@ -201,7 +201,22 @@ class BasecampClientTest extends \Guzzle\Tests\GuzzleTestCase
         $this->assertArrayHasKey('id', $response[0]);
         $this->assertSame(3, $response[0]['id']);
     }
-
+    
+    public function testGetSubscriptionsByTodo()
+    {
+        $client = $this->getServiceBuilder()->get('basecamp');
+        $this->setMockResponse($client, array(
+            'get_subscription_by_todo'
+        ));
+        $response = $client->getSubscriptionsByTodo(array(
+            'projectId' => 1,
+            'todoId'=>1
+        ));
+        $this->assertInternalType('array', $response);
+        $this->assertArrayHasKey('id', $response[0]);
+        $this->assertSame(3, $response[0]['id']);
+    }
+    
     public function testgetAssignedTodolistsByPerson()
     {
         $client = $this->getServiceBuilder()->get('basecamp');
