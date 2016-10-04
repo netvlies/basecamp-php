@@ -1,0 +1,19 @@
+HTTP/1.1 200 OK
+Server: nginx
+Date: Fri, 12 Apr 2013 12:09:01 GMT
+Content-Type: application/json; charset=utf-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+Status: 200 OK
+X-Frame-Options: SAMEORIGIN
+X-XSS-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+X-UA-Compatible: chrome=1
+X-XHR-Current-Location: /99999999/api/v1/people.json
+X-Asset-Paths: {"application.js":"application-d265257400a78c84714eef6d6f34f2ad.js","application.css":"application-f0a5ae63903c0c1d32c6f03cf7bb8c8a.css"}
+ETag: "24d3f12354466094e942e6731fb89b68"
+Cache-Control: max-age=0, private, must-revalidate
+X-Request-Id: 18723020-c8f2-4ddc-b427-9d633ed94fcc
+X-Runtime: 0.339996
+
+{"id": 149087659,"identity_id": 982871737,"name": "Jason Fried","email_address": "jason@37signals.com","admin": true,"avatar_url": "https://asset0.37img.com/global/4113d0a133a32931be8934e70b2ea21efeff72c1/avatar.96.gif","created_at": "2012-03-22T16:56:48-05:00","updated_at": "2012-03-22T16:56:48-05:00","url": "https://basecamp.com/99999999/api/v1/people/149087659-jason-fried.json"}
