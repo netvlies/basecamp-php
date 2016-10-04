@@ -375,7 +375,7 @@ return array(
         'getSpecificUser' => array(
             'httpMethod' => 'GET',
             'uri' => 'people/{personId}.json',
-            'summary'   => 'Get current User' . PHP_EOL . '[Basecamp API: People](https://github.com/basecamp/bcx-api/blob/master/sections/people.md)',
+            'summary'   => 'Get specific User' . PHP_EOL . '[Basecamp API: People](https://github.com/basecamp/bcx-api/blob/master/sections/people.md)',
             'parameters' => array(
                 'personId' => array(
                     'location' => 'uri',

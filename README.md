@@ -293,7 +293,7 @@ $response = $client->updateTodo( array(
 $response = $client->getCurrentUser(); 
 ``` 
 
-### Get current User
+### Get specific User
 [Basecamp API: People](https://github.com/basecamp/bcx-api/blob/master/sections/people.md) 
 
 ```php 
