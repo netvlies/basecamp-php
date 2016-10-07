@@ -372,6 +372,19 @@ return array(
             'uri' => 'people/me.json',
             'summary'   => 'Get current User' . PHP_EOL . '[Basecamp API: People](https://github.com/basecamp/bcx-api/blob/master/sections/people.md)',
         ),
+        'getSpecificUser' => array(
+            'httpMethod' => 'GET',
+            'uri' => 'people/{personId}.json',
+            'summary'   => 'Get specific User' . PHP_EOL . '[Basecamp API: People](https://github.com/basecamp/bcx-api/blob/master/sections/people.md)',
+            'parameters' => array(
+                'personId' => array(
+                    'location' => 'uri',
+                    'description' => 'Person id',
+                    'type' => 'integer',
+                    'required' => true,
+                )
+            )
+        ),
         'getGlobalEvents' => array(
             'httpMethod' => 'GET',
             'uri' => 'events.json',

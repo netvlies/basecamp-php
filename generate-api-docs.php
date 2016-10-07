@@ -52,7 +52,7 @@ class Generate_Docs {
 	protected $tmpl_method_without_params     = "\$response = \$client->@method(); \n";
 	protected $tmpl_method_with_params_start  = "\$response = \$client->@method( array( \n";
 	protected $tmpl_method_with_params_end    = ") ); \n";
-	protected $tmpl_method_parameter          = "\t'@param' => @example,  // @required @description \n";
+	protected $tmpl_method_parameter          = "    '@param' => @example,  // @required @description \n";
 
 	/**
 	 * Parameter code examples in order of priority.

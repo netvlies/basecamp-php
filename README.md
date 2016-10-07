@@ -293,6 +293,15 @@ $response = $client->updateTodo( array(
 $response = $client->getCurrentUser(); 
 ``` 
 
+### Get specific User
+[Basecamp API: People](https://github.com/basecamp/bcx-api/blob/master/sections/people.md) 
+
+```php 
+$response = $client->getSpecificUser( array( 
+    'personId' => 1234567,  // Required. Person id 
+) ); 
+``` 
+
 ### Get global Events
 [Basecamp API: Events](https://github.com/basecamp/bcx-api/blob/master/sections/events.md) 
 
