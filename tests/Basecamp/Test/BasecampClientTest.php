@@ -31,6 +31,19 @@ class BasecampClientTest extends \Guzzle\Tests\GuzzleTestCase
     /**
      * @expectedException InvalidArgumentException
      */
+    public function testFactoryInitializesClientWithNoUserOrPassword()
+    {
+        $client = BasecampClient::factory(array(
+            'user_id'     => '999999999',
+            'version'     => 'v2',
+            'app_name'    => 'Fake',
+            'app_contact' => 'test@fake.com'
+        ));
+    }
+
+    /**
+     * @expectedException InvalidArgumentException
+     */
     public function testFactoryInitializesClientWithInvalidAuth()
     {
         $client = BasecampClient::factory(array(
@@ -490,19 +503,7 @@ class BasecampClientTest extends \Guzzle\Tests\GuzzleTestCase
         $this->assertSame(149087659, $response[0]['id']);
     }
 
-    public function testGetCurrentPerson()
-    {
-        $client = $this->getServiceBuilder()->get('basecamp');
-        $this->setMockResponse($client, array(
-            'get_person'
-        ));
-        $response = $client->getCurrentUser();
-        $this->assertInternalType('array', $response);
-        $this->assertArrayHasKey('id', $response);
-        $this->assertSame(149087659, $response['id']);
-    }
-
-    public function testGetSpecificPerson()
+    public function testGetSpecificUser()
     {
         $client = $this->getServiceBuilder()->get('basecamp');
         $this->setMockResponse($client, array(

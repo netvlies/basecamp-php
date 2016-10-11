@@ -569,6 +569,19 @@ $response = $client->deleteProjectCalendarEvent( array(
 ) ); 
 ``` 
 
+### Unit Test Coverage 
+
+The following service operations are not (yet) covered by unit tests:
+
+* updateTodo 
+* grantAccess 
+* updateCalendar 
+* deleteCalendar 
+* updateCalendarEvent 
+* deleteCalendarEvent 
+* updateProjectCalendarEvent 
+* deleteProjectCalendarEvent 
+
 <!--- END API -->
 
 [basecamp]: https://basecamp.com/
