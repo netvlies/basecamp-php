@@ -7,6 +7,8 @@
  *
  * Copy output into README.md
  */
+$loader = require __DIR__ . '/vendor/autoload.php';
+$loader->add('Basecamp\\Test\\', __DIR__ . '/tests');
 
 $docs = new Generate_Docs();
 
@@ -45,6 +47,7 @@ class Generate_Docs {
 	protected $end_marker = '<!--- END API -->';
 
 	protected $tmpl_heading           = "\n### @summary \n\n";
+	protected $tmpl_heading_tests     = "\n### Unit Test Coverage \n\nThe following service operations are not (yet) covered by unit tests:\n\n";
 
 	protected $tmpl_code_block_start  = "```php \n";
 	protected $tmpl_code_block_end    = "``` \n";
@@ -53,6 +56,8 @@ class Generate_Docs {
 	protected $tmpl_method_with_params_start  = "\$response = \$client->@method( array( \n";
 	protected $tmpl_method_with_params_end    = ") ); \n";
 	protected $tmpl_method_parameter          = "    '@param' => @example,  // @required @description \n";
+
+	protected $tmpl_tests_bullet      = "* @method \n";
 
 	/**
 	 * Parameter code examples in order of priority.
@@ -113,6 +118,31 @@ class Generate_Docs {
 	}
 
 	/**
+	 * Work out which serice operations still need unit tests written
+	 */
+	public function checkTestCoverage() {
+		$tests_needed = array();
+
+		foreach ( $this->service['operations'] as $method => $info ) {
+			if ( ! method_exists( new Basecamp\Test\BasecampClientTest(), 'test' . ucfirst($method) ) ) {
+				$tests_needed[] = $method;
+			}
+		}
+
+		if ( ! empty( $tests_needed ) ) {
+
+			// Test Coverage Heading
+			echo $this->template( $this->tmpl_heading_tests, array() );
+
+			foreach ( $tests_needed as $method ) {
+				// Test Coverage Heading
+				echo $this->template( $this->tmpl_tests_bullet, array('method' => $method) );
+			}
+
+		}
+	}
+
+	/**
 	 * Output docs for each service operation in Markdown format.
 	 */
 	public function generate() {
@@ -155,6 +185,8 @@ class Generate_Docs {
 			echo $this->template( $this->tmpl_code_block_end, $info );
 
 		}
+
+		$this->checkTestCoverage();
 
 		$this->docs_markdown = ob_get_clean();
 
