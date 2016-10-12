@@ -1,0 +1,19 @@
+HTTP/1.1 200 OK
+Server: nginx
+Date: Fri, 12 Apr 2013 12:09:01 GMT
+Content-Type: application/json; charset=utf-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+Status: 200 OK
+X-Frame-Options: SAMEORIGIN
+X-XSS-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+X-UA-Compatible: chrome=1
+X-XHR-Current-Location: /99999999/api/v1/people/1/projects.json
+X-Asset-Paths: {"application.js":"application-d265257400a78c84714eef6d6f34f2ad.js","application.css":"application-f0a5ae63903c0c1d32c6f03cf7bb8c8a.css"}
+ETag: "24d3f12354466094e942e6731fb89b68"
+Cache-Control: max-age=0, private, must-revalidate
+X-Request-Id: 18723020-c8f2-4ddc-b427-9d633ed94fcc
+X-Runtime: 0.339996
+
+[{"id": 3660260,"name": "Daylight: Operations","description": "","archived": false,"is_client_project": true,"created_at": "2011-10-28T17:00:00.000-07:00","updated_at": "2016-02-18T10:20:32.000-08:00","trashed": false,"color": "650606","draft": false,"template": false,"last_event_at": "2016-02-18T10:20:32.000-08:00","starred": false,"url": "https://basecamp.com/1759630/api/v1/projects/3660260.json","app_url": "https://basecamp.com/1759630/projects/3660260"}]
