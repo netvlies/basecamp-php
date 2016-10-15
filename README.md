@@ -107,7 +107,7 @@ $response = $client->getProjects();
 
 ```php 
 $response = $client->getProject( array( 
-    'id' => 1234567,  // Required. Project ID 
+	'id' => 1234567,  // Required. Project ID 
 ) ); 
 ``` 
 
@@ -116,7 +116,7 @@ $response = $client->getProject( array(
 
 ```php 
 $response = $client->getDocumentsByProject( array( 
-    'projectId' => 1234567,  // Required. Project ID 
+	'projectId' => 1234567,  // Required. Project ID 
 ) ); 
 ``` 
 
@@ -125,8 +125,8 @@ $response = $client->getDocumentsByProject( array(
 
 ```php 
 $response = $client->getDocument( array( 
-    'projectId' => 1234567,  // Required. Project ID 
-    'documentId' => 1234567,  // Required. Document ID 
+	'projectId' => 1234567,  // Required. Project ID 
+	'documentId' => 1234567,  // Required. Document ID 
 ) ); 
 ``` 
 
@@ -135,7 +135,7 @@ $response = $client->getDocument( array(
 
 ```php 
 $response = $client->getTopicsByProject( array( 
-    'projectId' => 1234567,  // Required. Project ID 
+	'projectId' => 1234567,  // Required. Project ID 
 ) ); 
 ``` 
 
@@ -144,7 +144,7 @@ $response = $client->getTopicsByProject( array(
 
 ```php 
 $response = $client->getTodolistsByProject( array( 
-    'projectId' => 1234567,  // Required. Project ID 
+	'projectId' => 1234567,  // Required. Project ID 
 ) ); 
 ``` 
 
@@ -153,9 +153,9 @@ $response = $client->getTodolistsByProject( array(
 
 ```php 
 $response = $client->getAssignedTodolistsByPerson( array( 
-    'personId' => 1234567,  // Required. Person id 
-    'page' => 1234567,  // Optional. The page to retrieve. API returns 50 todos per page. 
-    'due_since' => 'example',  // Optional. Will return all the to-do lists with to-dos assigned to the specified person due after the date specified. (format: 2012-03-24T11:00:00-06:00) 
+	'personId' => 1234567,  // Required. Person id 
+	'page' => 1234567,  // Optional. The page to retrieve. API returns 50 todos per page. 
+	'due_since' => 'example',  // Optional. Will return all the to-do lists with to-dos assigned to the specified person due after the date specified. (format: 2012-03-24T11:00:00-06:00) 
 ) ); 
 ``` 
 
@@ -164,7 +164,16 @@ $response = $client->getAssignedTodolistsByPerson( array(
 
 ```php 
 $response = $client->getCompletedTodolistsByProject( array( 
-    'projectId' => 1234567,  // Required. Project id 
+	'projectId' => 1234567,  // Required. Project id 
+) ); 
+``` 
+
+### Get Todos
+[Basecamp API: Todos](https://github.com/basecamp/bcx-api/blob/master/sections/todos.md) 
+
+```php 
+$response = $client->getTodosByProject( array( 
+	'projectId' => 1234567,  // Required. Project id 
 ) ); 
 ``` 
 
@@ -173,7 +182,7 @@ $response = $client->getCompletedTodolistsByProject( array(
 
 ```php 
 $response = $client->getCompletedTodosByProject( array( 
-    'projectId' => 1234567,  // Required. Project id 
+	'projectId' => 1234567,  // Required. Project id 
 ) ); 
 ``` 
 
@@ -182,8 +191,8 @@ $response = $client->getCompletedTodosByProject( array(
 
 ```php 
 $response = $client->createProject( array( 
-    'name' => 'Example name',  // Required.  
-    'description' => 'Example description',  // Required.  
+	'name' => 'Example name',  // Required.  
+	'description' => 'Example description',  // Required.  
 ) ); 
 ``` 
 
@@ -192,9 +201,9 @@ $response = $client->createProject( array(
 
 ```php 
 $response = $client->createDocument( array( 
-    'projectId' => 1234567,  // Required. Project ID 
-    'title' => 'example',  // Required.  
-    'content' => 'Example content',  // Required.  
+	'projectId' => 1234567,  // Required. Project ID 
+	'title' => 'example',  // Required.  
+	'content' => 'Example content',  // Required.  
 ) ); 
 ``` 
 
@@ -203,9 +212,9 @@ $response = $client->createDocument( array(
 
 ```php 
 $response = $client->createTodolistByProject( array( 
-    'projectId' => 1234567,  // Required. Project id 
-    'name' => 'Example name',  // Required.  
-    'description' => 'Example description',  // Required.  
+	'projectId' => 1234567,  // Required. Project id 
+	'name' => 'Example name',  // Required.  
+	'description' => 'Example description',  // Required.  
 ) ); 
 ``` 
 
@@ -214,10 +223,10 @@ $response = $client->createTodolistByProject( array(
 
 ```php 
 $response = $client->createTodoByTodolist( array( 
-    'projectId' => 1234567,  // Required. Project id 
-    'todolistId' => 1234567,  // Required. Todo list id 
-    'content' => 'Example content',  // Required.  
-    'assignee' => array( 'id' => 1234567, 'type' => 'Person' ),  // Optional.  
+	'projectId' => 1234567,  // Required. Project id 
+	'todolistId' => 1234567,  // Required. Todo list id 
+	'content' => 'Example content',  // Required.  
+	'assignee' => array( 'id' => 1234567, 'type' => 'Person' ),  // Optional.  
 ) ); 
 ``` 
 
@@ -226,10 +235,10 @@ $response = $client->createTodoByTodolist( array(
 
 ```php 
 $response = $client->createCommentByTodo( array( 
-    'projectId' => 1234567,  // Required. Project id 
-    'todoId' => 1234567,  // Required. Todo id 
-    'content' => 'Example content',  // Required.  
-    'attachments' => array( array( 'token' => $upload_token, 'name' => 'file.jpg' ) ),  // Optional.  
+	'projectId' => 1234567,  // Required. Project id 
+	'todoId' => 1234567,  // Required. Todo id 
+	'content' => 'Example content',  // Required.  
+	'attachments' => array( array( 'token' => $upload_token, 'name' => 'file.jpg' ) ),  // Optional.  
 ) ); 
 ``` 
 
@@ -238,7 +247,7 @@ $response = $client->createCommentByTodo( array(
 
 ```php 
 $response = $client->getAttachmentsByProject( array( 
-    'projectId' => 1234567,  // Required. Project id 
+	'projectId' => 1234567,  // Required. Project id 
 ) ); 
 ``` 
 
@@ -247,8 +256,8 @@ $response = $client->getAttachmentsByProject( array(
 
 ```php 
 $response = $client->createAttachment( array( 
-    'mimeType' => 'image/jpeg',  // Required. The content type of the data 
-    'data' => file_get_contents( 'image.jpg' ),  // Required. The attachment's binary data 
+	'mimeType' => 'image/jpeg',  // Required. The content type of the data 
+	'data' => file_get_contents( 'image.jpg' ),  // Required. The attachment's binary data 
 ) ); 
 ``` 
 
@@ -257,8 +266,8 @@ $response = $client->createAttachment( array(
 
 ```php 
 $response = $client->getTodolist( array( 
-    'projectId' => 1234567,  // Required. Project id 
-    'todolistId' => 1234567,  // Required. Todolist id 
+	'projectId' => 1234567,  // Required. Project id 
+	'todolistId' => 1234567,  // Required. Todolist id 
 ) ); 
 ``` 
 
@@ -267,8 +276,8 @@ $response = $client->getTodolist( array(
 
 ```php 
 $response = $client->getTodo( array( 
-    'projectId' => 1234567,  // Required. Project id 
-    'todoId' => 1234567,  // Required. Todo id 
+	'projectId' => 1234567,  // Required. Project id 
+	'todoId' => 1234567,  // Required. Todo id 
 ) ); 
 ``` 
 
@@ -277,12 +286,12 @@ $response = $client->getTodo( array(
 
 ```php 
 $response = $client->updateTodo( array( 
-    'projectId' => 1234567,  // Required. Project id 
-    'todoId' => 1234567,  // Required. Todo id 
-    'content' => 'Example content',  // Optional.  
-    'due_at' => 'example',  // Optional.  
-    'assignee' => array( 'id' => 1234567, 'type' => 'Person' ),  // Optional.  
-    'completed' => 'example',  // Optional.  
+	'projectId' => 1234567,  // Required. Project id 
+	'todoId' => 1234567,  // Required. Todo id 
+	'content' => 'Example content',  // Optional.  
+	'due_at' => 'example',  // Optional.  
+	'assignee' => array( 'id' => 1234567, 'type' => 'Person' ),  // Optional.  
+	'completed' => 'example',  // Optional.  
 ) ); 
 ``` 
 
@@ -307,8 +316,8 @@ $response = $client->getSpecificUser( array(
 
 ```php 
 $response = $client->getGlobalEvents( array( 
-    'since' => '2012-03-24T11:00:00-06:00',  // Optional. All events since given datetime (format: 2012-03-24T11:00:00-06:00) 
-    'page' => 1234567,  // Optional. The page to retrieve. API returns 50 events per page. 
+	'since' => '2012-03-24T11:00:00-06:00',  // Optional. All events since given datetime (format: 2012-03-24T11:00:00-06:00) 
+	'page' => 1234567,  // Optional. The page to retrieve. API returns 50 events per page. 
 ) ); 
 ``` 
 
@@ -317,8 +326,8 @@ $response = $client->getGlobalEvents( array(
 
 ```php 
 $response = $client->getProjectEvents( array( 
-    'projectId' => 1234567,  // Required. Project id 
-    'since' => '2012-03-24T11:00:00-06:00',  // Optional. All events since given datetime (format: 2012-03-24T11:00:00-06:00) 
+	'projectId' => 1234567,  // Required. Project id 
+	'since' => '2012-03-24T11:00:00-06:00',  // Optional. All events since given datetime (format: 2012-03-24T11:00:00-06:00) 
 ) ); 
 ``` 
 
@@ -327,7 +336,7 @@ $response = $client->getProjectEvents( array(
 
 ```php 
 $response = $client->getAccessesByProject( array( 
-    'projectId' => 1234567,  // Required. Project id 
+	'projectId' => 1234567,  // Required. Project id 
 ) ); 
 ``` 
 
@@ -336,7 +345,7 @@ $response = $client->getAccessesByProject( array(
 
 ```php 
 $response = $client->getAccessesByCalendar( array( 
-    'calendarId' => 1234567,  // Required. Calendar id 
+	'calendarId' => 1234567,  // Required. Calendar id 
 ) ); 
 ``` 
 
@@ -359,9 +368,9 @@ $response = $client->getGroups();
 
 ```php 
 $response = $client->grantAccess( array( 
-    'projectId' => 1234567,  // Required. Project id 
-    'ids' => '',  // Required. Existing user ids 
-    'email_addresses' => 'example',  // Optional. Grant access to new users 
+	'projectId' => 1234567,  // Required. Project id 
+	'ids' => '',  // Required. Existing user ids 
+	'email_addresses' => 'example',  // Optional. Grant access to new users 
 ) ); 
 ``` 
 
@@ -377,7 +386,7 @@ $response = $client->getCalendars();
 
 ```php 
 $response = $client->getCalendar( array( 
-    'calendarId' => 1234567,  // Required. Calendar id 
+	'calendarId' => 1234567,  // Required. Calendar id 
 ) ); 
 ``` 
 
@@ -386,7 +395,7 @@ $response = $client->getCalendar( array(
 
 ```php 
 $response = $client->createCalendar( array( 
-    'name' => 'Example name',  // Required.  
+	'name' => 'Example name',  // Required.  
 ) ); 
 ``` 
 
@@ -395,8 +404,8 @@ $response = $client->createCalendar( array(
 
 ```php 
 $response = $client->updateCalendar( array( 
-    'calendarId' => 1234567,  // Required. Calendar id 
-    'name' => 'Example name',  // Required.  
+	'calendarId' => 1234567,  // Required. Calendar id 
+	'name' => 'Example name',  // Required.  
 ) ); 
 ``` 
 
@@ -405,7 +414,7 @@ $response = $client->updateCalendar( array(
 
 ```php 
 $response = $client->deleteCalendar( array( 
-    'calendarId' => 1234567,  // Required. Calendar id 
+	'calendarId' => 1234567,  // Required. Calendar id 
 ) ); 
 ``` 
 
@@ -414,8 +423,8 @@ $response = $client->deleteCalendar( array(
 
 ```php 
 $response = $client->getAllCalendarEvents( array( 
-    'start_date' => 'example',  // Optional. Will return 6 weeks worth of events after the start date if the end date is not supplied (format: 2015-09-15) 
-    'end_date' => 'example',  // Optional. Will return 6 weeks worth of events after the start date if the end date is not supplied (format: 2015-09-15) 
+	'start_date' => 'example',  // Optional. Will return 6 weeks worth of events after the start date if the end date is not supplied (format: 2015-09-15) 
+	'end_date' => 'example',  // Optional. Will return 6 weeks worth of events after the start date if the end date is not supplied (format: 2015-09-15) 
 ) ); 
 ``` 
 
@@ -424,9 +433,9 @@ $response = $client->getAllCalendarEvents( array(
 
 ```php 
 $response = $client->getCalendarEvents( array( 
-    'calendarId' => 1234567,  // Required. Calendar id 
-    'start_date' => 'example',  // Optional. Will return 6 weeks worth of events after the start date if the end date is not supplied (format: 2015-09-15) 
-    'end_date' => 'example',  // Optional. Will return 6 weeks worth of events after the start date if the end date is not supplied (format: 2015-09-15) 
+	'calendarId' => 1234567,  // Required. Calendar id 
+	'start_date' => 'example',  // Optional. Will return 6 weeks worth of events after the start date if the end date is not supplied (format: 2015-09-15) 
+	'end_date' => 'example',  // Optional. Will return 6 weeks worth of events after the start date if the end date is not supplied (format: 2015-09-15) 
 ) ); 
 ``` 
 
@@ -435,7 +444,7 @@ $response = $client->getCalendarEvents( array(
 
 ```php 
 $response = $client->getCalendarEventsPast( array( 
-    'calendarId' => 1234567,  // Required. Calendar id 
+	'calendarId' => 1234567,  // Required. Calendar id 
 ) ); 
 ``` 
 
@@ -444,8 +453,8 @@ $response = $client->getCalendarEventsPast( array(
 
 ```php 
 $response = $client->getCalendarEvent( array( 
-    'calendarId' => 1234567,  // Required. Calendar id 
-    'eventId' => 1234567,  // Required. Event id 
+	'calendarId' => 1234567,  // Required. Calendar id 
+	'eventId' => 1234567,  // Required. Event id 
 ) ); 
 ``` 
 
@@ -454,15 +463,15 @@ $response = $client->getCalendarEvent( array(
 
 ```php 
 $response = $client->createCalendarEvent( array( 
-    'calendarId' => 1234567,  // Required. Calendar id 
-    'summary' => 'example',  // Required. Event Summary / title 
-    'description' => 'Example description',  // Optional. Event Description 
-    'starts_at' => 'example',  // Required. Date (and time if not an all day event) that the event starts at (format: 2015-09-15 or 2015-09-15T11:50:00-05:00) 
-    'ends_at' => 'example',  // Optional. Date (and time if not an all day event) that the event ends at (format: 2015-09-15 or 2015-09-15T11:50:00-05:00) 
-    'remind_at' => 'example',  // Optional. Datetime to remind subscribers about the event via email (format: 2015-09-15T11:50:00-05:00) 
-    'subscribers' => '',  // Optional. Array of user id's to subscribe to the event. 
-    'recurring' => '',  // Optional. Array of recurring parrameters - starts_at, frequency, count, until, excluding 
-    'all_day' => '',  // Optional. Is the event a full day event? 
+	'calendarId' => 1234567,  // Required. Calendar id 
+	'summary' => 'example',  // Required. Event Summary / title 
+	'description' => 'Example description',  // Optional. Event Description 
+	'starts_at' => 'example',  // Required. Date (and time if not an all day event) that the event starts at (format: 2015-09-15 or 2015-09-15T11:50:00-05:00) 
+	'ends_at' => 'example',  // Optional. Date (and time if not an all day event) that the event ends at (format: 2015-09-15 or 2015-09-15T11:50:00-05:00) 
+	'remind_at' => 'example',  // Optional. Datetime to remind subscribers about the event via email (format: 2015-09-15T11:50:00-05:00) 
+	'subscribers' => '',  // Optional. Array of user id's to subscribe to the event. 
+	'recurring' => '',  // Optional. Array of recurring parrameters - starts_at, frequency, count, until, excluding 
+	'all_day' => '',  // Optional. Is the event a full day event? 
 ) ); 
 ``` 
 
@@ -471,16 +480,16 @@ $response = $client->createCalendarEvent( array(
 
 ```php 
 $response = $client->updateCalendarEvent( array( 
-    'calendarId' => 1234567,  // Required. Calendar id 
-    'eventId' => 1234567,  // Required. Event id 
-    'summary' => 'example',  // Optional. Event Summary / title 
-    'description' => 'Example description',  // Optional. Event Description 
-    'starts_at' => 'example',  // Optional. Date (and time if not an all day event) that the event starts at (format: 2015-09-15 or 2015-09-15T11:50:00-05:00) 
-    'ends_at' => 'example',  // Optional. Date (and time if not an all day event) that the event ends at (format: 2015-09-15 or 2015-09-15T11:50:00-05:00) 
-    'remind_at' => 'example',  // Optional. Datetime to remind subscribers about the event via email (format: 2015-09-15T11:50:00-05:00) 
-    'subscribers' => '',  // Optional. Array of user id's to subscribe to the event. 
-    'recurring' => '',  // Optional. Array of recurring parrameters - starts_at, frequency, count, until, excluding 
-    'all_day' => '',  // Optional. Is the event a full day event? 
+	'calendarId' => 1234567,  // Required. Calendar id 
+	'eventId' => 1234567,  // Required. Event id 
+	'summary' => 'example',  // Optional. Event Summary / title 
+	'description' => 'Example description',  // Optional. Event Description 
+	'starts_at' => 'example',  // Optional. Date (and time if not an all day event) that the event starts at (format: 2015-09-15 or 2015-09-15T11:50:00-05:00) 
+	'ends_at' => 'example',  // Optional. Date (and time if not an all day event) that the event ends at (format: 2015-09-15 or 2015-09-15T11:50:00-05:00) 
+	'remind_at' => 'example',  // Optional. Datetime to remind subscribers about the event via email (format: 2015-09-15T11:50:00-05:00) 
+	'subscribers' => '',  // Optional. Array of user id's to subscribe to the event. 
+	'recurring' => '',  // Optional. Array of recurring parrameters - starts_at, frequency, count, until, excluding 
+	'all_day' => '',  // Optional. Is the event a full day event? 
 ) ); 
 ``` 
 
@@ -489,8 +498,8 @@ $response = $client->updateCalendarEvent( array(
 
 ```php 
 $response = $client->deleteCalendarEvent( array( 
-    'calendarId' => 1234567,  // Required. Calendar id 
-    'eventId' => 1234567,  // Required. Event id 
+	'calendarId' => 1234567,  // Required. Calendar id 
+	'eventId' => 1234567,  // Required. Event id 
 ) ); 
 ``` 
 
@@ -499,9 +508,9 @@ $response = $client->deleteCalendarEvent( array(
 
 ```php 
 $response = $client->getProjectCalendarEvents( array( 
-    'projectId' => 1234567,  // Required. Project ID 
-    'start_date' => 'example',  // Optional. Will return 6 weeks worth of events after the start date if the end date is not supplied (format: 2015-09-15) 
-    'end_date' => 'example',  // Optional. Will return 6 weeks worth of events after the start date if the end date is not supplied (format: 2015-09-15) 
+	'projectId' => 1234567,  // Required. Project ID 
+	'start_date' => 'example',  // Optional. Will return 6 weeks worth of events after the start date if the end date is not supplied (format: 2015-09-15) 
+	'end_date' => 'example',  // Optional. Will return 6 weeks worth of events after the start date if the end date is not supplied (format: 2015-09-15) 
 ) ); 
 ``` 
 
@@ -510,7 +519,7 @@ $response = $client->getProjectCalendarEvents( array(
 
 ```php 
 $response = $client->getProjectCalendarEventsPast( array( 
-    'projectId' => 1234567,  // Required. Project ID 
+	'projectId' => 1234567,  // Required. Project ID 
 ) ); 
 ``` 
 
@@ -519,8 +528,8 @@ $response = $client->getProjectCalendarEventsPast( array(
 
 ```php 
 $response = $client->getProjectCalendarEvent( array( 
-    'projectId' => 1234567,  // Required. Project id 
-    'eventId' => 1234567,  // Required. Event id 
+	'projectId' => 1234567,  // Required. Project id 
+	'eventId' => 1234567,  // Required. Event id 
 ) ); 
 ``` 
 
@@ -529,15 +538,15 @@ $response = $client->getProjectCalendarEvent( array(
 
 ```php 
 $response = $client->createProjectCalendarEvent( array( 
-    'projectId' => 1234567,  // Required. Project id 
-    'summary' => 'example',  // Required. Event Summary / title 
-    'description' => 'Example description',  // Optional. Event Description 
-    'starts_at' => 'example',  // Required. Date (and time if not an all day event) that the event starts at (format: 2015-09-15 or 2015-09-15T11:50:00-05:00) 
-    'ends_at' => 'example',  // Optional. Date (and time if not an all day event) that the event ends at (format: 2015-09-15 or 2015-09-15T11:50:00-05:00) 
-    'remind_at' => 'example',  // Optional. Datetime to remind subscribers about the event via email (format: 2015-09-15T11:50:00-05:00) 
-    'subscribers' => '',  // Optional. Array of user id's to subscribe to the event. 
-    'recurring' => '',  // Optional. Array of recurring parrameters - starts_at, frequency, count, until, excluding 
-    'all_day' => '',  // Optional. Is the event a full day event? 
+	'projectId' => 1234567,  // Required. Project id 
+	'summary' => 'example',  // Required. Event Summary / title 
+	'description' => 'Example description',  // Optional. Event Description 
+	'starts_at' => 'example',  // Required. Date (and time if not an all day event) that the event starts at (format: 2015-09-15 or 2015-09-15T11:50:00-05:00) 
+	'ends_at' => 'example',  // Optional. Date (and time if not an all day event) that the event ends at (format: 2015-09-15 or 2015-09-15T11:50:00-05:00) 
+	'remind_at' => 'example',  // Optional. Datetime to remind subscribers about the event via email (format: 2015-09-15T11:50:00-05:00) 
+	'subscribers' => '',  // Optional. Array of user id's to subscribe to the event. 
+	'recurring' => '',  // Optional. Array of recurring parrameters - starts_at, frequency, count, until, excluding 
+	'all_day' => '',  // Optional. Is the event a full day event? 
 ) ); 
 ``` 
 
@@ -546,16 +555,16 @@ $response = $client->createProjectCalendarEvent( array(
 
 ```php 
 $response = $client->updateProjectCalendarEvent( array( 
-    'projectId' => 1234567,  // Required. Project id 
-    'eventId' => 1234567,  // Required. Event id 
-    'summary' => 'example',  // Optional. Event Summary / title 
-    'description' => 'Example description',  // Optional. Event Description 
-    'starts_at' => 'example',  // Optional. Date (and time if not an all day event) that the event starts at (format: 2015-09-15 or 2015-09-15T11:50:00-05:00) 
-    'ends_at' => 'example',  // Optional. Date (and time if not an all day event) that the event ends at (format: 2015-09-15 or 2015-09-15T11:50:00-05:00) 
-    'remind_at' => 'example',  // Optional. Datetime to remind subscribers about the event via email (format: 2015-09-15T11:50:00-05:00) 
-    'subscribers' => '',  // Optional. Array of user id's to subscribe to the event. 
-    'recurring' => '',  // Optional. Array of recurring parrameters - starts_at, frequency, count, until, excluding 
-    'all_day' => '',  // Optional. Is the event a full day event? 
+	'projectId' => 1234567,  // Required. Project id 
+	'eventId' => 1234567,  // Required. Event id 
+	'summary' => 'example',  // Optional. Event Summary / title 
+	'description' => 'Example description',  // Optional. Event Description 
+	'starts_at' => 'example',  // Optional. Date (and time if not an all day event) that the event starts at (format: 2015-09-15 or 2015-09-15T11:50:00-05:00) 
+	'ends_at' => 'example',  // Optional. Date (and time if not an all day event) that the event ends at (format: 2015-09-15 or 2015-09-15T11:50:00-05:00) 
+	'remind_at' => 'example',  // Optional. Datetime to remind subscribers about the event via email (format: 2015-09-15T11:50:00-05:00) 
+	'subscribers' => '',  // Optional. Array of user id's to subscribe to the event. 
+	'recurring' => '',  // Optional. Array of recurring parrameters - starts_at, frequency, count, until, excluding 
+	'all_day' => '',  // Optional. Is the event a full day event? 
 ) ); 
 ``` 
 
@@ -564,8 +573,8 @@ $response = $client->updateProjectCalendarEvent( array(
 
 ```php 
 $response = $client->deleteProjectCalendarEvent( array( 
-    'projectId' => 1234567,  // Required. Project id 
-    'eventId' => 1234567,  // Required. Event id 
+	'projectId' => 1234567,  // Required. Project id 
+	'eventId' => 1234567,  // Required. Event id 
 ) ); 
 ``` 
 
