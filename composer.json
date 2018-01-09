@@ -1,11 +1,13 @@
 {
-    "name": "netvlies/basecamp-php",
-    "description": "The Basecamp API makes it easy for developers to communicate with the 37signals Basecamp platform",
+    "name": "xiaod/basecamp3-php",
+    "description": "The Basecamp 3 API",
     "type": "library",
-    "keywords": ["basecamp", "37signals", "api"],
+    "keywords": ["basecamp3", "37signals", "api"],
     "license": "MIT",
     "require": {
-        "guzzle/guzzle": "~3.3"
+        "guzzlehttp/guzzle": "~3.8",
+        "guzzlehttp/guzzle-services": "~1.1",
+        "gimler/guzzle-description-loader": "v0.0.4"
     },
     "require-dev": {
         "phpunit/phpunit": "3.7.*"
@@ -14,10 +16,14 @@
         {
             "name": "Richard van den Brand",
             "email": "richard@netvlies.nl"
+        },
+        {
+            "name": "Xiaodan Wong",
+            "email": "xiaodan.w@outlook.com"
         }
     ],
     "autoload": {
-        "psr-0": { "Basecamp": "src/" }
+        "psr-4": { "Basecamp\\": "src/" }
     },
     "extra": {
         "branch-alias": {

@@ -10,32 +10,31 @@
 
 namespace Basecamp;
 
-use Guzzle\Common\Collection;
-use Guzzle\Service\Client;
-use Guzzle\Service\Description\ServiceDescription;
-use Guzzle\Common\Event;
-use Guzzle\Common\Exception\InvalidArgumentException;
+use GuzzleHttp\Client;
+use GuzzleHttp\Command\Guzzle\GuzzleClient;
+use GuzzleHttp\Command\Guzzle\Description;
+use Guzzle\Service\Loader\PhpLoader;
+use Symfony\Component\Config\FileLocator;
+use Symfony\Component\EventDispatcher\Event;
+use InvalidArgumentException;
 
 class BasecampClient extends Client
 {
     /**
      * @param array $config
-     * @return \Guzzle\Service\Client|BasecampClient
-     * @throws \Guzzle\Common\Exception\InvalidArgumentException
+     * @return \GuzzleHttp\Client|BasecampClient
+     * @throws \InvalidArgumentException
      */
     public static function factory($config = array())
     {
-        $default = array(
-            'base_url'      => 'https://basecamp.com/{user_id}/api/{version}/',
-            'version'       => 'v1',
-            'auth'          => 'http',
-            'token'         => null,
-            'username'      => null,
-            'password'      => null,
-        );
-        $required = array('user_id', 'app_name', 'app_contact');
-        $config = Collection::fromConfig($config, $default, $required);
-        $client = new self($config->get('base_url'), $config);
+        if (! isset($config['account_id'], $config['app_name'], $config['app_contact'])) {
+            throw new InvalidArgumentException("Config must contain account_id, app_name and app_contact. See: https://github.com/basecamp/bc3-api (Identifying your application)."); 
+        }
+
+
+        $default = ['auth' => 'http', 'token' => null, 'username' => null, 'password' => null];
+
+        $config = array_merge($default, $config);
 
         if ($config['auth'] === 'http') {
             if (! isset($config['username'], $config['password'])) {
@@ -54,17 +53,25 @@ class BasecampClient extends Client
         }
 
         // Attach a service description to the client
-        $description = ServiceDescription::factory(__DIR__ . '/Resources/service.php');
-        $client->setDescription($description);
+        $configDirectories = array(__DIR__ . '/Resources');
+        $locator = new FileLocator($configDirectories);
+        $phpLoader = new PhpLoader($locator);
+        $description = $phpLoader->load($locator->locate('service.php'));
+        $description = new Description($description);
 
-        // Set required User-Agent
-        $client->setUserAgent(sprintf('%s (%s)', $config['app_name'], $config['app_contact']));
 
-        $client->getEventDispatcher()->addListener('request.before_send', function(Event $event) use ($authorization) {
-            $event['request']->addHeader('Authorization', $authorization);
+        $httpOptions = [
+            'base_uri' => "https://3.basecampapi.com/{$config['account_id']}/",
+            'headers' => [
+                'User-Agent' => sprintf('%s (%s)', $config['app_name'], $config['app_contact']),
+                'Authorization' => $authorization,
+            ]
+        ];
 
-        });
+        $client = new self($httpOptions);
 
-        return $client;
+        $guzzleClient = new GuzzleClient($client, $description);
+
+        return $guzzleClient;
     }
 }

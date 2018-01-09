@@ -2,22 +2,32 @@
 
 return array(
     'serviceFullName'       => '37signals Basecamp API',
-    'serviceAbbreviation'   => 'Basecamp API',
+    'serviceAbbreviation'   => 'Basecamp3 API',
+    'models' => array(
+        'getResponse' => array(
+            'type' => 'object',
+            'additionalProperties' => array(
+                'location' => 'json'
+            ),
+        ),
+    ),
     'operations'            => array(
         'getArchivedProjects' => array(
             'httpMethod' => 'GET',
             'uri'       => 'projects/archived.json',
-            'summary'   => 'Get archived Projects' . PHP_EOL . '[Basecamp API: Projects](https://github.com/basecamp/bcx-api/blob/master/sections/projects.md)',
+            'summary'   => 'Get archived Projects' . PHP_EOL . '[Basecamp API: Projects](https://github.com/basecamp/bc3-api/blob/master/sections/projects.md)',
+            'responseModel' => 'getResponse',
         ),
         'getProjects' => array(
             'httpMethod' => 'GET',
             'uri'       => 'projects.json',
-            'summary'   => 'Get active Projects' . PHP_EOL . '[Basecamp API: Projects](https://github.com/basecamp/bcx-api/blob/master/sections/projects.md)',
+            'summary'   => 'Get active Projects' . PHP_EOL . '[Basecamp API: Projects](https://github.com/basecamp/bc3-api/blob/master/sections/projects.md)',
+            'responseModel' => 'getResponse',
         ),
         'getProject' => array(
             'httpMethod' => 'GET',
             'uri'        => 'projects/{id}.json',
-            'summary'   => 'Get a Project' . PHP_EOL . '[Basecamp API: Projects](https://github.com/basecamp/bcx-api/blob/master/sections/projects.md)',
+            'summary'   => 'Get a Project' . PHP_EOL . '[Basecamp API: Projects](https://github.com/basecamp/bc3-api/blob/master/sections/projects.md)',
             'parameters' => array(
                 'id' => array(
                     'location' => 'uri',
@@ -25,12 +35,13 @@ return array(
                     'type' => 'integer',
                     'required' => true,
                 )
-            )
+            ),
+            'responseModel' => 'getResponse',
         ),
         'getDocumentsByProject' => array(
             'httpMethod' => 'GET',
             'uri' => 'projects/{projectId}/documents.json',
-            'summary'   => 'Get all Documents' . PHP_EOL . '[Basecamp API: Documents](https://github.com/basecamp/bcx-api/blob/master/sections/documents.md)',
+            'summary'   => 'Get all Documents' . PHP_EOL . '[Basecamp API: Documents](https://github.com/basecamp/bc3-api/blob/master/sections/documents.md)',
             'parameters' => array(
                 'projectId' => array(
                     'location' => 'uri',
@@ -38,12 +49,13 @@ return array(
                     'type' => 'integer',
                     'required' => true,
                 )
-            )
+            ),
+            'responseModel' => 'getResponse',
         ),
         'getDocument' => array(
             'httpMethod' => 'GET',
             'uri' => 'projects/{projectId}/documents/{documentId}.json',
-            'summary'   => 'Get a Document' . PHP_EOL . '[Basecamp API: Documents](https://github.com/basecamp/bcx-api/blob/master/sections/documents.md)',
+            'summary'   => 'Get a Document' . PHP_EOL . '[Basecamp API: Documents](https://github.com/basecamp/bc3-api/blob/master/sections/documents.md)',
             'parameters' => array(
                 'projectId' => array(
                     'location' => 'uri',
@@ -57,12 +69,13 @@ return array(
                     'type' => 'integer',
                     'required' => true,
                 )
-            )
+            ),
+            'responseModel' => 'getResponse',
         ),
         'getTopicsByProject' => array(
             'httpMethod' => 'GET',
             'uri' => 'projects/{projectId}/topics.json',
-            'summary'   => 'Get Topics' . PHP_EOL . '[Basecamp API: Topics](https://github.com/basecamp/bcx-api/blob/master/sections/topics.md)',
+            'summary'   => 'Get Topics' . PHP_EOL . '[Basecamp API: Topics](https://github.com/basecamp/bc3-api/blob/master/sections/topics.md)',
             'parameters' => array(
                 'projectId' => array(
                     'location' => 'uri',
@@ -70,12 +83,13 @@ return array(
                     'type' => 'integer',
                     'required' => true,
                 )
-            )
+            ),
+            'responseModel' => 'getResponse',
         ),
         'getTodolistsByProject' => array(
             'httpMethod' => 'GET',
             'uri' => 'projects/{projectId}/todolists.json',
-            'summary' => 'Get Todo Lists' . PHP_EOL . '[Basecamp API: Todo lists](https://github.com/basecamp/bcx-api/blob/master/sections/todolists.md)',
+            'summary' => 'Get Todo Lists' . PHP_EOL . '[Basecamp API: Todo lists](https://github.com/basecamp/bc3-api/blob/master/sections/todolists.md)',
             'parameters' => array(
                 'projectId' => array(
                     'location' => 'uri',
@@ -83,12 +97,13 @@ return array(
                     'type' => 'integer',
                     'required' => true,
                 )
-            )
+            ),
+            'responseModel' => 'getResponse',
         ),
         'getAssignedTodolistsByPerson' => array(
             'httpMethod' => 'GET',
             'uri' => 'people/{personId}/assigned_todos.json',
-            'summary'   => 'Get Todo Lists assigned to a Person' . PHP_EOL . '[Basecamp API: Todo lists](https://github.com/basecamp/bcx-api/blob/master/sections/todolists.md)',
+            'summary'   => 'Get Todo Lists assigned to a Person' . PHP_EOL . '[Basecamp API: Todo lists](https://github.com/basecamp/bc3-api/blob/master/sections/todolists.md)',
             'parameters' => array(
                 'personId' => array(
                     'location' => 'uri',
@@ -108,12 +123,13 @@ return array(
                     'type' => 'string',
                     'required' => false,
                 )
-            )
+            ),
+            'responseModel' => 'getResponse',
         ),
         'getCompletedTodolistsByProject' => array(
             'httpMethod' => 'GET',
             'uri' => 'projects/{projectId}/todolists/completed.json',
-            'summary'   => 'Get completed Todo Lists' . PHP_EOL . '[Basecamp API: Todo lists](https://github.com/basecamp/bcx-api/blob/master/sections/todolists.md)',
+            'summary'   => 'Get completed Todo Lists' . PHP_EOL . '[Basecamp API: Todo lists](https://github.com/basecamp/bc3-api/blob/master/sections/todolists.md)',
             'parameters' => array(
                 'projectId' => array(
                     'location' => 'uri',
@@ -121,12 +137,13 @@ return array(
                     'type' => 'integer',
                     'required' => true,
                 )
-            )
+            ),
+            'responseModel' => 'getResponse',
         ),
         'getCompletedTodosByProject' => array(
             'httpMethod' => 'GET',
             'uri' => 'projects/{projectId}/todos/completed.json',
-            'summary' => 'Get completed Todos' . PHP_EOL . '[Basecamp API: Todos](https://github.com/basecamp/bcx-api/blob/master/sections/todos.md)',
+            'summary' => 'Get completed Todos' . PHP_EOL . '[Basecamp API: Todos](https://github.com/basecamp/bc3-api/blob/master/sections/todos.md)',
             'parameters' => array(
                 'projectId' => array(
                     'location' => 'uri',
@@ -134,12 +151,13 @@ return array(
                     'type' => 'integer',
                     'required' => true,
                 )
-            )
+            ),
+            'responseModel' => 'getResponse',
         ),
         'createProject' => array(
             'httpMethod' => 'POST',
             'uri' => 'projects.json',
-            'summary' => 'Create a new project' . PHP_EOL . '[Basecamp API: Projects](https://github.com/basecamp/bcx-api/blob/master/sections/projects.md)',
+            'summary' => 'Create a new project' . PHP_EOL . '[Basecamp API: Projects](https://github.com/basecamp/bc3-api/blob/master/sections/projects.md)',
             'parameters' => array(
                 'name' => array(
                     'location' => 'json',
@@ -151,12 +169,13 @@ return array(
                     'type' => 'string',
                     'required' => true
                 )
-            )
+            ),
+            'responseModel' => 'getResponse',
         ),
         'createDocument' => array(
             'httpMethod' => 'POST',
             'uri' => 'projects/{projectId}/documents.json',
-            'summary' => 'Create a new document' . PHP_EOL . '[Basecamp API: Documents](https://github.com/basecamp/bcx-api/blob/master/sections/documents.md)',
+            'summary' => 'Create a new document' . PHP_EOL . '[Basecamp API: Documents](https://github.com/basecamp/bc3-api/blob/master/sections/documents.md)',
             'parameters' => array(
                 'projectId' => array(
                     'location' => 'uri',
@@ -174,12 +193,13 @@ return array(
                     'type' => 'string',
                     'required' => true
                 )
-            )
+            ),
+            'responseModel' => 'getResponse',
         ),
         'createTodolistByProject' => array(
             'httpMethod' => 'POST',
             'uri' => 'projects/{projectId}/todolists.json',
-            'summary'   => 'Create Todo List' . PHP_EOL . '[Basecamp API: Todo lists](https://github.com/basecamp/bcx-api/blob/master/sections/todolists.md)',
+            'summary'   => 'Create Todo List' . PHP_EOL . '[Basecamp API: Todo lists](https://github.com/basecamp/bc3-api/blob/master/sections/todolists.md)',
             'parameters' => array(
                 'projectId' => array(
                     'location' => 'uri',
@@ -197,12 +217,13 @@ return array(
                     'type' => 'string',
                     'required' => true,
                 )
-            )
+            ),
+            'responseModel' => 'getResponse',
         ),
         'createTodoByTodolist' => array(
             'httpMethod' => 'POST',
             'uri' => 'projects/{projectId}/todolists/{todolistId}/todos.json',
-            'summary'   => 'Create Todo' . PHP_EOL . '[Basecamp API: Todos](https://github.com/basecamp/bcx-api/blob/master/sections/todos.md)',
+            'summary'   => 'Create Todo' . PHP_EOL . '[Basecamp API: Todos](https://github.com/basecamp/bc3-api/blob/master/sections/todos.md)',
             'parameters' => array(
                 'projectId' => array(
                     'location' => 'uri',
@@ -226,12 +247,13 @@ return array(
                     'type' => array( 'array', 'object' ),
                     'required' => false,
                 ),
-            )
+            ),
+            'responseModel' => 'getResponse',
         ),
         'createCommentByTodo' => array(
             'httpMethod' => 'POST',
             'uri' => 'projects/{projectId}/todos/{todoId}/comments.json',
-            'summary'   => 'Create Comment on Todo' . PHP_EOL . '[Basecamp API: Comments](https://github.com/basecamp/bcx-api/blob/master/sections/comments.md)',
+            'summary'   => 'Create Comment on Todo' . PHP_EOL . '[Basecamp API: Comments](https://github.com/basecamp/bc3-api/blob/master/sections/comments.md)',
             'parameters' => array(
                 'projectId' => array(
                     'location' => 'uri',
@@ -255,12 +277,13 @@ return array(
                     'type' => 'array',
                     'required' => false,
                 ),
-            )
+            ),
+            'responseModel' => 'getResponse',
         ),
         'getAttachmentsByProject' => array(
             'httpMethod' => 'GET',
             'uri' => 'projects/{projectId}/attachments.json',
-            'summary'   => 'Get Attachments' . PHP_EOL . '[Basecamp API: Attachments](https://github.com/basecamp/bcx-api/blob/master/sections/attachments.md)',
+            'summary'   => 'Get Attachments' . PHP_EOL . '[Basecamp API: Attachments](https://github.com/basecamp/bc3-api/blob/master/sections/attachments.md)',
             'parameters' => array(
                 'projectId' => array(
                     'location' => 'uri',
@@ -268,12 +291,13 @@ return array(
                     'type' => 'integer',
                     'required' => true,
                 )
-            )
+            ),
+            'responseModel' => 'getResponse',
         ),
         'createAttachment' => array(
             'httpMethod' => 'POST',
             'uri' => 'attachments.json',
-            'summary'   => 'Create Attachment' . PHP_EOL . '[Basecamp API: Attachments](https://github.com/basecamp/bcx-api/blob/master/sections/attachments.md)',
+            'summary'   => 'Create Attachment' . PHP_EOL . '[Basecamp API: Attachments](https://github.com/basecamp/bc3-api/blob/master/sections/attachments.md)',
             'parameters' => array(
                 'mimeType' => array(
                     'location'    => 'header',
@@ -288,12 +312,13 @@ return array(
                     'type'        => 'any',
                     'required'    => true,
                 ),
-            )
+            ),
+            'responseModel' => 'getResponse',
         ),
         'getTodolist' => array(
             'httpMethod' => 'GET',
             'uri' => 'projects/{projectId}/todolists/{todolistId}.json',
-            'summary'   => 'Get Todo List' . PHP_EOL . '[Basecamp API: Todo lists](https://github.com/basecamp/bcx-api/blob/master/sections/todolists.md)',
+            'summary'   => 'Get Todo List' . PHP_EOL . '[Basecamp API: Todo lists](https://github.com/basecamp/bc3-api/blob/master/sections/todolists.md)',
             'parameters' => array(
                 'projectId' => array(
                     'location' => 'uri',
@@ -307,12 +332,13 @@ return array(
                     'type' => 'integer',
                     'required' => true,
                 )
-            )
+            ),
+            'responseModel' => 'getResponse',
         ),
         'getTodo' => array(
             'httpMethod' => 'GET',
             'uri' => 'projects/{projectId}/todos/{todoId}.json',
-            'summary'   => 'Get Todo' . PHP_EOL . '[Basecamp API: Todos](https://github.com/basecamp/bcx-api/blob/master/sections/todos.md)',
+            'summary'   => 'Get Todo' . PHP_EOL . '[Basecamp API: Todos](https://github.com/basecamp/bc3-api/blob/master/sections/todos.md)',
             'parameters' => array(
                 'projectId' => array(
                     'location' => 'uri',
@@ -326,12 +352,13 @@ return array(
                     'type' => 'integer',
                     'required' => true,
                 )
-            )
+            ),
+            'responseModel' => 'getResponse',
         ),
         'updateTodo' => array(
             'httpMethod' => 'PUT',
             'uri' => 'projects/{projectId}/todos/{todoId}.json',
-            'summary'   => 'Update Todo' . PHP_EOL . '[Basecamp API: Todos](https://github.com/basecamp/bcx-api/blob/master/sections/todos.md)',
+            'summary'   => 'Update Todo' . PHP_EOL . '[Basecamp API: Todos](https://github.com/basecamp/bc3-api/blob/master/sections/todos.md)',
             'parameters' => array(
                 'projectId' => array(
                     'location' => 'uri',
@@ -365,17 +392,19 @@ return array(
                     'type' => 'string',
                     'required' => false,
                 ),
-            )
+            ),
+            'responseModel' => 'getResponse',
         ),
         'getCurrentUser' => array(
             'httpMethod' => 'GET',
             'uri' => 'people/me.json',
-            'summary'   => 'Get current User' . PHP_EOL . '[Basecamp API: People](https://github.com/basecamp/bcx-api/blob/master/sections/people.md)',
+            'summary'   => 'Get current User' . PHP_EOL . '[Basecamp API: People](https://github.com/basecamp/bc3-api/blob/master/sections/people.md)',
+            'responseModel' => 'getResponse',
         ),
         'getSpecificUser' => array(
             'httpMethod' => 'GET',
             'uri' => 'people/{personId}.json',
-            'summary'   => 'Get specific User' . PHP_EOL . '[Basecamp API: People](https://github.com/basecamp/bcx-api/blob/master/sections/people.md)',
+            'summary'   => 'Get specific User' . PHP_EOL . '[Basecamp API: People](https://github.com/basecamp/bc3-api/blob/master/sections/people.md)',
             'parameters' => array(
                 'personId' => array(
                     'location' => 'uri',
@@ -388,7 +417,7 @@ return array(
         'getGlobalEvents' => array(
             'httpMethod' => 'GET',
             'uri' => 'events.json',
-            'summary' => 'Get global Events' . PHP_EOL . '[Basecamp API: Events](https://github.com/basecamp/bcx-api/blob/master/sections/events.md)',
+            'summary' => 'Get global Events' . PHP_EOL . '[Basecamp API: Events](https://github.com/basecamp/bc3-api/blob/master/sections/events.md)',
             'parameters' => array(
                 'since' => array(
                     'location' => 'query',
@@ -402,12 +431,13 @@ return array(
                     'type' => 'integer',
                     'required' => false,
                 )
-            )
+            ),
+            'responseModel' => 'getResponse',
         ),
         'getProjectEvents' => array(
             'httpMethod' => 'GET',
             'uri' => 'projects/{projectId}/events.json',
-            'summary' => 'Get Project Events' . PHP_EOL . '[Basecamp API: Events](https://github.com/basecamp/bcx-api/blob/master/sections/events.md)',
+            'summary' => 'Get Project Events' . PHP_EOL . '[Basecamp API: Events](https://github.com/basecamp/bc3-api/blob/master/sections/events.md)',
             'parameters' => array(
                 'projectId' => array(
                     'location' => 'uri',
@@ -421,12 +451,13 @@ return array(
                     'type' => 'string',
                     'required' => false,
                 )
-            )
+            ),
+            'responseModel' => 'getResponse',
         ),
         'getAccessesByProject' => array(
             'httpMethod' => 'GET',
             'uri' => 'projects/{projectId}/accesses.json',
-            'summary' => 'Get Accesses to Project' . PHP_EOL . '[Basecamp API: Accesses](https://github.com/basecamp/bcx-api/blob/master/sections/accesses.md)',
+            'summary' => 'Get Accesses to Project' . PHP_EOL . '[Basecamp API: Accesses](https://github.com/basecamp/bc3-api/blob/master/sections/accesses.md)',
             'parameters' => array(
                 'projectId' => array(
                     'location' => 'uri',
@@ -434,12 +465,13 @@ return array(
                     'type' => 'integer',
                     'required' => true,
                 )
-            )
+            ),
+            'responseModel' => 'getResponse',
         ),
         'getAccessesByCalendar' => array(
             'httpMethod' => 'GET',
             'uri' => 'calendars/{calendarId}/accesses.json',
-            'summary' => 'Get Accesses to Calendar' . PHP_EOL . '[Basecamp API: Accesses](https://github.com/basecamp/bcx-api/blob/master/sections/accesses.md)',
+            'summary' => 'Get Accesses to Calendar' . PHP_EOL . '[Basecamp API: Accesses](https://github.com/basecamp/bc3-api/blob/master/sections/accesses.md)',
             'parameters' => array(
                 'calendarId' => array(
                     'location' => 'uri',
@@ -447,22 +479,25 @@ return array(
                     'type' => 'integer',
                     'required' => true,
                 )
-            )
+            ),
+            'responseModel' => 'getResponse',
         ),
         'getPeople' => array(
             'httpMethod' => 'GET',
             'uri'       => 'people.json',
-            'summary'   => 'Get all People' . PHP_EOL . '[Basecamp API: People](https://github.com/basecamp/bcx-api/blob/master/sections/people.md)'
+            'summary'   => 'Get all People' . PHP_EOL . '[Basecamp API: People](https://github.com/basecamp/bc3-api/blob/master/sections/people.md)',
+            'responseModel' => 'getResponse',
         ),
         'getGroups' => array(
             'httpMethod' => 'GET',
             'uri'       => 'groups.json',
-            'summary'   => 'Get all Groups' . PHP_EOL . '[Basecamp API: People](https://github.com/basecamp/bcx-api/blob/master/sections/groups.md)'
+            'summary'   => 'Get all Groups' . PHP_EOL . '[Basecamp API: People](https://github.com/basecamp/bc3-api/blob/master/sections/groups.md)',
+            'responseModel' => 'getResponse',
         ),
         'grantAccess' => array(
             'httpMethod' => 'POST',
             'uri' => 'projects/{projectId}/accesses.json',
-            'summary' => 'Grant access' . PHP_EOL . '[Basecamp API: Access](https://github.com/basecamp/bcx-api/blob/master/sections/accesses.md)',
+            'summary' => 'Grant access' . PHP_EOL . '[Basecamp API: Access](https://github.com/basecamp/bc3-api/blob/master/sections/accesses.md)',
             'parameters' => array(
                 'projectId' => array(
                     'location' => 'uri',
@@ -482,17 +517,19 @@ return array(
                     'type' => 'string',
                     'required' => false
                 )
-            )
+            ),
+            'responseModel' => 'getResponse',
         ),
         'getCalendars' => array(
             'httpMethod' => 'GET',
             'uri' => 'calendars.json',
-            'summary' => 'Get all Calendars' . PHP_EOL . '[Basecamp API: Calendars](https://github.com/basecamp/bcx-api/blob/master/sections/calendars.md)'
+            'summary' => 'Get all Calendars' . PHP_EOL . '[Basecamp API: Calendars](https://github.com/basecamp/bc3-api/blob/master/sections/calendars.md)',
+            'responseModel' => 'getResponse',
         ),
         'getCalendar' => array(
             'httpMethod' => 'GET',
             'uri' => 'calendars/{calendarId}.json',
-            'summary' => 'Get single Calendar' . PHP_EOL . '[Basecamp API: Calendars](https://github.com/basecamp/bcx-api/blob/master/sections/calendars.md)',
+            'summary' => 'Get single Calendar' . PHP_EOL . '[Basecamp API: Calendars](https://github.com/basecamp/bc3-api/blob/master/sections/calendars.md)',
             'parameters' => array(
                 'calendarId' => array(
                     'location' => 'uri',
@@ -500,24 +537,26 @@ return array(
                     'type' => 'integer',
                     'required' => true,
                 )
-            )
+            ),
+            'responseModel' => 'getResponse',
         ),
         'createCalendar' => array(
             'httpMethod' => 'POST',
             'uri' => 'calendars.json',
-            'summary' => 'Create new Calendar' . PHP_EOL . '[Basecamp API: Calendars](https://github.com/basecamp/bcx-api/blob/master/sections/calendars.md)',
+            'summary' => 'Create new Calendar' . PHP_EOL . '[Basecamp API: Calendars](https://github.com/basecamp/bc3-api/blob/master/sections/calendars.md)',
             'parameters' => array(
                 'name' => array(
                     'location' => 'json',
                     'type' => 'string',
                     'required' => true
                 )
-            )
+            ),
+            'responseModel' => 'getResponse',
         ),
         'updateCalendar' => array(
             'httpMethod' => 'PUT',
             'uri' => 'calendars/{calendarId}.json',
-            'summary' => 'Update Calendar' . PHP_EOL . '[Basecamp API: Calendars](https://github.com/basecamp/bcx-api/blob/master/sections/calendars.md)',
+            'summary' => 'Update Calendar' . PHP_EOL . '[Basecamp API: Calendars](https://github.com/basecamp/bc3-api/blob/master/sections/calendars.md)',
             'parameters' => array(
                 'calendarId' => array(
                     'location' => 'uri',
@@ -530,12 +569,13 @@ return array(
                     'type' => 'string',
                     'required' => true
                 )
-            )
+            ),
+            'responseModel' => 'getResponse',
         ),
         'deleteCalendar' => array(
             'httpMethod' => 'DELETE',
             'uri' => 'calendars/{calendarId}.json',
-            'summary' => 'Delete Calendar' . PHP_EOL . '[Basecamp API: Calendars](https://github.com/basecamp/bcx-api/blob/master/sections/calendars.md)',
+            'summary' => 'Delete Calendar' . PHP_EOL . '[Basecamp API: Calendars](https://github.com/basecamp/bc3-api/blob/master/sections/calendars.md)',
             'parameters' => array(
                 'calendarId' => array(
                     'location' => 'uri',
@@ -543,12 +583,13 @@ return array(
                     'type' => 'integer',
                     'required' => true,
                 )
-            )
+            ),
+            'responseModel' => 'getResponse',
         ),
         'getAllCalendarEvents' => array(
             'httpMethod' => 'GET',
             'uri' => 'calendar_events.json',
-            'summary' => 'Get all events' . PHP_EOL . '[Basecamp API: Calendar Events](https://github.com/basecamp/bcx-api/blob/master/sections/calendar_events.md)',
+            'summary' => 'Get all events' . PHP_EOL . '[Basecamp API: Calendar Events](https://github.com/basecamp/bc3-api/blob/master/sections/calendar_events.md)',
             'parameters' => array(
                 'start_date' => array(
                     'location' => 'query',
@@ -560,12 +601,13 @@ return array(
                     'description' => 'Will return 6 weeks worth of events after the start date if the end date is not supplied (format: 2015-09-15)',
                     'type' => 'string'
                 )
-            )
+            ),
+            'responseModel' => 'getResponse',
         ),
         'getCalendarEvents' => array(
             'httpMethod' => 'GET',
             'uri' => 'calendars/{calendarId}/calendar_events.json',
-            'summary' => 'Get upcoming calendar events' . PHP_EOL . '[Basecamp API: Calendar Events](https://github.com/basecamp/bcx-api/blob/master/sections/calendar_events.md)',
+            'summary' => 'Get upcoming calendar events' . PHP_EOL . '[Basecamp API: Calendar Events](https://github.com/basecamp/bc3-api/blob/master/sections/calendar_events.md)',
             'parameters' => array(
                 'calendarId' => array(
                     'location' => 'uri',
@@ -583,12 +625,13 @@ return array(
                     'description' => 'Will return 6 weeks worth of events after the start date if the end date is not supplied (format: 2015-09-15)',
                     'type' => 'string'
                 )
-            )
+            ),
+            'responseModel' => 'getResponse',
         ),
         'getCalendarEventsPast' => array(
             'httpMethod' => 'GET',
             'uri' => 'calendars/{calendarId}/calendar_events/past.json',
-            'summary' => 'Get past calendar events' . PHP_EOL . '[Basecamp API: Calendar Events](https://github.com/basecamp/bcx-api/blob/master/sections/calendar_events.md)',
+            'summary' => 'Get past calendar events' . PHP_EOL . '[Basecamp API: Calendar Events](https://github.com/basecamp/bc3-api/blob/master/sections/calendar_events.md)',
             'parameters' => array(
                 'calendarId' => array(
                     'location' => 'uri',
@@ -596,12 +639,13 @@ return array(
                     'type' => 'integer',
                     'required' => true,
                 )
-            )
+            ),
+            'responseModel' => 'getResponse',
         ),
         'getCalendarEvent' => array(
             'httpMethod' => 'GET',
             'uri' => 'calendars/{calendarId}/calendar_events/{eventId}.json',
-            'summary' => 'Get single calendar event' . PHP_EOL . '[Basecamp API: Calendar Events](https://github.com/basecamp/bcx-api/blob/master/sections/calendar_events.md)',
+            'summary' => 'Get single calendar event' . PHP_EOL . '[Basecamp API: Calendar Events](https://github.com/basecamp/bc3-api/blob/master/sections/calendar_events.md)',
             'parameters' => array(
                 'calendarId' => array(
                     'location' => 'uri',
@@ -615,12 +659,13 @@ return array(
                     'type' => 'integer',
                     'required' => true,
                 )
-            )
+            ),
+            'responseModel' => 'getResponse',
         ),
         'createCalendarEvent' => array(
             'httpMethod' => 'POST',
             'uri' => 'calendars/{calendarId}/calendar_events.json',
-            'summary' => 'Create calendar event' . PHP_EOL . '[Basecamp API: Calendar Events](https://github.com/basecamp/bcx-api/blob/master/sections/calendar_events.md)',
+            'summary' => 'Create calendar event' . PHP_EOL . '[Basecamp API: Calendar Events](https://github.com/basecamp/bc3-api/blob/master/sections/calendar_events.md)',
             'parameters' => array(
                 'calendarId' => array(
                     'location' => 'uri',
@@ -670,12 +715,13 @@ return array(
                     'description' => 'Is the event a full day event?',
                     'type' => 'boolean'
                 )
-            )
+            ),
+            'responseModel' => 'getResponse',
         ),
         'updateCalendarEvent' => array(
             'httpMethod' => 'PUT',
             'uri' => 'calendars/{calendarId}/calendar_events/{eventId}.json',
-            'summary' => 'Update a calendar event' . PHP_EOL . '[Basecamp API: Calendar Events](https://github.com/basecamp/bcx-api/blob/master/sections/calendar_events.md)',
+            'summary' => 'Update a calendar event' . PHP_EOL . '[Basecamp API: Calendar Events](https://github.com/basecamp/bc3-api/blob/master/sections/calendar_events.md)',
             'parameters' => array(
                 'calendarId' => array(
                     'location' => 'uri',
@@ -729,12 +775,13 @@ return array(
                     'description' => 'Is the event a full day event?',
                     'type' => 'boolean'
                 )
-            )
+            ),
+            'responseModel' => 'getResponse',
         ),
         'deleteCalendarEvent' => array(
             'httpMethod' => 'DELETE',
             'uri' => 'calendars/{calendarId}/calendar_events/{eventId}.json',
-            'summary' => 'Delete a calendar event' . PHP_EOL . '[Basecamp API: Calendar Events](https://github.com/basecamp/bcx-api/blob/master/sections/calendar_events.md)',
+            'summary' => 'Delete a calendar event' . PHP_EOL . '[Basecamp API: Calendar Events](https://github.com/basecamp/bc3-api/blob/master/sections/calendar_events.md)',
             'parameters' => array(
                 'calendarId' => array(
                     'location' => 'uri',
@@ -748,12 +795,13 @@ return array(
                     'type' => 'integer',
                     'required' => true,
                 )
-            )
+            ),
+            'responseModel' => 'getResponse',
         ),
         'getProjectCalendarEvents' => array(
             'httpMethod' => 'GET',
             'uri' => 'projects/{projectId}/calendar_events.json',
-            'summary' => 'Get upcoming project calendar events' . PHP_EOL . '[Basecamp API: Calendar Events](https://github.com/basecamp/bcx-api/blob/master/sections/calendar_events.md)',
+            'summary' => 'Get upcoming project calendar events' . PHP_EOL . '[Basecamp API: Calendar Events](https://github.com/basecamp/bc3-api/blob/master/sections/calendar_events.md)',
             'parameters' => array(
                 'projectId' => array(
                     'location' => 'uri',
@@ -771,12 +819,13 @@ return array(
                     'description' => 'Will return 6 weeks worth of events after the start date if the end date is not supplied (format: 2015-09-15)',
                     'type' => 'string'
                 )
-            )
+            ),
+            'responseModel' => 'getResponse',
         ),
         'getProjectCalendarEventsPast' => array(
             'httpMethod' => 'GET',
             'uri' => 'projects/{projectId}/calendar_events/past.json',
-            'summary' => 'Get past project calendar events' . PHP_EOL . '[Basecamp API: Calendar Events](https://github.com/basecamp/bcx-api/blob/master/sections/calendar_events.md)',
+            'summary' => 'Get past project calendar events' . PHP_EOL . '[Basecamp API: Calendar Events](https://github.com/basecamp/bc3-api/blob/master/sections/calendar_events.md)',
             'parameters' => array(
                 'projectId' => array(
                     'location' => 'uri',
@@ -784,12 +833,13 @@ return array(
                     'type' => 'integer',
                     'required' => true,
                 )
-            )
+            ),
+            'responseModel' => 'getResponse',
         ),
         'getProjectCalendarEvent' => array(
             'httpMethod' => 'GET',
             'uri' => 'projects/{projectId}/calendar_events/{eventId}.json',
-            'summary' => 'Get single project calendar event' . PHP_EOL . '[Basecamp API: Calendar Events](https://github.com/basecamp/bcx-api/blob/master/sections/calendar_events.md)',
+            'summary' => 'Get single project calendar event' . PHP_EOL . '[Basecamp API: Calendar Events](https://github.com/basecamp/bc3-api/blob/master/sections/calendar_events.md)',
             'parameters' => array(
                 'projectId' => array(
                     'location' => 'uri',
@@ -803,12 +853,13 @@ return array(
                     'type' => 'integer',
                     'required' => true,
                 )
-            )
+            ),
+            'responseModel' => 'getResponse',
         ),
         'createProjectCalendarEvent' => array(
             'httpMethod' => 'POST',
             'uri' => 'projects/{projectId}/calendar_events.json',
-            'summary' => 'Create project calendar event' . PHP_EOL . '[Basecamp API: Calendar Events](https://github.com/basecamp/bcx-api/blob/master/sections/calendar_events.md)',
+            'summary' => 'Create project calendar event' . PHP_EOL . '[Basecamp API: Calendar Events](https://github.com/basecamp/bc3-api/blob/master/sections/calendar_events.md)',
             'parameters' => array(
                 'projectId' => array(
                     'location' => 'uri',
@@ -858,12 +909,13 @@ return array(
                     'description' => 'Is the event a full day event?',
                     'type' => 'boolean'
                 )
-            )
+            ),
+            'responseModel' => 'getResponse',
         ),
         'updateProjectCalendarEvent' => array(
             'httpMethod' => 'PUT',
             'uri' => 'projects/{projectId}/calendar_events/{eventId}.json',
-            'summary' => 'Update a project calendar event' . PHP_EOL . '[Basecamp API: Calendar Events](https://github.com/basecamp/bcx-api/blob/master/sections/calendar_events.md)',
+            'summary' => 'Update a project calendar event' . PHP_EOL . '[Basecamp API: Calendar Events](https://github.com/basecamp/bc3-api/blob/master/sections/calendar_events.md)',
             'parameters' => array(
                 'projectId' => array(
                     'location' => 'uri',
@@ -917,12 +969,13 @@ return array(
                     'description' => 'Is the event a full day event?',
                     'type' => 'boolean'
                 )
-            )
+            ),
+            'responseModel' => 'getResponse',
         ),
         'deleteProjectCalendarEvent' => array(
             'httpMethod' => 'DELETE',
             'uri' => 'projects/{projectId}/calendar_events/{eventId}.json',
-            'summary' => 'Delete a project calendar event' . PHP_EOL . '[Basecamp API: Calendar Events](https://github.com/basecamp/bcx-api/blob/master/sections/calendar_events.md)',
+            'summary' => 'Delete a project calendar event' . PHP_EOL . '[Basecamp API: Calendar Events](https://github.com/basecamp/bc3-api/blob/master/sections/calendar_events.md)',
             'parameters' => array(
                 'projectId' => array(
                     'location' => 'uri',
@@ -936,7 +989,8 @@ return array(
                     'type' => 'integer',
                     'required' => true,
                 )
-            )
+            ),
+            'responseModel' => 'getResponse',
         )
     )
 );
