@@ -26,7 +26,7 @@ class BasecampClient extends Client
     public static function factory($config = array())
     {
         $default = array(
-            'base_url'      => 'https://basecamp.com/{user_id}/api/{version}/',
+            'base_url'      => 'https://3.basecampapi.com/{user_id}/',
             'version'       => 'v1',
             'auth'          => 'http',
             'token'         => null,
