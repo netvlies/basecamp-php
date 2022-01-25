@@ -26,29 +26,19 @@ class BasecampClient extends Client
     public static function factory($config = array())
     {
         $default = array(
-            'base_url'      => 'https://basecamp.com/{user_id}/api/{version}/',
-            'version'       => 'v1',
-            'auth'          => 'http',
+            'base_url'      => 'https://3.basecampapi.com/{user_id}/',
             'token'         => null,
-            'username'      => null,
-            'password'      => null,
         );
         $required = array('user_id', 'app_name', 'app_contact');
         $config = Collection::fromConfig($config, $default, $required);
         $client = new self($config->get('base_url'), $config);
 
-        if ($config['auth'] === 'http') {
-            if (! isset($config['username'], $config['password'])) {
-                throw new InvalidArgumentException("Config must contain username and password when using http auth");
-            }
-            $authorization = 'Basic ' . base64_encode($config['username'] . ':' . $config['password']);
+
+        if (! isset($config['token'])) {
+            throw new InvalidArgumentException("Config must contain token when using oauth");
         }
-        if ($config['auth'] === 'oauth') {
-            if (! isset($config['token'])) {
-                throw new InvalidArgumentException("Config must contain token when using oauth");
-            }
-            $authorization = sprintf('Bearer %s', $config['token']);
-        }
+        $authorization = sprintf('Bearer %s', $config['token']);
+
         if (! isset($authorization)) {
             throw new InvalidArgumentException("Config must contain valid authentication method");
         }
